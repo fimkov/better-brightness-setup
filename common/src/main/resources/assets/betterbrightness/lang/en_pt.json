@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Riggin' th' Lantern",
+    "betterbrightness.instruction": "Haul th' lever 'til every plank matches its mark below, ye scurvy dog",
+    "betterbrightness.done_button": "Aye, done!",
+    "betterbrightness.slider.brightness": "Lantern-light: %s%%",
+    "betterbrightness.panel.hidden": "Should lurk in th' murk",
+    "betterbrightness.panel.faint": "Barely spied",
+    "betterbrightness.panel.clear": "Plain t' see",
+    "betterbrightness.panel.bright": "Blindin'",
+    "betterbrightness.short.hidden": "Lurkin'",
+    "betterbrightness.short.barely": "Faint",
+    "betterbrightness.short.clear": "Spied",
+    "betterbrightness.short.bright": "Blindin'",
+    "betterbrightness.options.gamma.brightest": "Blindin'est",
+    "betterbrightness.setup_button": "Rig th' Lantern",
+    "text.autoconfig.betterbrightness.title": "Better Lantern Riggin'",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Most lantern-light",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Th' brightest yer lanterns be let t' burn, as a share o' plain vanilla. 100% be vanilla; hoist it higher t' light up th' murky depths, arr."
+}

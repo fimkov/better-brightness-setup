@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "BRITENES SETUP",
+    "betterbrightness.instruction": "DRAG TEH SLIDR TIL EVRY TILE LUKS LIEK ITS LABUL DOWN HEER",
+    "betterbrightness.done_button": "DUN. K THX",
+    "betterbrightness.slider.brightness": "BRITENES: %s%%",
+    "betterbrightness.panel.hidden": "SHUD B HIDDED",
+    "betterbrightness.panel.faint": "BARELY SEEABUL",
+    "betterbrightness.panel.clear": "CLEERLY SEEABUL",
+    "betterbrightness.panel.bright": "SO BRITE",
+    "betterbrightness.short.hidden": "HIDDED",
+    "betterbrightness.short.barely": "BARELY",
+    "betterbrightness.short.clear": "CLEER",
+    "betterbrightness.short.bright": "BRITE",
+    "betterbrightness.options.gamma.brightest": "BRITEST",
+    "betterbrightness.setup_button": "SETUP BRITENES",
+    "text.autoconfig.betterbrightness.title": "BETTR BRITENES SETUP",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "MOST BRITENES",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "TEH MOST BRITE TEH SLIDRS CAN GO, AS PERSENT OV VANILLA. 100% = VANILLA; MAEK BIGGR 2 LITE UP DARK CAVES. K THX BAI"
+}
