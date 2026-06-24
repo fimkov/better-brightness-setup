@@ -5,5 +5,6 @@
     "betterbrightness.panel.faint": "Barely visible",
     "betterbrightness.panel.clear": "Clearly visible",
     "betterbrightness.panel.bright": "Bright",
-    "betterbrightness.options.gamma.brightest": "Brightest"
+    "betterbrightness.options.gamma.brightest": "Brightest",
+    "betterbrightness.setup_button": "Setup Brightness"
 }
