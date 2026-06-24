@@ -261,8 +261,14 @@ All `remap = false` (Sodium internals are not Mojang-mapped). Verified by `javap
 - Target by string: `@Mixin(targets = "net.caffeinemc.mods.sodium.client.gui.options.control.SliderControl$SliderControlElement")`.
 - `public void extractRenderState(GuiGraphicsExtractor, int, int, float)` — 26.2 render-state draw path.
   S3 `@Inject(method = "extractRenderState", at = @At("TAIL"))`.
-- Shadowed members used: `getOption()IntegerOption`, `getSliderX()I`, `getSliderY()I`,
-  `getThumbPositionForValue(I)D`, and `Dimensioned` defaults `getX()I`/`getLimitX()I`/`getLimitY()I`.
+- `@Shadow`-able members (concretely DECLARED on `SliderControlElement`): `getOption()IntegerOption`,
+  `getSliderX()I`, `getSliderY()I`, `getThumbPositionForValue(I)D`.
+- `getX()I`/`getLimitX()I`/`getLimitY()I`/`getCenterY()I` are **interface-DEFAULT methods on
+  `net.caffeinemc.mods.sodium.client.gui.Dimensioned`** (`AbstractWidget implements Dimensioned`),
+  only INHERITED by `SliderControlElement` — they are **NOT `@Shadow`-able** (Sponge Mixin throws
+  `InvalidMixinException` "method … was not located in the target class", failing the whole mixin →
+  Sodium's brightness control fails to load). Call them via `((Dimensioned)(Object) this).getX()` etc.
+  (Same gotcha class as the vanilla `OptionsSubScreen.list` field.) `Dimensioned` is `public`.
 - `Layout.SLIDER_WIDTH = 90` / `SLIDER_HEIGHT = 10` are `public static final int` → **inlined as
   `bipush` constants** in `extractRenderState` (no GETSTATIC). So the track cannot be widened by a field
   redirect; S3 draws its own wider track + thumb for the gamma row only and leaves SLIDER_WIDTH global.

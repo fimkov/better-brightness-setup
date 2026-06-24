@@ -3,6 +3,7 @@ package io.github.fimkov.betterbrightness.mixin.sodium;
 import io.github.fimkov.betterbrightness.client.CalibrationPanel;
 import net.caffeinemc.mods.sodium.client.config.structure.IntegerOption;
 import net.caffeinemc.mods.sodium.client.gui.Colors;
+import net.caffeinemc.mods.sodium.client.gui.Dimensioned;
 import net.caffeinemc.mods.sodium.client.gui.Layout;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -24,7 +25,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * <p><b>Target (verified from Sodium 0.9.0 bytecode).</b> The inner element
  * {@code net.caffeinemc.mods.sodium.client.gui.options.control.SliderControl$SliderControlElement} is
  * <em>package-private</em>, so it cannot be named in Java from our package — we target it by string via
- * {@code @Mixin(targets = ...)} and reach its members with {@code @Shadow}. We {@code @Inject} at
+ * {@code @Mixin(targets = ...)}. Members <em>concretely declared</em> on the element
+ * ({@code getOption}, {@code getSliderX}, {@code getSliderY}, {@code getThumbPositionForValue}) are reached
+ * with {@code @Shadow}; the positioning getters ({@code getX}/{@code getLimitX}/{@code getLimitY}) are
+ * <em>interface-default</em> methods on {@link Dimensioned} that the element only inherits — Sponge Mixin
+ * cannot {@code @Shadow} a method that isn't declared in the target class (it throws
+ * {@code InvalidMixinException} and the whole mixin fails to apply), so we call those via
+ * {@code ((Dimensioned)(Object) this)}. We {@code @Inject} at
  * {@code TAIL} of
  * {@code extractRenderState(GuiGraphicsExtractor, int, int, float)} (the 26.2 render-state draw path), so the
  * icons render after Sodium's own row background, label and (when hovered/focused) track + thumb. The bound
@@ -52,7 +59,7 @@ public abstract class SliderControlElementMixin {
     /** The one option this mixin acts on. */
     private static final Identifier BRIGHTNESS_OPTION_ID = Identifier.parse("sodium:general.gamma");
 
-    // --- Shadowed Sodium internals (package-private element members) ---
+    // --- Shadowed Sodium internals (methods concretely DECLARED on SliderControlElement) ---
     @Shadow
     public abstract IntegerOption getOption();
 
@@ -65,15 +72,9 @@ public abstract class SliderControlElementMixin {
     @Shadow
     public abstract double getThumbPositionForValue(int value);
 
-    // Inherited from Dimensioned (interface defaults); shadow the ones we read.
-    @Shadow
-    public abstract int getX();
-
-    @Shadow
-    public abstract int getLimitX();
-
-    @Shadow
-    public abstract int getLimitY();
+    // NOTE: getX()/getLimitX()/getLimitY() are interface-DEFAULT methods on Dimensioned that the element
+    // only inherits — they are NOT @Shadow-able (Mixin can't locate a method not declared in the target).
+    // They are read via ((Dimensioned)(Object) this) below.
 
     /**
      * The same 4 calibration tiles as {@code BrightnessSetupScreen}, in descending threshold order
@@ -122,11 +123,15 @@ public abstract class SliderControlElementMixin {
             Font font = Minecraft.getInstance().font;
             double gamma = Minecraft.getInstance().options.gamma().get();
 
+            // getX/getLimitX/getLimitY are Dimensioned interface-default methods (not @Shadow-able);
+            // call them through the interface on this element.
+            Dimensioned dim = (Dimensioned) (Object) this;
+
             int sliderX = this.getSliderX();
             int sliderRight = sliderX + Layout.SLIDER_WIDTH;
             int sliderY = this.getSliderY();
-            int rowLeft = this.getX() + Layout.OPTION_TEXT_SIDE_PADDING;
-            int rowRight = this.getLimitX() - Layout.OPTION_TEXT_SIDE_PADDING;
+            int rowLeft = dim.getX() + Layout.OPTION_TEXT_SIDE_PADDING;
+            int rowRight = dim.getLimitX() - Layout.OPTION_TEXT_SIDE_PADDING;
 
             // --- Wider track (gamma row only) ---
             // Extend the track a full SLIDER_WIDTH further left, clamped to the row, up to where
@@ -146,7 +151,7 @@ public abstract class SliderControlElementMixin {
             int n = panels.length;
             int gap = 6;
             int iconsTop = sliderY + Layout.SLIDER_HEIGHT + 2;
-            int iconsBottom = this.getLimitY() - 2;
+            int iconsBottom = dim.getLimitY() - 2;
             int captionRoom = font.lineHeight + 2;
             // Largest square tile that fits the row width AND the available height (minus caption room).
             int byWidth = (rowRight - rowLeft - gap * (n - 1)) / n;
