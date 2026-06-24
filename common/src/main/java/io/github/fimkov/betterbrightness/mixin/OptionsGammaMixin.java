@@ -17,12 +17,14 @@ import org.spongepowered.asm.mixin.injection.Slice;
  * {@code gamma.set(parsed)}; for a stored gamma {@code > 1.0} this logs "Illegal option value" and resets
  * to {@code 0.5}. So {@code > 1.0} written for the session does not persist across launches.
  *
- * <p><b>Fix.</b> Replace gamma's {@code ValueSet} with
- * {@code UnitDouble.INSTANCE.xmap(v -> v * 2.0, v -> v / 2.0)} — a {@code [0, 2]} value space that
- * validates the <em>halved</em> value against {@code UnitDouble}'s {@code [0, 1]}. Now {@code set(2.0)}
- * and {@code load(2.0)} are valid (the disk codec stores {@code value / 2}, i.e. {@code [0, 1]}, and
- * decodes it back to {@code [0, 2]}), so {@code > 1.0} persists and the in-game gamma slider spans
- * {@code 0..2}.
+ * <p><b>Fix.</b> Replace gamma's {@code ValueSet} with {@link GammaRange#INSTANCE} — a custom
+ * {@code [0, 2]} {@code SliderableValueSet<Double>} whose codec is {@code Codec.doubleRange(0.0, 2.0)},
+ * so the value written to {@code options.txt} is the <em>exposed</em> gamma (disk gamma == real gamma).
+ * Now {@code set(2.0)} and {@code load(2.0)} are valid, {@code > 1.0} persists, the in-game gamma slider
+ * spans {@code 0..2}, and there is no value doubling — an existing {@code gamma:0.5} still reads back as
+ * {@code 0.5}. (An {@code xmap(v -> v * 2, v -> v / 2)} was rejected: its xmapped codec persists the
+ * underlying {@code [0, 1]} value, i.e. {@code gamma / 2}, which would silently double every existing
+ * user's brightness on install.)
  *
  * <p><b>Targeting ONLY gamma.</b> {@code UnitDouble.INSTANCE} is shared by 17 options, so we must not
  * touch {@code UnitDouble} itself. Instead we {@code @ModifyArg} the {@code ValueSet} argument (index 3)
@@ -53,7 +55,7 @@ public abstract class OptionsGammaMixin {
             index = 3
     )
     private OptionInstance.ValueSet<Double> betterbrightness$widenGammaRange(OptionInstance.ValueSet<Double> original) {
-        // [0, 2] value space: validate/store the halved value against UnitDouble's [0, 1].
-        return OptionInstance.UnitDouble.INSTANCE.xmap(v -> v * 2.0, v -> v / 2.0);
+        // [0, 2] value space that stores the exposed value on disk (disk gamma == real gamma).
+        return GammaRange.INSTANCE;
     }
 }

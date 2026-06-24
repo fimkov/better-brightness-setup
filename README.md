@@ -33,12 +33,14 @@ Built jars land in:
 
 The slider allows values up to gamma 2.0, and the chosen value survives a restart. A client-only mixin
 (`OptionsGammaMixin`, bundled into both loader jars) widens the vanilla gamma option's value space from
-`[0, 1]` to `[0, 2]` by replacing its `ValueSet` with `UnitDouble.INSTANCE.xmap(v -> v * 2, v -> v / 2)`.
-Validation now runs against the *halved* value, so `set(2.0)` and `load(2.0)` are accepted instead of
-being rejected and reset. The mixin targets **only** gamma (the other 16 options that share
+`[0, 1]` to `[0, 2]` by replacing its `ValueSet` with a custom `[0, 2]` `SliderableValueSet` (`GammaRange`)
+whose codec is `Codec.doubleRange(0.0, 2.0)`. `set(2.0)` and `load(2.0)` are now accepted instead of being
+rejected and reset. The mixin targets **only** gamma (the other 16 options that share
 `UnitDouble.INSTANCE` are untouched), via a sliced `@ModifyArg` on gamma's `OptionInstance` constructor.
 
-Note: because the disk codec now stores `gamma / 2`, the in-game gamma slider also spans 0..2.
+`GammaRange` stores the **exposed** gamma on disk (disk value == real gamma), so it is fully
+backward-compatible: an existing `gamma:0.5` still reads back as 0.5 — no doubling — and the in-game gamma
+slider spans 0..2.
 
 ## Dependencies
 
