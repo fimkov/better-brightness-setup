@@ -19,7 +19,7 @@ These renames/relocations affect almost every later GUI task. They are NOT what 
 | Old (≤1.21.x) name                     | 26.2 name (VERIFIED)                                             |
 |----------------------------------------|-----------------------------------------------------------------|
 | `GuiGraphics`                          | **`net.minecraft.client.gui.GuiGraphicsExtractor`**             |
-| `ResourceLocation`                     | **`net.minecraft.util.Identifier`** (used by `blit`)            |
+| `ResourceLocation`                     | **`net.minecraft.resources.Identifier`** (used by `blit`)       |
 | `Renderable.render(GuiGraphics,…)`     | **`Renderable.extractRenderState(GuiGraphicsExtractor, int, int, float)`** |
 | `Screen.render(GuiGraphics,…)`         | **`Screen.extractRenderState(GuiGraphicsExtractor, int, int, float)`** |
 | `GuiGraphics.drawString(...)`          | **`GuiGraphicsExtractor.text(Font, …)`**                       |
@@ -168,7 +168,7 @@ public static Button.Builder builder(Component message, Button.OnPress onPress)
 
 ## Slider base — `net.minecraft.client.gui.components.AbstractSliderButton`  (VERIFIED)
 ```java
-public abstract class AbstractSliderButton extends WithInactiveMessage   // (a subclass of AbstractWidget)
+public abstract class AbstractSliderButton extends AbstractWidget.WithInactiveMessage   // nested class of AbstractWidget; import simple name AbstractSliderButton
 public AbstractSliderButton(int x, int y, int width, int height, Component message, double initialValue)
 protected double value;                     // 0.0..1.0 slider position
 protected abstract void updateMessage();    // override: refresh the displayed label
@@ -200,8 +200,9 @@ public static void extractEntityInInventoryFollowsMouse(
   public Creeper(EntityType<? extends Creeper> type, Level level)
   ```
   So a render instance is `new Creeper(EntityTypes.CREEPER, <clientLevel>)`. The client level is
-  `Minecraft.getInstance().level` (UNVERIFIED field name — confirm in Task 6; `level` is the
-  long-standing name but was not explicitly re-checked here).
+  `Minecraft.getInstance().level` (VERIFIED: `public net.minecraft.client.multiplayer.ClientLevel level;`).
+  Note: at the title screen `level` is `null`, so Task 6 must supply a level for the Creeper
+  (a throwaway/dummy level) or rely on the entity-in-inventory helper — confirm in Task 6.
 
 ---
 
