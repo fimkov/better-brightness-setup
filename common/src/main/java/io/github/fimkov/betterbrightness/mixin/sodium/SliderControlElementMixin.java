@@ -45,8 +45,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * produced a visible <em>second</em> track overlapping Sodium's label and value, so we leave Sodium's slider
  * exactly as-is and only add the icon row beneath it.
  *
- * <p><b>Icons.</b> The same 4 calibration textures / thresholds as {@code BrightnessSetupScreen}
- * (creeper 1.35, deepslate 1.1, coal_ore 0.6, diamond_ore 0.2), laid out as an evenly-spaced row of 4
+ * <p><b>Icons.</b> The same 4 calibration textures / block-light levels as {@code BrightnessSetupScreen}
+ * (creeper @ light 1, deepslate @ 4, coal_ore @ 7, diamond_ore @ 10), laid out as an evenly-spaced row of 4
  * columns in the blank space {@link OptionListWidgetMixin} reserves BELOW this row (Sodium centres its own
  * slider + value label at the top of the now normal-height row, so they stay pinned to the top and the icons
  * sit directly under them). Each column is one small square icon with a 1px WHITE outline (so the four
