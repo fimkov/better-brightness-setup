@@ -43,8 +43,11 @@ public class BrightnessSetupScreen extends Screen {
      * where {@code Minecraft.getInstance().level} is null and entity construction would crash.
      */
     private final CalibrationPanel[] panels = {
-            // Creeper face region (8,8 8x8) from the 64x32 entity skin atlas — stays hidden until very bright.
-            new CalibrationPanel(1.6, Component.translatable("betterbrightness.panel.hidden"),
+            // Creeper face region (8,8 8x8) from the 64x32 entity skin atlas — the "should stay hidden"
+            // target. Threshold 1.35 so the creeper reaches invisible (vis 0) exactly where deepslate is
+            // ~50% visible ((1.35-1.1)/0.5 = 0.5): scrolling down from max, the creeper vanishes at the
+            // same gamma the "barely visible" tile is half-faded — the intended calibration sweet spot.
+            new CalibrationPanel(1.35, Component.translatable("betterbrightness.panel.hidden"),
                     Identifier.withDefaultNamespace("textures/entity/creeper/creeper.png"),
                     64, 32, 8.0f, 8.0f, 8, 8),
             new CalibrationPanel(1.1, Component.translatable("betterbrightness.panel.faint"),
