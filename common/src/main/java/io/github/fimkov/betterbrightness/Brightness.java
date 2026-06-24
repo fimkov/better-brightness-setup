@@ -13,6 +13,16 @@ public final class Brightness {
         return clamp01((gamma - threshold) / 0.5);
     }
 
+    /** gamma in [0,2] -> integer percent in [0,200]. */
+    public static int toPercent(double gamma) {
+        return (int) Math.round(gamma * 100.0);
+    }
+
+    /** Linear interpolate from->to by t, with t clamped to [0,1]. */
+    public static double lerp(double from, double to, double t) {
+        return from + (to - from) * clamp01(t);
+    }
+
     private static double clamp01(double v) {
         return v < 0 ? 0 : (v > 1 ? 1 : v);
     }
