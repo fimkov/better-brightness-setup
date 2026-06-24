@@ -19,5 +19,6 @@ public final class BetterBrightness {
 
     public static void init() {
         LOGGER.info("[{}] common init", MOD_ID);
+        BrightnessSetup.initClient();
     }
 }
