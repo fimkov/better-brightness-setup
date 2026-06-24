@@ -1,0 +1,166 @@
+package io.github.fimkov.betterbrightness.mixin.sodium;
+
+import io.github.fimkov.betterbrightness.client.CalibrationPanel;
+import net.caffeinemc.mods.sodium.client.config.structure.IntegerOption;
+import net.caffeinemc.mods.sodium.client.gui.Colors;
+import net.caffeinemc.mods.sodium.client.gui.Layout;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+/**
+ * For the Sodium brightness slider ONLY ({@code sodium:general.gamma}): widen the visible track and,
+ * in the extra vertical space {@link OptionListWidgetMixin} added to this one row, draw the SAME 4
+ * compact calibration icons + captions as {@code BrightnessSetupScreen}, each fading from the live
+ * gamma. For every other slider this mixin is a strict no-op (early return).
+ *
+ * <p><b>Target (verified from Sodium 0.9.0 bytecode).</b> The inner element
+ * {@code net.caffeinemc.mods.sodium.client.gui.options.control.SliderControl$SliderControlElement} is
+ * <em>package-private</em>, so it cannot be named in Java from our package — we target it by string via
+ * {@code @Mixin(targets = ...)} and reach its members with {@code @Shadow}. We {@code @Inject} at
+ * {@code TAIL} of
+ * {@code extractRenderState(GuiGraphicsExtractor, int, int, float)} (the 26.2 render-state draw path), so the
+ * icons render after Sodium's own row background, label and (when hovered/focused) track + thumb. The bound
+ * option is read through the shadowed public {@code getOption()} ({@code IntegerOption}); its id is read via
+ * {@link OptionIdAccessor}.
+ *
+ * <p><b>Widening the track.</b> {@code Layout.SLIDER_WIDTH} (= 90) is a {@code public static final int}, so
+ * the compiler inlines it as a constant everywhere {@code SliderControlElement} uses it — there is no field
+ * access to redirect, and changing it globally would widen every slider anyway. So we draw our own wider
+ * track (and re-draw the thumb at the proportional position) for the gamma row only, extending left of
+ * where Sodium's slider ends. Sodium's own (narrow) track is only drawn while hovered/focused; ours is
+ * always visible, giving the brightness option a consistently wider track.
+ *
+ * <p><b>Icons.</b> Reuses {@link CalibrationPanel} with the exact 4 thresholds / textures / captions from
+ * {@code BrightnessSetupScreen} (creeper 1.35, deepslate 1.1, coal_ore 0.6, diamond_ore 0.2). Gamma is read
+ * live from {@code Minecraft.getInstance().options.gamma().get()}. All icon rendering is wrapped in
+ * try/catch (as {@code CalibrationPanel} itself is) so a texture/render hiccup can never break Sodium's GUI.
+ *
+ * <p>Fragile + version-locked to Sodium {@code 0.9.0} / MC 26.2 internals. The config is
+ * {@code required:false}; without Sodium installed this never applies.
+ */
+@Mixin(targets = "net.caffeinemc.mods.sodium.client.gui.options.control.SliderControl$SliderControlElement", remap = false)
+public abstract class SliderControlElementMixin {
+
+    /** The one option this mixin acts on. */
+    private static final Identifier BRIGHTNESS_OPTION_ID = Identifier.parse("sodium:general.gamma");
+
+    // --- Shadowed Sodium internals (package-private element members) ---
+    @Shadow
+    public abstract IntegerOption getOption();
+
+    @Shadow
+    public abstract int getSliderX();
+
+    @Shadow
+    public abstract int getSliderY();
+
+    @Shadow
+    public abstract double getThumbPositionForValue(int value);
+
+    // Inherited from Dimensioned (interface defaults); shadow the ones we read.
+    @Shadow
+    public abstract int getX();
+
+    @Shadow
+    public abstract int getLimitX();
+
+    @Shadow
+    public abstract int getLimitY();
+
+    /**
+     * The same 4 calibration tiles as {@code BrightnessSetupScreen}, in descending threshold order
+     * (top target should stay hidden in the dark). Static + lazy: built once, reused every frame, so the
+     * per-panel eased visibility carries across frames exactly like on the setup screen.
+     */
+    private static CalibrationPanel[] betterbrightness$panels;
+
+    private static CalibrationPanel[] betterbrightness$panels() {
+        if (betterbrightness$panels == null) {
+            betterbrightness$panels = new CalibrationPanel[]{
+                    new CalibrationPanel(1.35, Component.translatable("betterbrightness.panel.hidden"),
+                            Identifier.withDefaultNamespace("textures/entity/creeper/creeper.png"),
+                            64, 32, 8.0f, 8.0f, 8, 8),
+                    new CalibrationPanel(1.1, Component.translatable("betterbrightness.panel.faint"),
+                            Identifier.withDefaultNamespace("textures/block/deepslate.png"),
+                            16, 16, 0.0f, 0.0f, 16, 16),
+                    new CalibrationPanel(0.6, Component.translatable("betterbrightness.panel.clear"),
+                            Identifier.withDefaultNamespace("textures/block/coal_ore.png"),
+                            16, 16, 0.0f, 0.0f, 16, 16),
+                    new CalibrationPanel(0.2, Component.translatable("betterbrightness.panel.bright"),
+                            Identifier.withDefaultNamespace("textures/block/diamond_ore.png"),
+                            16, 16, 0.0f, 0.0f, 16, 16),
+            };
+        }
+        return betterbrightness$panels;
+    }
+
+    @Inject(method = "extractRenderState", at = @At("TAIL"))
+    private void betterbrightness$drawCalibrationIcons(
+            GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        // Scope strictly to the brightness option; every other slider is untouched.
+        final IntegerOption option;
+        final Identifier id;
+        try {
+            option = this.getOption();
+            id = ((OptionIdAccessor) (Object) option).betterbrightness$getId();
+        } catch (Throwable t) {
+            return;
+        }
+        if (!BRIGHTNESS_OPTION_ID.equals(id)) {
+            return;
+        }
+
+        try {
+            Font font = Minecraft.getInstance().font;
+            double gamma = Minecraft.getInstance().options.gamma().get();
+
+            int sliderX = this.getSliderX();
+            int sliderRight = sliderX + Layout.SLIDER_WIDTH;
+            int sliderY = this.getSliderY();
+            int rowLeft = this.getX() + Layout.OPTION_TEXT_SIDE_PADDING;
+            int rowRight = this.getLimitX() - Layout.OPTION_TEXT_SIDE_PADDING;
+
+            // --- Wider track (gamma row only) ---
+            // Extend the track a full SLIDER_WIDTH further left, clamped to the row, up to where
+            // Sodium's slider ends on the right.
+            int wideLeft = Math.max(rowLeft, sliderX - Layout.SLIDER_WIDTH);
+            int wideRight = sliderRight;
+            int wideWidth = Math.max(1, wideRight - wideLeft);
+            int trackY = sliderY + Layout.SLIDER_HEIGHT / 2;
+            graphics.fill(wideLeft, trackY, wideRight, trackY + 1, Colors.FOREGROUND);
+
+            double t = this.getThumbPositionForValue(option.getValidatedValue());
+            int thumbX = (int) (wideLeft + t * wideWidth);
+            graphics.fill(thumbX - 2, sliderY, thumbX + 2, sliderY + Layout.SLIDER_HEIGHT, Colors.FOREGROUND);
+
+            // --- 4 calibration icons + captions, in the extra space below the track ---
+            CalibrationPanel[] panels = betterbrightness$panels();
+            int n = panels.length;
+            int gap = 6;
+            int iconsTop = sliderY + Layout.SLIDER_HEIGHT + 2;
+            int iconsBottom = this.getLimitY() - 2;
+            int captionRoom = font.lineHeight + 2;
+            // Largest square tile that fits the row width AND the available height (minus caption room).
+            int byWidth = (rowRight - rowLeft - gap * (n - 1)) / n;
+            int byHeight = (iconsBottom - iconsTop) - captionRoom;
+            int tile = Math.max(8, Math.min(byWidth, byHeight));
+            int rowW = tile * n + gap * (n - 1);
+            // Right-align the icon row under the (right-aligned) slider area.
+            int ox = Math.max(rowLeft, rowRight - rowW);
+            for (int i = 0; i < n; i++) {
+                int x = ox + i * (tile + gap);
+                panels[i].render(graphics, font, x, iconsTop, tile, gamma, 1.0f);
+            }
+        } catch (Throwable ignored) {
+            // Never let icon rendering break Sodium's options GUI.
+        }
+    }
+}

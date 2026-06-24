@@ -228,6 +228,48 @@ API external page/button that opens our own calibration screen with the 4 tiles.
 If the team insists on truly-inline icons, accept the maintenance cost of (2)
 and pin a Sodium version.
 
+## 4b. Verified 0.9.0 internals (S3 — exact targets, from `mc26.2-0.9.0` jar bytecode)
+
+All `remap = false` (Sodium internals are not Mojang-mapped). Verified by `javap -c -p` on
+`sodium-mc26.2-0.9.0-fabric.jar`.
+
+**Option identity (scoping):**
+- `net.caffeinemc.mods.sodium.client.config.structure.Option#id` — `final net.minecraft.resources.Identifier`,
+  **package-private, no getter**. Read via an `@Accessor("id")` mixin interface (`OptionIdAccessor`).
+- Brightness option id = `Identifier.parse("sodium:general.gamma")`
+  (`SodiumConfigBuilder` ~line 173). Display name is `options.gamma`; the id path is literally `general.gamma`.
+- `Control#getOption()` → `Option` (public, on the `Control` interface).
+- `SliderControl$SliderControlElement#getOption()` → covariant `IntegerOption` (public).
+
+**Row layout — `client/gui/widgets/OptionListWidget`:**
+- Field `private int entryHeight` (`#97`), set once per rebuild to `Layout.entryHeight(this.font)`.
+- Row build loop, in BOTH `private int renderAllPages(Screen,int,int,int)` and
+  `private int renderFilteredOptions(Screen,int,int,int)`:
+  - exactly ONE `Control.createElement(Screen, AbstractOptionList, Dim2i, ColorTheme)ControlElement`
+    INVOKEINTERFACE per method (renderAllPages off. 382; renderFilteredOptions off. 256);
+  - immediately after `controls.add(element)` the `listHeight += this.entryHeight` reads `entryHeight`
+    (GETFIELD `#97`; renderAllPages off. 411; renderFilteredOptions off. 285).
+- S3 targets (`OptionListWidgetMixin`, `@Mixin(OptionListWidget.class)`):
+  1. `@Redirect` the `Control.createElement(...)` INVOKE (method `{renderAllPages, renderFilteredOptions}`)
+     → for the gamma option, hand a taller `Dim2i` (`+ font.lineHeight*4`) and stash the delta.
+  2. `@Redirect` the `entryHeight` GETFIELD, `@Slice(from = INVOKE createElement)` so only the
+     post-`createElement` read (the `listHeight +=`) is affected → returns `entryHeight + delta`.
+  Result: only the gamma row is taller; the `Dim2i` height and the `listHeight` advance stay in sync;
+  every other row + all headers are byte-identical (delta 0).
+
+**Slider element — `client/gui/options/control/SliderControl$SliderControlElement` (package-private):**
+- Target by string: `@Mixin(targets = "net.caffeinemc.mods.sodium.client.gui.options.control.SliderControl$SliderControlElement")`.
+- `public void extractRenderState(GuiGraphicsExtractor, int, int, float)` — 26.2 render-state draw path.
+  S3 `@Inject(method = "extractRenderState", at = @At("TAIL"))`.
+- Shadowed members used: `getOption()IntegerOption`, `getSliderX()I`, `getSliderY()I`,
+  `getThumbPositionForValue(I)D`, and `Dimensioned` defaults `getX()I`/`getLimitX()I`/`getLimitY()I`.
+- `Layout.SLIDER_WIDTH = 90` / `SLIDER_HEIGHT = 10` are `public static final int` → **inlined as
+  `bipush` constants** in `extractRenderState` (no GETSTATIC). So the track cannot be widened by a field
+  redirect; S3 draws its own wider track + thumb for the gamma row only and leaves SLIDER_WIDTH global.
+- `Colors.FOREGROUND` (`public static final int`) used for the track/thumb tint.
+- `GuiGraphicsExtractor#fill(int,int,int,int,int)` and `#blit(RenderPipeline, Identifier, ...)` are the
+  draw primitives (same ones `AbstractWidget.drawRect`/`CalibrationPanel` use).
+
 ## 5. NeoForge vs Embeddium
 
 **Target Sodium's own NeoForge build, NOT Embeddium.** Sodium 0.9.0 ships a
