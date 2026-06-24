@@ -12,6 +12,9 @@
     "entrypoints": {
         "client": [
             "io.github.fimkov.betterbrightness.fabric.BetterBrightnessFabric"
+        ],
+        "sodium:config_api_user": [
+            "io.github.fimkov.betterbrightness.sodium.BetterBrightnessSodiumConfig"
         ]
     },
     "mixins": [
