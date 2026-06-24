@@ -20,7 +20,7 @@ public final class Brightness {
     /**
      * Faithful MC 26.2 lightmap brightness (grayscale, 0..1) for a block sitting at block-light
      * {@code level} (0..1) in a dark spot (sky light 0, no night-vision/darkness effect), under the
-     * brightness/gamma {@code gamma} (0..2). Mirrors {@code lightmap.fsh} exactly:
+     * brightness/gamma {@code gamma} (0..5). Mirrors {@code lightmap.fsh} exactly:
      * {@code mix(b, notGamma(b), BrightnessFactor)}, where {@code BrightnessFactor} is the gamma slider
      * (verified: {@code LightmapRenderState.brightness = max(options.gamma - darkness, 0)}),
      * {@code b = level/(4-3*level)} is {@code get_brightness}, and the grayscale {@code notGamma(b)} is

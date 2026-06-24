@@ -21,15 +21,16 @@ import net.minecraft.resources.Identifier;
  * draws (the title) and then defers to {@code super.extractRenderState(...)} to render the added
  * widgets. There is no immediate-mode {@code render(GuiGraphics, ...)} in 26.2.
  *
- * <p>A brightness slider (mapped 0..1 -> gamma 0..2 via {@link Brightness#sliderToGamma(double)})
- * and a Done button live near the bottom. Done writes the chosen gamma + the persistent marker;
+ * <p>A brightness slider (mapped 0..1 -> gamma 0..(maxBrightnessPercent/100), default 0..1, via
+ * {@link Brightness#sliderToGamma(double)}) and a Done button live near the bottom. Done writes the
+ * chosen gamma + the persistent marker;
  * closing via Esc also writes the marker through {@link #removed()} so "show once" holds regardless
  * of how the screen is dismissed.
  */
 public class BrightnessSetupScreen extends Screen {
 
     private final Screen parent;
-    private double slider = 0.5; // start mid (gamma 1.0)
+    private double slider = 0.5; // start mid-slider (gamma = maxBrightnessPercent/200; 0.5 at the default 100%)
 
     // Fade-in timing.
     private long openMillis = 0L;
@@ -78,7 +79,7 @@ public class BrightnessSetupScreen extends Screen {
         return (float) Math.max(0.0, Math.min(1.0, t));
     }
 
-    /** Slider label: "Brightness: NNN%" using the 0..200 scale. */
+    /** Slider label: "Brightness: NNN%", where NNN scales with the configured max (0..maxBrightnessPercent). */
     private static Component sliderLabel(double sliderValue) {
         return Component.translatable("betterbrightness.slider.brightness",
                 Brightness.toPercent(Brightness.sliderToGamma(sliderValue)));
