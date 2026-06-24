@@ -35,6 +35,10 @@ public final class CalibrationPanel {
     private final float v;
     private final int srcW;
     private final int srcH;
+    // Per-panel easing state.
+    private double displayedVis = 0.0;
+    private long lastMillis = 0L;
+    private static final double EASE_TAU_MS = 90.0; // smaller = snappier
 
     /**
      * @param threshold gamma at which the content starts becoming visible
@@ -47,11 +51,6 @@ public final class CalibrationPanel {
      * @param srcW      width of the sampled region
      * @param srcH      height of the sampled region
      */
-    // Per-panel easing state.
-    private double displayedVis = 0.0;
-    private long lastMillis = 0L;
-    private static final double EASE_TAU_MS = 90.0; // smaller = snappier
-
     public CalibrationPanel(double threshold, Component caption, Identifier texture,
                             int texW, int texH, float u, float v, int srcW, int srcH) {
         this.threshold = threshold;

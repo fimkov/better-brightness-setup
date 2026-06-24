@@ -54,7 +54,7 @@ public final class BrightnessSetup {
     }
 
     /**
-     * Marks the screen as shown for this session. Task 5 also calls {@link Marker#markDone}
+     * Marks the screen as shown for this session. {@link Marker#markDone} is called
      * after the user completes (or dismisses) the calibration screen.
      */
     public static void onScreenOpened() {
