@@ -1,4 +1,4 @@
-package io.github.fimkov.betterbrightness.mixin;
+package io.github.fimkov.betterbrightness;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.client.OptionInstance;
@@ -6,8 +6,14 @@ import net.minecraft.client.OptionInstance;
 import java.util.Optional;
 
 /**
- * A {@code [0, 2]} value space for the vanilla gamma option, installed by {@link OptionsGammaMixin} in
+ * A {@code [0, 2]} value space for the vanilla gamma option, installed by {@code OptionsGammaMixin} in
  * place of {@code OptionInstance.UnitDouble.INSTANCE}.
+ *
+ * <p>This lives in the normal {@code io.github.fimkov.betterbrightness} package, NOT the
+ * {@code .mixin} package: Mixin treats every class in a mixin-config's declared package as a mixin and
+ * forbids direct references to it (referencing such a class throws {@code IllegalClassLoadError} at
+ * runtime). The {@code @ModifyArg} handler references this class directly, so it must sit outside the
+ * mixin package.
  *
  * <p>Unlike {@code UnitDouble.INSTANCE.xmap(v -> v * 2, v -> v / 2)} (whose xmapped codec persists the
  * underlying {@code [0, 1]} value, i.e. {@code gamma / 2}), this ValueSet stores the <em>exposed</em>

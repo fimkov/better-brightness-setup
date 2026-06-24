@@ -1,5 +1,6 @@
 package io.github.fimkov.betterbrightness.mixin;
 
+import io.github.fimkov.betterbrightness.GammaRange;
 import net.minecraft.client.Options;
 import net.minecraft.client.OptionInstance;
 import org.spongepowered.asm.mixin.Mixin;
