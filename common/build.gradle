@@ -6,6 +6,10 @@ dependencies {
     // Under loom-no-remap (unobfuscated MC 26.2) the mod* configurations are NOT auto-created and
     // no remapping happens, so mod dependencies are declared as plain dependencies.
     // We depend on fabric loader only for the @Environment annotations + mixin deps in common code.
+    // fabric-loader pulls in sponge-mixin (org.spongepowered.asm.mixin.*) transitively, which is what
+    // the gamma-widening mixin in src/main/java/.../mixin compiles against.
+    // fabric-loader transitively provides sponge-mixin (org.spongepowered.asm.mixin.*), which supplies
+    // the @Mixin / @ModifyArg / @At / @Slice annotations the gamma-widening mixin compiles against.
     compileOnly "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     // Architectury API (common artifact) for cross-loader abstractions used by later tasks.
     api "dev.architectury:architectury:${rootProject.architectury_api_version}"

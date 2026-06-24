@@ -11,6 +11,11 @@ description = '''
 First-launch brightness-calibration screen.
 '''
 
+# Gamma-persistence mixin (widens gamma's ValueSet to [0, 2]). The config JSON + mixin class are
+# bundled from :common into this jar by shadowJar. Client-only (see "client" array in the JSON).
+[[mixins]]
+config = "betterbrightness.mixins.json"
+
 [[dependencies.betterbrightness]]
 modId = "neoforge"
 type = "required"

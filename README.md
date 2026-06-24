@@ -29,11 +29,16 @@ Built jars land in:
 - `fabric/build/libs/betterbrightness-*.jar`
 - `neoforge/build/libs/betterbrightness-*.jar`
 
-## Known limitation: gamma above 1.0 does not persist across restarts
+## Gamma above 1.0 persists across restarts
 
-The slider allows values up to gamma 2.0. The chosen value is applied immediately for the current session, but vanilla Minecraft's `options.load()` clamps gamma to a maximum of 1.0 when it reads `options.txt` on the next launch. As a result, any value above 1.0 is reset to 1.0 after a game restart.
+The slider allows values up to gamma 2.0, and the chosen value survives a restart. A client-only mixin
+(`OptionsGammaMixin`, bundled into both loader jars) widens the vanilla gamma option's value space from
+`[0, 1]` to `[0, 2]` by replacing its `ValueSet` with `UnitDouble.INSTANCE.xmap(v -> v * 2, v -> v / 2)`.
+Validation now runs against the *halved* value, so `set(2.0)` and `load(2.0)` are accepted instead of
+being rejected and reset. The mixin targets **only** gamma (the other 16 options that share
+`UnitDouble.INSTANCE` are untouched), via a sliced `@ModifyArg` on gamma's `OptionInstance` constructor.
 
-The proper fix is a mixin that widens the gamma range in `GameOptions`, which is not yet implemented in this version. Players who want gamma above 1.0 should treat the current value as session-only and re-apply it manually (or wait for a future release with the mixin fix).
+Note: because the disk codec now stores `gamma / 2`, the in-game gamma slider also spans 0..2.
 
 ## Dependencies
 

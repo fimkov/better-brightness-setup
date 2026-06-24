@@ -40,16 +40,16 @@ public class BrightnessSetupScreen extends Screen {
      */
     private final CalibrationPanel[] panels = {
             // Creeper face region (8,8 8x8) from the 64x32 entity skin atlas — stays hidden until very bright.
-            new CalibrationPanel(1.6, Component.literal("Эту фигуру не должно быть видно"),
+            new CalibrationPanel(1.6, Component.translatable("betterbrightness.panel.hidden"),
                     Identifier.withDefaultNamespace("textures/entity/creeper/creeper.png"),
                     64, 32, 8.0f, 8.0f, 8, 8),
-            new CalibrationPanel(1.1, Component.literal("Эта должна быть едва видна"),
+            new CalibrationPanel(1.1, Component.translatable("betterbrightness.panel.faint"),
                     Identifier.withDefaultNamespace("textures/block/deepslate.png"),
                     16, 16, 0.0f, 0.0f, 16, 16),
-            new CalibrationPanel(0.6, Component.literal("Эта — хорошо видна"),
+            new CalibrationPanel(0.6, Component.translatable("betterbrightness.panel.clear"),
                     Identifier.withDefaultNamespace("textures/block/coal_ore.png"),
                     16, 16, 0.0f, 0.0f, 16, 16),
-            new CalibrationPanel(0.2, Component.literal("Эта — ярко видна"),
+            new CalibrationPanel(0.2, Component.translatable("betterbrightness.panel.bright"),
                     Identifier.withDefaultNamespace("textures/block/diamond_ore.png"),
                     16, 16, 0.0f, 0.0f, 16, 16),
     };
