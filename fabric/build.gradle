@@ -31,6 +31,11 @@ dependencies {
 
     // Cloth Config: REQUIRED runtime dependency (provides the AutoConfig holder at runtime).
     modImplementation "maven.modrinth:cloth-config:26.2.155+fabric"
+
+    // Mod Menu: OPTIONAL. Compile-only so the ModMenuApi entrypoint compiles; NOT shipped and NOT
+    // required at runtime (declared in fabric.mod.json "suggests", never "depends"). The entrypoint
+    // class is only loaded by Mod Menu when present, so the mod boots fine without it.
+    modCompileOnly "maven.modrinth:modmenu:20.0.0-beta.4"
 }
 
 processResources {

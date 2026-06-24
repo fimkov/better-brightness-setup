@@ -15,6 +15,9 @@
         ],
         "sodium:config_api_user": [
             "io.github.fimkov.betterbrightness.sodium.BetterBrightnessSodiumConfig"
+        ],
+        "modmenu": [
+            "io.github.fimkov.betterbrightness.fabric.BetterBrightnessModMenu"
         ]
     },
     "mixins": [
@@ -27,5 +30,8 @@
         "java": ">=25",
         "architectury": ">=21.0.0",
         "fabric-api": "*"
+    },
+    "suggests": {
+        "modmenu": "*"
     }
 }
