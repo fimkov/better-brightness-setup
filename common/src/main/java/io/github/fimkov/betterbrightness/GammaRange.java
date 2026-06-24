@@ -6,7 +6,7 @@ import net.minecraft.client.OptionInstance;
 import java.util.Optional;
 
 /**
- * A {@code [0, MAX_PERCENT/100.0]} value space for the vanilla gamma option, installed by
+ * A {@code [0, 5.0]} value space for the vanilla gamma option, installed by
  * {@code OptionsGammaMixin} in place of {@code OptionInstance.UnitDouble.INSTANCE}.
  *
  * <p>This lives in the normal {@code io.github.fimkov.betterbrightness} package, NOT the
@@ -23,7 +23,7 @@ import java.util.Optional;
  * leaves the disk value meaning the same gamma it always did — while still allowing {@code > 1.0} to
  * validate and persist.
  *
- * <p>The ceiling is the CONSTANT {@code BetterBrightnessConfig.MAX_PERCENT / 100.0} (= 5.0), not the
+ * <p>The ceiling is the CONSTANT {@code 5.0} (= the 500% config max / 100), not the
  * live {@code maxPercent()} config value. This intentional choice means changing the config never needs a
  * restart: {@code gamma().set(v)} always accepts up to 5.0, regardless of the user's current max setting.
  * The sliders (setup screen and Sodium) read the live {@code maxPercent()} separately and only offer
@@ -38,11 +38,12 @@ public enum GammaRange implements OptionInstance.SliderableValueSet<Double> {
     INSTANCE;
 
     /**
-     * Fixed ceiling: {@code MAX_PERCENT / 100.0} = 5.0.
+     * Fixed ceiling: {@code 5.0} = the 500% maximum allowed by {@code BetterBrightnessConfig} / 100.
      * This is a constant — it does NOT read the live config — so {@code gamma().set(v)} accepts any value
-     * up to 5.0 without a restart, even if the user has configured a lower max.
+     * up to 5.0 without a restart, even if the user has configured a lower max. (Kept as a literal here
+     * rather than referencing a constant on the {@code @Config} class, which must hold no static fields.)
      */
-    private static final double CEILING = BetterBrightnessConfig.MAX_PERCENT / 100.0;
+    private static final double CEILING = 5.0;
 
     /** Accept (do not clamp) anything in {@code [0, CEILING]}; reject outside, like {@code UnitDouble}. */
     @Override

@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BrightnessTest {
     @Test void mapsSliderEndpointsAndMidpoint() {
-        // no-arg delegates to maxPercent() which returns MIN_PERCENT=100 in tests (config not loaded)
+        // no-arg delegates to maxPercent() which returns 100 in tests (config not loaded)
         assertEquals(0.0, Brightness.sliderToGamma(0.0), 1e-9);
         assertEquals(1.0, Brightness.sliderToGamma(1.0), 1e-9);  // 100% default: gamma 0..1
         assertEquals(0.5, Brightness.sliderToGamma(0.5), 1e-9);

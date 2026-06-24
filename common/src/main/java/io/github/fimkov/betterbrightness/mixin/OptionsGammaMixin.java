@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Slice;
 
 /**
  * Widens the vanilla {@code gamma} (brightness) option's value space from {@code [0, 1]} to the
- * {@code [0, 5.0]} ceiling ({@code BetterBrightnessConfig.MAX_PERCENT / 100.0}) so a chosen gamma above
+ * {@code [0, 5.0]} ceiling (the 500% config max / 100) so a chosen gamma above
  * {@code 1.0} (up to 500%) survives a restart.
  *
  * <p><b>Why a mixin is required.</b> Gamma's {@code ValueSet} is {@code OptionInstance.UnitDouble.INSTANCE},
