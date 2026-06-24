@@ -31,8 +31,12 @@ public class BrightnessSetupScreen extends Screen {
     private final Screen parent;
     private double slider = 0.5; // start mid (gamma 1.0)
 
+    // Fade-in timing.
+    private long openMillis = 0L;
+    private static final double FADE_MS = 250.0;
+
     /**
-     * The 4 live calibration tiles (Task 6). Each fades a real game texture in/out as the slider
+     * The 4 live calibration tiles. Each fades a real game texture in/out as the slider
      * moves; the captions read top-left -> bottom-right by descending threshold. The creeper tile
      * (highest threshold) is the classic "shouldn't be visible in the dark" calibration target.
      * Rendered as textures, not a live 3D entity, because this screen opens over the title screen
@@ -59,22 +63,35 @@ public class BrightnessSetupScreen extends Screen {
         this.parent = parent;
     }
 
-    /** Live gamma for the current slider position. Read by the calibration panels (Task 6). */
+    /** Live gamma for the current slider position. Read by the calibration panels. */
     public double currentGamma() {
         return Brightness.sliderToGamma(slider);
     }
 
+    /** Screen-open fade alpha: 0 -> 1 over FADE_MS milliseconds, eased linearly. */
+    private float fadeAlpha() {
+        if (openMillis == 0L) return 1f;
+        double t = (System.currentTimeMillis() - openMillis) / FADE_MS;
+        return (float) Math.max(0.0, Math.min(1.0, t));
+    }
+
+    /** Slider label: "Brightness: NNN%" using the 0..200 scale. */
+    private static String sliderLabel(double sliderValue) {
+        return "Brightness: " + Brightness.toPercent(Brightness.sliderToGamma(sliderValue)) + "%";
+    }
+
     @Override
     protected void init() {
+        openMillis = System.currentTimeMillis();
+
         int cx = this.width / 2;
 
         addRenderableWidget(new AbstractSliderButton(
                 cx - 100, this.height - 56, 200, 20,
-                Component.literal(String.format("Brightness: %.2f", Brightness.sliderToGamma(slider))), slider) {
+                Component.literal(sliderLabel(slider)), slider) {
             @Override
             protected void updateMessage() {
-                setMessage(Component.literal(
-                        String.format("Brightness: %.2f", Brightness.sliderToGamma(this.value))));
+                setMessage(Component.literal(sliderLabel(this.value)));
             }
 
             @Override
@@ -94,7 +111,7 @@ public class BrightnessSetupScreen extends Screen {
         Minecraft.getInstance().gui.setScreen(parent);
     }
 
-    /** Esc / any dismissal still marks done. Idempotent (Task 3). */
+    /** Esc / any dismissal still marks done. Idempotent. */
     @Override
     public void removed() {
         Marker.markDone(Platform.getConfigFolder());
@@ -103,29 +120,33 @@ public class BrightnessSetupScreen extends Screen {
 
     @Override
     public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
-        // Background is drawn by the engine (Screen.extractBackground) outside this method.
-        graphics.centeredText(this.font, this.title, this.width / 2, 24, 0xFFFFFF);
-
-        // Live calibration panels, drawn before the widgets so the slider/Done sit on top.
-        renderPanels(graphics);
-
-        // Render the added widgets (slider, Done button).
-        super.extractRenderState(graphics, mouseX, mouseY, partialTick);
+        float fade = fadeAlpha();
+        int titleColor = (Math.round(fade * 255f) << 24) | 0xFFFFFF;
+        int subColor   = (Math.round(fade * 255f) << 24) | 0xB9B9C0;
+        graphics.centeredText(this.font, this.title, this.width / 2, 18, titleColor);
+        graphics.centeredText(this.font, Component.translatable("betterbrightness.instruction"),
+                this.width / 2, 34, subColor);
+        renderRow(graphics, fade);
+        super.extractRenderState(graphics, mouseX, mouseY, partialTick); // slider + Done on top
     }
 
-    /** Lays the 4 panels out in a centered 2x2 grid and re-tints them from the live gamma. */
-    private void renderPanels(GuiGraphicsExtractor graphics) {
-        final int pw = 120, ph = 80;
-        final int gapX = 24, gapY = 24 + 16; // extra vertical room for each panel's caption
-        final int gridW = pw * 2 + gapX;
-        final int ox = (this.width - gridW) / 2;
-        final int oy = 44;
+    /** 4 square tiles in a centered row; tile size clamped so the row never overlaps the slider/Done. */
+    private void renderRow(GuiGraphicsExtractor graphics, float fade) {
+        final int n = panels.length;     // 4
+        final int gap = 16;
+        final int topY = 52;
+        final int labelRoom = 24;        // space under tiles for the caption
+        final int sliderY = this.height - 56;
+        // Largest tile that fits width AND leaves >=12px above the slider after the label.
+        int byWidth = (this.width - 40 - gap * (n - 1)) / n;
+        int byHeight = sliderY - 12 - labelRoom - topY;
+        int tile = Math.max(32, Math.min(96, Math.min(byWidth, byHeight)));
+        int rowW = tile * n + gap * (n - 1);
+        int ox = (this.width - rowW) / 2;
         double gamma = currentGamma();
-        for (int i = 0; i < panels.length; i++) {
-            int col = i % 2, row = i / 2;
-            int x = ox + col * (pw + gapX);
-            int y = oy + row * (ph + gapY);
-            panels[i].render(graphics, this.font, x, y, pw, gamma, 1.0f);
+        for (int i = 0; i < n; i++) {
+            int x = ox + i * (tile + gap);
+            panels[i].render(graphics, this.font, x, topY, tile, gamma, fade);
         }
     }
 }

@@ -1,8 +1,9 @@
 {
     "betterbrightness.title": "Brightness Setup",
-    "betterbrightness.panel.hidden": "This shape should NOT be visible",
-    "betterbrightness.panel.faint": "This should be barely visible",
-    "betterbrightness.panel.clear": "This should be clearly visible",
-    "betterbrightness.panel.bright": "This should be brightly visible",
+    "betterbrightness.instruction": "Drag the slider until each tile matches its label below",
+    "betterbrightness.panel.hidden": "Should be hidden",
+    "betterbrightness.panel.faint": "Barely visible",
+    "betterbrightness.panel.clear": "Clearly visible",
+    "betterbrightness.panel.bright": "Bright",
     "betterbrightness.options.gamma.brightest": "Brightest"
 }
