@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        maven { url "https://maven.fabricmc.net/" }
+        maven { url "https://maven.architectury.dev/" }
+        maven { url "https://maven.neoforged.net/releases/" }
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    // Allows Gradle to auto-provision the required JDK (Java 25) toolchain via Foojay.
+    id "org.gradle.toolchains.foojay-resolver-convention" version "1.0.0"
+}
+
+include("common")
+include("fabric")
+include("neoforge")
+// NOTE: Forge is NOT included. Architectury does not publish architectury-forge for MC 26.2
+// (architectury-forge-21.0.2.jar -> HTTP 404) and Forge lags on newest MC versions.
+// A forge/ module will be added in a later task once upstream ships. See docs/superpowers/plans/API-NOTES.md.
+
+rootProject.name = "betterbrightness"

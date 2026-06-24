@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "MIT"
+
+[[mods]]
+modId = "betterbrightness"
+version = "${version}"
+displayName = "Better Brightness Setup"
+authors = "fimkov"
+description = '''
+First-launch brightness-calibration screen.
+'''
+
+[[dependencies.betterbrightness]]
+modId = "neoforge"
+type = "required"
+versionRange = "[26.2,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.betterbrightness]]
+modId = "minecraft"
+type = "required"
+versionRange = "[26.2,26.3)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.betterbrightness]]
+modId = "architectury"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "AFTER"
+side = "CLIENT"

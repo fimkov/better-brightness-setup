@@ -1,0 +1,25 @@
+architectury {
+    common(rootProject.enabled_platforms.split(","))
+}
+
+dependencies {
+    // Under loom-no-remap (unobfuscated MC 26.2) the mod* configurations are NOT auto-created and
+    // no remapping happens, so mod dependencies are declared as plain dependencies.
+    // We depend on fabric loader only for the @Environment annotations + mixin deps in common code.
+    compileOnly "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    // Architectury API (common artifact) for cross-loader abstractions used by later tasks.
+    api "dev.architectury:architectury:${rootProject.architectury_api_version}"
+}
+
+publishing {
+    publications {
+        mavenCommon(MavenPublication) {
+            artifactId = rootProject.archives_base_name
+            from components.java
+        }
+    }
+
+    repositories {
+        // Add repositories to publish to here.
+    }
+}

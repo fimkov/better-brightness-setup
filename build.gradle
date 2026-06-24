@@ -1,0 +1,66 @@
+plugins {
+    id "architectury-plugin" version "3.5.169"
+    // Minecraft 26.2 ships ALREADY DEOBFUSCATED (real net.minecraft.* names in the client jar;
+    // the version manifest no longer provides client_mappings/server_mappings proguard files).
+    // Architectury Loom therefore requires its "no-remap" variant for this MC era -- the standard
+    // dev.architectury.loom plugin aborts with: "The Minecraft version '26.2' is unobfuscated
+    // (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the
+    // dev.architectury.loom-no-remap plugin instead." See docs/superpowers/plans/API-NOTES.md.
+    id "dev.architectury.loom-no-remap" version "1.17.487" apply false
+}
+
+architectury {
+    minecraft = rootProject.minecraft_version
+}
+
+subprojects {
+    apply plugin: "dev.architectury.loom-no-remap"
+
+    // loom-no-remap does NOT create the mod* dependency configurations (there is no remapping step).
+    // Re-create them as aliases of the standard configurations so the familiar modImplementation/
+    // modApi/etc. DSL still works; under no-remap they behave like plain dependencies.
+    ["api", "implementation", "compileOnly", "runtimeOnly", "localRuntime"].each { base ->
+        def modName = "mod" + base.capitalize()
+        if (configurations.findByName(modName) == null) {
+            def created = configurations.create(modName)
+            configurations.named(base) { extendsFrom created }
+        }
+    }
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        // No mappings dependency: Minecraft 26.2 is unobfuscated, so loom-no-remap consumes the
+        // jar as-is. Adding officialMojangMappings()/parchment here would fail (none are published).
+    }
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
+
+    base {
+        archivesName = rootProject.archives_base_name
+    }
+
+    version = rootProject.mod_version
+    group = rootProject.maven_group
+
+    repositories {
+        // Loom adds the essential Minecraft repositories automatically.
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = "UTF-8"
+        options.release = 25
+    }
+
+    java {
+        toolchain {
+            // Minecraft 26.2 requires a Java 25 toolchain.
+            // Provisioned automatically by the foojay-resolver-convention plugin (see settings.gradle).
+            languageVersion = JavaLanguageVersion.of(25)
+        }
+        withSourcesJar()
+    }
+}
