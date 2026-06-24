@@ -113,8 +113,17 @@ public abstract class OptionListWidgetMixin {
     /**
      * Redirect the {@code this.entryHeight} read that drives {@code listHeight += entryHeight} right after
      * {@code createElement}, adding the gamma row's extra height so the list geometry stays consistent.
-     * The {@code @Slice} pins this to the post-{@code createElement} read only — the row-{@code Dim2i}'s own
-     * {@code entryHeight} read (before {@code createElement}) and all header reads are left untouched.
+     * The {@code @Slice} pins this to reads at or after the {@code createElement} invoke — the
+     * row-{@code Dim2i}'s own {@code entryHeight} read (before {@code createElement}) and all header reads
+     * are left untouched.
+     *
+     * <p><b>Consume-once.</b> The slice has no upper bound, so in {@code renderAllPages} it also matches the
+     * {@code listHeight += entryHeight} advance inside the later {@code ExternalPage} else-branch. To stop a
+     * non-zero delta from the gamma row bleeding into a subsequent {@code ExternalPage} advance in the same
+     * rebuild (which a third-party Sodium-API mod could add — Sodium's own pages are all {@code OptionPage}),
+     * this handler reads the delta and RESETS {@link #betterbrightness$extra} to {@code 0} immediately. The
+     * gamma row's {@code createElement} redirect sets the delta right before this advance, so it is consumed
+     * exactly once — by the gamma row's own advance — and can never apply to any later row, order-independent.
      */
     @Redirect(
             method = {"renderAllPages", "renderFilteredOptions"},
@@ -132,6 +141,8 @@ public abstract class OptionListWidgetMixin {
                     )
             ))
     private int betterbrightness$advanceForGammaRow(OptionListWidget self) {
-        return this.entryHeight + this.betterbrightness$extra;
+        int delta = this.betterbrightness$extra;
+        this.betterbrightness$extra = 0; // consume once; never leak into a later ExternalPage advance
+        return this.entryHeight + delta;
     }
 }
