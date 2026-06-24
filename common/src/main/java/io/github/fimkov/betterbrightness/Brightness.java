@@ -8,9 +8,26 @@ public final class Brightness {
         return clamp01(t) * 2.0;
     }
 
-    /** 0 = content invisible, 1 = fully visible, ramping over a 0.5-gamma window above threshold. */
-    public static double panelVisibility(double gamma, double threshold) {
-        return clamp01((gamma - threshold) / 0.5);
+    /**
+     * Faithful MC 26.2 lightmap brightness (grayscale, 0..1) for a block sitting at block-light
+     * {@code level} (0..1) in a dark spot (sky light 0, no night-vision/darkness effect), under the
+     * brightness/gamma {@code gamma} (0..2). Mirrors {@code lightmap.fsh} exactly:
+     * {@code mix(b, notGamma(b), BrightnessFactor)}, where {@code BrightnessFactor} is the gamma slider
+     * (verified: {@code LightmapRenderState.brightness = max(options.gamma - darkness, 0)}),
+     * {@code b = level/(4-3*level)} is {@code get_brightness}, and the grayscale {@code notGamma(b)} is
+     * {@code 1-(1-b)^4}. Tinting a calibration tile's RGB by this value makes it brighten as the real block
+     * would when the slider moves — a true preview, not a stylized fade.
+     */
+    public static double displayedBrightness(double gamma, double level) {
+        double b = lightRamp(clamp01(level));
+        double oneMinus = 1.0 - b;
+        double brightened = 1.0 - oneMinus * oneMinus * oneMinus * oneMinus; // notGamma(b), grayscale
+        return clamp01(b + gamma * (brightened - b));                        // mix(b, notGamma(b), gamma)
+    }
+
+    /** MC {@code get_brightness}: a single light level (0..1) -> linear brightness. */
+    private static double lightRamp(double level) {
+        return level / (4.0 - 3.0 * level);
     }
 
     /** gamma in [0,2] -> integer percent in [0,200]. */

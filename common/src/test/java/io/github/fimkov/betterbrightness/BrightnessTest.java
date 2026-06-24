@@ -2,6 +2,7 @@ package io.github.fimkov.betterbrightness;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BrightnessTest {
     @Test void mapsSliderEndpointsAndMidpoint() {
@@ -13,10 +14,20 @@ class BrightnessTest {
         assertEquals(0.0, Brightness.sliderToGamma(-3.0), 1e-9);
         assertEquals(2.0, Brightness.sliderToGamma(7.0), 1e-9);
     }
-    @Test void panelVisibilityRamps() {
-        assertEquals(0.0, Brightness.panelVisibility(0.10, 0.5), 1e-9); // below threshold -> hidden
-        assertEquals(1.0, Brightness.panelVisibility(1.50, 0.5), 1e-9); // well above -> fully visible
-        assertEquals(0.5, Brightness.panelVisibility(0.75, 0.5), 1e-9); // mid-ramp
+    @Test void displayedBrightnessFollowsMcGammaCurve() {
+        // A pure-black light level (0) stays black, a full light level (1) stays full — for any gamma.
+        assertEquals(0.0, Brightness.displayedBrightness(0.0, 0.0), 1e-9);
+        assertEquals(0.0, Brightness.displayedBrightness(2.0, 0.0), 1e-9);
+        assertEquals(1.0, Brightness.displayedBrightness(0.0, 1.0), 1e-9);
+        assertEquals(1.0, Brightness.displayedBrightness(2.0, 1.0), 1e-9);
+        // gamma 0 = raw light ramp b = level/(4-3*level); level 0.5 -> 0.2.
+        assertEquals(0.2, Brightness.displayedBrightness(0.0, 0.5), 1e-9);
+        // gamma 1 = full mix to notGamma(b) = 1-(1-b)^4; level 0.5 -> 0.2 + (1-0.8^4 - 0.2) = 0.5904.
+        assertEquals(0.5904, Brightness.displayedBrightness(1.0, 0.5), 1e-9);
+        // Raising gamma always brightens a dim spot.
+        assertTrue(Brightness.displayedBrightness(1.0, 0.3) > Brightness.displayedBrightness(0.0, 0.3));
+        // Extrapolating past gamma 1.0 (our widened range) clamps to 1.0.
+        assertEquals(1.0, Brightness.displayedBrightness(2.0, 0.8), 1e-9);
     }
     @Test void toPercentMapsGammaRange() {
         assertEquals(0,   Brightness.toPercent(0.0));

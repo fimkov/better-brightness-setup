@@ -36,27 +36,27 @@ public class BrightnessSetupScreen extends Screen {
     private static final double FADE_MS = 250.0;
 
     /**
-     * The 4 live calibration tiles. Each fades a real game texture in/out as the slider
-     * moves; the captions read top-left -> bottom-right by descending threshold. The creeper tile
-     * (highest threshold) is the classic "shouldn't be visible in the dark" calibration target.
-     * Rendered as textures, not a live 3D entity, because this screen opens over the title screen
-     * where {@code Minecraft.getInstance().level} is null and entity construction would crash.
+     * The 4 live calibration tiles. Each tints a real game texture by the FAITHFUL in-game lightmap
+     * brightness for a block at its block-light level, so the tiles brighten/darken exactly as those blocks
+     * would as the slider moves. The light levels span dark -> bright (1 / 4 / 7 / 10): the creeper at
+     * light 1 is the classic "shouldn't be visible in the dark" target (stays near-black until you crank
+     * brightness), the diamond ore at light 10 should stay clearly visible. Rendered as textures, not a live
+     * 3D entity, because this screen opens over the title screen where {@code Minecraft.getInstance().level}
+     * is null and entity construction would crash.
      */
     private final CalibrationPanel[] panels = {
-            // Creeper face region (8,8 8x8) from the 64x32 entity skin atlas — the "should stay hidden"
-            // target. Threshold 1.35 so the creeper reaches invisible (vis 0) exactly where deepslate is
-            // ~50% visible ((1.35-1.1)/0.5 = 0.5): scrolling down from max, the creeper vanishes at the
-            // same gamma the "barely visible" tile is half-faded — the intended calibration sweet spot.
-            new CalibrationPanel(1.35, Component.translatable("betterbrightness.panel.hidden"),
+            // Creeper face region (8,8 8x8) from the 64x32 entity skin atlas, at block-light 1 — the
+            // "should stay hidden" target: at typical gammas it reads near-black.
+            new CalibrationPanel(1, Component.translatable("betterbrightness.panel.hidden"),
                     Identifier.withDefaultNamespace("textures/entity/creeper/creeper.png"),
                     64, 32, 8.0f, 8.0f, 8, 8),
-            new CalibrationPanel(1.1, Component.translatable("betterbrightness.panel.faint"),
+            new CalibrationPanel(4, Component.translatable("betterbrightness.panel.faint"),
                     Identifier.withDefaultNamespace("textures/block/deepslate.png"),
                     16, 16, 0.0f, 0.0f, 16, 16),
-            new CalibrationPanel(0.6, Component.translatable("betterbrightness.panel.clear"),
+            new CalibrationPanel(7, Component.translatable("betterbrightness.panel.clear"),
                     Identifier.withDefaultNamespace("textures/block/coal_ore.png"),
                     16, 16, 0.0f, 0.0f, 16, 16),
-            new CalibrationPanel(0.2, Component.translatable("betterbrightness.panel.bright"),
+            new CalibrationPanel(10, Component.translatable("betterbrightness.panel.bright"),
                     Identifier.withDefaultNamespace("textures/block/diamond_ore.png"),
                     16, 16, 0.0f, 0.0f, 16, 16),
     };
