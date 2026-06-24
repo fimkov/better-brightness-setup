@@ -55,7 +55,7 @@ public class BrightnessSetupScreen extends Screen {
     };
 
     public BrightnessSetupScreen(Screen parent) {
-        super(Component.literal("Brightness Setup"));
+        super(Component.translatable("betterbrightness.title"));
         this.parent = parent;
     }
 
@@ -70,7 +70,7 @@ public class BrightnessSetupScreen extends Screen {
 
         addRenderableWidget(new AbstractSliderButton(
                 cx - 100, this.height - 56, 200, 20,
-                Component.literal(""), slider) {
+                Component.literal(String.format("Brightness: %.2f", Brightness.sliderToGamma(slider))), slider) {
             @Override
             protected void updateMessage() {
                 setMessage(Component.literal(

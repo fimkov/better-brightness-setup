@@ -6,7 +6,7 @@ A Minecraft 26.2 client mod that shows a brightness calibration screen on first 
 
 On the very first game launch, the mod intercepts the title screen and opens a calibration screen with four live texture panels: a torch-lit cave (dark reference), a daylight forest, a dark room with a single light source, and a Creeper face. All four panels update in real time as the player moves a slider.
 
-The slider maps to gamma in the range 0.0 (pitch black) to 2.0 (double brightness). When the player clicks Done, the chosen gamma is written to Minecraft's `options.txt` and the game continues normally. The screen appears only once; a small marker file (`config/betterbrightness/done`) prevents it from showing again on subsequent launches.
+The slider maps to gamma in the range 0.0 (pitch black) to 2.0 (double brightness). When the player clicks Done, the chosen gamma is written to Minecraft's `options.txt` and the game continues normally. The screen appears only once; a small marker file (`config/betterbrightness/.done`) prevents it from showing again on subsequent launches.
 
 ## Supported platforms
 

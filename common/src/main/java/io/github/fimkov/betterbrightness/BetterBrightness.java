@@ -6,8 +6,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Common entry point for Better Brightness Setup.
  *
- * <p>This Task-1 skeleton only logs initialization. Feature code (first-launch detection,
- * the brightness-calibration screen, gamma writing) is added in later tasks.
+ * <p>On the client, {@link #init()} registers the first-launch hook by delegating to
+ * {@link BrightnessSetup#initClient()}, which schedules the brightness calibration screen
+ * to open on the first title-screen render when no marker file is present.
  */
 public final class BetterBrightness {
 
