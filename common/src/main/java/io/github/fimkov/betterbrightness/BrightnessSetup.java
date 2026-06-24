@@ -2,6 +2,9 @@ package io.github.fimkov.betterbrightness;
 
 import dev.architectury.event.events.client.ClientGuiEvent;
 import dev.architectury.platform.Platform;
+import io.github.fimkov.betterbrightness.client.BrightnessSetupScreen;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 
 /**
@@ -9,8 +12,8 @@ import net.minecraft.client.gui.screens.TitleScreen;
  * {@code ClientGuiEvent.INIT_POST} and fires once per session (and once ever, persisted
  * via {@link Marker}).
  *
- * <p>Task 5 replaces {@link #onScreenOpened()} body's log line with a real screen open:
- * {@code Minecraft.getInstance().setScreen(new BrightnessSetupScreen())}
+ * <p>On first launch it opens {@link BrightnessSetupScreen} (deferred a tick to avoid
+ * setScreen-during-init re-entrancy); the screen writes the gamma and the persistent marker.
  */
 public final class BrightnessSetup {
 
@@ -28,12 +31,14 @@ public final class BrightnessSetup {
 
         ClientGuiEvent.INIT_POST.register((screen, access) -> {
             if (screen instanceof TitleScreen && shouldOpen()) {
-                onScreenOpened();
-                // Task 5 replaces this line with:
-                // Minecraft.getInstance().setScreen(new BrightnessSetupScreen());
+                onScreenOpened(); // sets shownThisSession, guarding against any reopen loop
                 BetterBrightness.LOGGER.info(
-                        "[{}] first launch detected — would open calibration screen",
+                        "[{}] first launch detected — opening calibration screen",
                         BetterBrightness.MOD_ID);
+                // Defer to the next tick to avoid setScreen-during-INIT_POST re-entrancy.
+                final Screen parent = screen; // the TitleScreen
+                Minecraft.getInstance().execute(() ->
+                        Minecraft.getInstance().gui.setScreen(new BrightnessSetupScreen(parent)));
             }
         });
     }
