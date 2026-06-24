@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Oppsett av lysstyrke",
+    "betterbrightness.instruction": "Dra glidebryteren til hver flis samsvarer med etiketten nedenfor",
+    "betterbrightness.done_button": "Ferdig",
+    "betterbrightness.slider.brightness": "Lysstyrke: %s%%",
+    "betterbrightness.panel.hidden": "Bør skjules",
+    "betterbrightness.panel.faint": "Knapt synlig",
+    "betterbrightness.panel.clear": "Tydelig synlig",
+    "betterbrightness.panel.bright": "Lys",
+    "betterbrightness.short.hidden": "Skjult",
+    "betterbrightness.short.barely": "Knapt",
+    "betterbrightness.short.clear": "Klar",
+    "betterbrightness.short.bright": "Lys",
+    "betterbrightness.options.gamma.brightest": "Lyseste",
+    "betterbrightness.setup_button": "Sett opp lysstyrke",
+    "text.autoconfig.betterbrightness.title": "Bedre lysstyrkeoppsett",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimal lysstyrke",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Høyeste lysstyrke glidebryterne tillater, i prosent av vanilje. 100% = vanilje; heve den for å lysne mørke scener ytterligere."
+}

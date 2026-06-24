@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Поставување осветленост",
+    "betterbrightness.instruction": "Повлечете го лизгачот додека секоја плочка не се совпадне со нејзината ознака подолу",
+    "betterbrightness.done_button": "Готово",
+    "betterbrightness.slider.brightness": "Осветленост: %s%%",
+    "betterbrightness.panel.hidden": "Треба да се скрие",
+    "betterbrightness.panel.faint": "Едвај видливи",
+    "betterbrightness.panel.clear": "Јасно видливи",
+    "betterbrightness.panel.bright": "Светла",
+    "betterbrightness.short.hidden": "Скриени",
+    "betterbrightness.short.barely": "Едвај",
+    "betterbrightness.short.clear": "Јасно",
+    "betterbrightness.short.bright": "Светла",
+    "betterbrightness.options.gamma.brightest": "Најсветлиот",
+    "betterbrightness.setup_button": "Поставете ја осветленоста",
+    "text.autoconfig.betterbrightness.title": "Подобро поставување на осветленоста",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Максимална осветленост",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Највисока осветленост што ја дозволуваат лизгачите, како процент од ванила. 100% = ванила; подигнете го за дополнително да ги осветлите темните сцени."
+}

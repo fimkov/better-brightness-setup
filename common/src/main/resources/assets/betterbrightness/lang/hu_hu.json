@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Fényerő beállítása",
+    "betterbrightness.instruction": "Húzza a csúszkát addig, amíg minden csempe meg nem felel az alábbi címkéjüknek",
+    "betterbrightness.done_button": "Kész",
+    "betterbrightness.slider.brightness": "Fényerő: %s%%",
+    "betterbrightness.panel.hidden": "El kell rejteni",
+    "betterbrightness.panel.faint": "Alig látható",
+    "betterbrightness.panel.clear": "Jól látható",
+    "betterbrightness.panel.bright": "Fényes",
+    "betterbrightness.short.hidden": "Rejtett",
+    "betterbrightness.short.barely": "Alig",
+    "betterbrightness.short.clear": "Világos",
+    "betterbrightness.short.bright": "Fényes",
+    "betterbrightness.options.gamma.brightest": "Legfényesebb",
+    "betterbrightness.setup_button": "Fényerő beállítása",
+    "text.autoconfig.betterbrightness.title": "Jobb fényerő beállítás",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maximális fényerő",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "A csúszkák által megengedett legmagasabb fényerő a vanília százalékában. 100% = vanília; emelje fel, hogy tovább világítsa a sötét jeleneteket."
+}

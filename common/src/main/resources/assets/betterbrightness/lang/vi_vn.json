@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Cài đặt độ sáng",
+    "betterbrightness.instruction": "Kéo thanh trượt cho đến khi mỗi ô khớp với nhãn bên dưới",
+    "betterbrightness.done_button": "Xong",
+    "betterbrightness.slider.brightness": "Độ sáng: %s%%",
+    "betterbrightness.panel.hidden": "Nên ẩn",
+    "betterbrightness.panel.faint": "Hầu như không thể nhìn thấy",
+    "betterbrightness.panel.clear": "Rõ ràng có thể nhìn thấy",
+    "betterbrightness.panel.bright": "Sáng",
+    "betterbrightness.short.hidden": "Ẩn giấu",
+    "betterbrightness.short.barely": "Hầu như không",
+    "betterbrightness.short.clear": "Thông thoáng",
+    "betterbrightness.short.bright": "Sáng",
+    "betterbrightness.options.gamma.brightest": "Sáng nhất",
+    "betterbrightness.setup_button": "Cài đặt độ sáng",
+    "text.autoconfig.betterbrightness.title": "Cài đặt độ sáng tốt hơn",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Độ sáng tối đa",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Độ sáng cao nhất mà thanh trượt cho phép, tính theo phần trăm của vani. 100% = hương vani; nâng nó lên để làm sáng thêm những cảnh tối."
+}

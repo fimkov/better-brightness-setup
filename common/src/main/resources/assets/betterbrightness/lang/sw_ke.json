@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Mpangilio wa Mwangaza",
+    "betterbrightness.instruction": "Buruta kitelezi hadi kila kigae kilingane na lebo yake hapa chini",
+    "betterbrightness.done_button": "Imekamilika",
+    "betterbrightness.slider.brightness": "Mwangaza: %sZ%%",
+    "betterbrightness.panel.hidden": "Inapaswa kufichwa",
+    "betterbrightness.panel.faint": "Haionekani sana",
+    "betterbrightness.panel.clear": "Inaonekana wazi",
+    "betterbrightness.panel.bright": "Mkali",
+    "betterbrightness.short.hidden": "Imefichwa",
+    "betterbrightness.short.barely": "Vigumu",
+    "betterbrightness.short.clear": "Wazi",
+    "betterbrightness.short.bright": "Mkali",
+    "betterbrightness.options.gamma.brightest": "Mkali zaidi",
+    "betterbrightness.setup_button": "Weka Mwangaza",
+    "text.autoconfig.betterbrightness.title": "Usanidi Bora wa Mwangaza",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Upeo wa mwangaza",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Mwangaza wa juu zaidi ambao vitelezi huruhusu, kama asilimia ya vanila. 100% = vanilla; inua ili kuangaza matukio ya giza zaidi."
+}

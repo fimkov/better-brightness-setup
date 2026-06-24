@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Настройка яркости",
+    "betterbrightness.instruction": "Перетаскивайте ползунок, пока каждая плитка не будет соответствовать метке ниже.",
+    "betterbrightness.done_button": "Сделанный",
+    "betterbrightness.slider.brightness": "Яркость: %s%%",
+    "betterbrightness.panel.hidden": "Должно быть скрыто",
+    "betterbrightness.panel.faint": "Едва видимый",
+    "betterbrightness.panel.clear": "Хорошо видно",
+    "betterbrightness.panel.bright": "Яркий",
+    "betterbrightness.short.hidden": "Скрытый",
+    "betterbrightness.short.barely": "Едва",
+    "betterbrightness.short.clear": "Прозрачный",
+    "betterbrightness.short.bright": "Яркий",
+    "betterbrightness.options.gamma.brightest": "Самый яркий",
+    "betterbrightness.setup_button": "Настройка яркости",
+    "text.autoconfig.betterbrightness.title": "Улучшенная настройка яркости",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Максимальная яркость",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Максимальная яркость, которую допускают ползунки, в процентах от ванили. 100% = ваниль; поднимите его, чтобы еще больше осветлить темные сцены."
+}

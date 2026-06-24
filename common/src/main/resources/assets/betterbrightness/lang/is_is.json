@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Uppsetning birtustigs",
+    "betterbrightness.instruction": "Dragðu sleðann þar til hver flís passar við merkimiðann fyrir neðan",
+    "betterbrightness.done_button": "Búið",
+    "betterbrightness.slider.brightness": "Birtustig: %s%%",
+    "betterbrightness.panel.hidden": "Ætti að vera falið",
+    "betterbrightness.panel.faint": "Varla sjáanlegt",
+    "betterbrightness.panel.clear": "Greinilega sýnilegt",
+    "betterbrightness.panel.bright": "Björt",
+    "betterbrightness.short.hidden": "Falinn",
+    "betterbrightness.short.barely": "Varla",
+    "betterbrightness.short.clear": "Hreinsa",
+    "betterbrightness.short.bright": "Björt",
+    "betterbrightness.options.gamma.brightest": "Bjartasta",
+    "betterbrightness.setup_button": "Setja upp birtustig",
+    "text.autoconfig.betterbrightness.title": "Betri birtustilling",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Hámarks birta",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Mesta birta sem rennurnar leyfa, sem prósenta af vanillu. 100% = vanilla; hækka það til að lýsa dökkum senum enn frekar."
+}

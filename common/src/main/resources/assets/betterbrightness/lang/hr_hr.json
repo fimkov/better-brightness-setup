@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Postavljanje svjetline",
+    "betterbrightness.instruction": "Povucite klizač dok svaka pločica ne odgovara svojoj oznaci ispod",
+    "betterbrightness.done_button": "Gotovo",
+    "betterbrightness.slider.brightness": "Svjetlina: %s%%",
+    "betterbrightness.panel.hidden": "Trebalo bi biti skriveno",
+    "betterbrightness.panel.faint": "Jedva vidljiv",
+    "betterbrightness.panel.clear": "Jasno vidljivo",
+    "betterbrightness.panel.bright": "Svijetla",
+    "betterbrightness.short.hidden": "Skriven",
+    "betterbrightness.short.barely": "Jedva",
+    "betterbrightness.short.clear": "Jasan",
+    "betterbrightness.short.bright": "Svijetla",
+    "betterbrightness.options.gamma.brightest": "Najsjajniji",
+    "betterbrightness.setup_button": "Postavljanje svjetline",
+    "text.autoconfig.betterbrightness.title": "Bolje postavljanje svjetline",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimalna svjetlina",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Najveća svjetlina koju klizači dopuštaju, kao postotak vanilije. 100% = vanilija; podignite ga kako biste dodatno posvijetlili tamne scene."
+}

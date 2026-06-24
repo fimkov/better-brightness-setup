@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Configurare luminozitate",
+    "betterbrightness.instruction": "Trageți glisorul până când fiecare dală se potrivește cu eticheta de mai jos",
+    "betterbrightness.done_button": "Făcut",
+    "betterbrightness.slider.brightness": "Luminozitate: %s%%",
+    "betterbrightness.panel.hidden": "Ar trebui ascuns",
+    "betterbrightness.panel.faint": "Abia vizibile",
+    "betterbrightness.panel.clear": "Se vede clar",
+    "betterbrightness.panel.bright": "Luminos",
+    "betterbrightness.short.hidden": "Ascuns",
+    "betterbrightness.short.barely": "Abia",
+    "betterbrightness.short.clear": "Clar",
+    "betterbrightness.short.bright": "Luminos",
+    "betterbrightness.options.gamma.brightest": "Cel mai strălucitor",
+    "betterbrightness.setup_button": "Configurați luminozitate",
+    "text.autoconfig.betterbrightness.title": "Configurare mai bună a luminozității",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Luminozitate maximă",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Cea mai mare luminozitate pe care o permit cursoarele, ca procent de vanilie. 100% = vanilie; ridicați-l pentru a lumina și mai mult scenele întunecate."
+}

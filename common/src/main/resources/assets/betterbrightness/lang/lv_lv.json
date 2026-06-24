@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Spilgtuma iestatīšana",
+    "betterbrightness.instruction": "Velciet slīdni, līdz katra flīze atbilst tālāk redzamajai etiķetei",
+    "betterbrightness.done_button": "Gatavs",
+    "betterbrightness.slider.brightness": "Spilgtums: %s%%",
+    "betterbrightness.panel.hidden": "Jāpaslēpj",
+    "betterbrightness.panel.faint": "Knapi redzams",
+    "betterbrightness.panel.clear": "Skaidri redzams",
+    "betterbrightness.panel.bright": "Gaišs",
+    "betterbrightness.short.hidden": "Slēpts",
+    "betterbrightness.short.barely": "Knapi",
+    "betterbrightness.short.clear": "Skaidrs",
+    "betterbrightness.short.bright": "Gaišs",
+    "betterbrightness.options.gamma.brightest": "Spilgtākais",
+    "betterbrightness.setup_button": "Spilgtuma iestatīšana",
+    "text.autoconfig.betterbrightness.title": "Labāka spilgtuma iestatīšana",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimālais spilgtums",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Augstākais spilgtums, ko pieļauj slīdņi, vaniļas procentos. 100% = vaniļa; paceliet to, lai vēl vairāk paspilgtinātu tumšās ainas."
+}

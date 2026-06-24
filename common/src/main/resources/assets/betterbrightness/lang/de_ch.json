@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Helligkeitseinstellung",
+    "betterbrightness.instruction": "Ziehen Sie den Schieberegler, bis jede Kachel mit der Beschriftung unten übereinstimmt",
+    "betterbrightness.done_button": "Erledigt",
+    "betterbrightness.slider.brightness": "Helligkeit: %s%%",
+    "betterbrightness.panel.hidden": "Sollte versteckt sein",
+    "betterbrightness.panel.faint": "Kaum sichtbar",
+    "betterbrightness.panel.clear": "Deutlich sichtbar",
+    "betterbrightness.panel.bright": "Hell",
+    "betterbrightness.short.hidden": "Versteckt",
+    "betterbrightness.short.barely": "Kaum",
+    "betterbrightness.short.clear": "Klar",
+    "betterbrightness.short.bright": "Hell",
+    "betterbrightness.options.gamma.brightest": "Am hellsten",
+    "betterbrightness.setup_button": "Helligkeit einstellen",
+    "text.autoconfig.betterbrightness.title": "Bessere Helligkeitseinstellung",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maximale Helligkeit",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Höchste Helligkeit, die die Schieberegler zulassen, in Prozent Vanille. 100 % = Vanille; Erhöhen Sie den Wert, um dunkle Szenen noch mehr aufzuhellen."
+}

@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Agordo de brilo",
+    "betterbrightness.instruction": "Trenu la glitilon ĝis ĉiu kahelo kongruas kun sia etikedo sube",
+    "betterbrightness.done_button": "Farita",
+    "betterbrightness.slider.brightness": "Brilo: %s%%",
+    "betterbrightness.panel.hidden": "Devus esti kaŝita",
+    "betterbrightness.panel.faint": "Apenaŭ videbla",
+    "betterbrightness.panel.clear": "Klare videbla",
+    "betterbrightness.panel.bright": "Brila",
+    "betterbrightness.short.hidden": "Kaŝita",
+    "betterbrightness.short.barely": "Apenaŭ",
+    "betterbrightness.short.clear": "Klara",
+    "betterbrightness.short.bright": "Brila",
+    "betterbrightness.options.gamma.brightest": "Plej brila",
+    "betterbrightness.setup_button": "Agordi Brilecon",
+    "text.autoconfig.betterbrightness.title": "Pli bona Agordo de Brileco",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimuma brilo",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Plej altan brilon la glitiloj permesas, kiel procento de vanilo. 100% = vanilo; levu ĝin por pli heligi malhelajn scenojn."
+}

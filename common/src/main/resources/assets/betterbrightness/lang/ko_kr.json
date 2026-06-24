@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "밝기 설정",
+    "betterbrightness.instruction": "각 타일이 아래 라벨과 일치할 때까지 슬라이더를 드래그하세요.",
+    "betterbrightness.done_button": "완료",
+    "betterbrightness.slider.brightness": "밝기: %s%%",
+    "betterbrightness.panel.hidden": "숨겨야 함",
+    "betterbrightness.panel.faint": "거의 보이지 않음",
+    "betterbrightness.panel.clear": "명확하게 보이는",
+    "betterbrightness.panel.bright": "밝은",
+    "betterbrightness.short.hidden": "숨겨진",
+    "betterbrightness.short.barely": "간신히",
+    "betterbrightness.short.clear": "분명한",
+    "betterbrightness.short.bright": "밝은",
+    "betterbrightness.options.gamma.brightest": "가장 밝음",
+    "betterbrightness.setup_button": "밝기 설정",
+    "text.autoconfig.betterbrightness.title": "더 나은 밝기 설정",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "최대 밝기",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "슬라이더가 허용하는 최고 밝기(바닐라 비율). 100% = 바닐라; 어두운 장면을 더욱 밝게 하려면 이 값을 높이세요."
+}

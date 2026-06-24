@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "إعداد السطوع",
+    "betterbrightness.instruction": "اسحب شريط التمرير حتى يتطابق كل مربع مع التسمية الخاصة به أدناه",
+    "betterbrightness.done_button": "منتهي",
+    "betterbrightness.slider.brightness": "السطوع: %s%%",
+    "betterbrightness.panel.hidden": "ينبغي أن تكون مخفية",
+    "betterbrightness.panel.faint": "بالكاد مرئية",
+    "betterbrightness.panel.clear": "مرئية بوضوح",
+    "betterbrightness.panel.bright": "ساطع",
+    "betterbrightness.short.hidden": "مختفي",
+    "betterbrightness.short.barely": "بالكاد",
+    "betterbrightness.short.clear": "واضح",
+    "betterbrightness.short.bright": "ساطع",
+    "betterbrightness.options.gamma.brightest": "ألمع",
+    "betterbrightness.setup_button": "سطوع الإعداد",
+    "text.autoconfig.betterbrightness.title": "إعداد أفضل للسطوع",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "أقصى سطوع",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "أعلى سطوع تسمح به أشرطة التمرير، كنسبة مئوية من الفانيليا. 100% = فانيليا؛ ارفعه لزيادة سطوع المشاهد المظلمة."
+}

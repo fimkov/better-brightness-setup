@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "การตั้งค่าความสว่าง",
+    "betterbrightness.instruction": "ลากแถบเลื่อนจนกระทั่งแต่ละไทล์ตรงกับป้ายกำกับด้านล่าง",
+    "betterbrightness.done_button": "เสร็จแล้ว",
+    "betterbrightness.slider.brightness": "ความสว่าง: %s%%",
+    "betterbrightness.panel.hidden": "ควรจะซ่อนไว้.",
+    "betterbrightness.panel.faint": "แทบมองไม่เห็น",
+    "betterbrightness.panel.clear": "มองเห็นได้ชัดเจน",
+    "betterbrightness.panel.bright": "สว่าง",
+    "betterbrightness.short.hidden": "ที่ซ่อนอยู่",
+    "betterbrightness.short.barely": "แทบจะไม่",
+    "betterbrightness.short.clear": "ชัดเจน",
+    "betterbrightness.short.bright": "สว่าง",
+    "betterbrightness.options.gamma.brightest": "สว่างที่สุด",
+    "betterbrightness.setup_button": "ตั้งค่าความสว่าง",
+    "text.autoconfig.betterbrightness.title": "การตั้งค่าความสว่างที่ดีขึ้น",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "ความสว่างสูงสุด",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "ความสว่างสูงสุดที่แถบเลื่อนอนุญาต โดยคิดเป็นเปอร์เซ็นต์ของวานิลลา 100% = วานิลลา; ยกระดับให้ฉากมืดดูสว่างยิ่งขึ้น"
+}

@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Opsætning af lysstyrke",
+    "betterbrightness.instruction": "Træk skyderen, indtil hver flise matcher dens etiket nedenfor",
+    "betterbrightness.done_button": "Færdig",
+    "betterbrightness.slider.brightness": "Lysstyrke: %s%%",
+    "betterbrightness.panel.hidden": "Bør skjules",
+    "betterbrightness.panel.faint": "Knap synligt",
+    "betterbrightness.panel.clear": "Tydeligt synligt",
+    "betterbrightness.panel.bright": "Lyse",
+    "betterbrightness.short.hidden": "Skjult",
+    "betterbrightness.short.barely": "Knap",
+    "betterbrightness.short.clear": "Klar",
+    "betterbrightness.short.bright": "Lyse",
+    "betterbrightness.options.gamma.brightest": "Lyseste",
+    "betterbrightness.setup_button": "Indstil lysstyrke",
+    "text.autoconfig.betterbrightness.title": "Bedre lysstyrkeopsætning",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimal lysstyrke",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Højeste lysstyrke skyderne tillader, som en procent af vanilje. 100% = vanilje; hæv den for at gøre mørke scener lysere yderligere."
+}

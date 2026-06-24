@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Suidheachadh soilleireachd",
+    "betterbrightness.instruction": "Slaod an sleamhnag gus am bi gach leacag a rèir an leubail gu h-ìosal",
+    "betterbrightness.done_button": "Dèanta",
+    "betterbrightness.slider.brightness": "Gile: %sZ%%",
+    "betterbrightness.panel.hidden": "Bu chòir a bhith falaichte",
+    "betterbrightness.panel.faint": "Is gann ri fhaicinn",
+    "betterbrightness.panel.clear": "Gu soilleir ri fhaicinn",
+    "betterbrightness.panel.bright": "Gile",
+    "betterbrightness.short.hidden": "Falaichte",
+    "betterbrightness.short.barely": "Is gann",
+    "betterbrightness.short.clear": "Soilleir",
+    "betterbrightness.short.bright": "Gile",
+    "betterbrightness.options.gamma.brightest": "Nas soilleire",
+    "betterbrightness.setup_button": "Suidheachadh Brightness",
+    "text.autoconfig.betterbrightness.title": "Suidheachadh soilleireachd nas fheàrr",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "An soilleireachd as àirde",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "An soilleireachd as àirde a cheadaicheas na sleamhnagan, mar cheudad de vanilla. 100% = vanilla; tog e gus seallaidhean dorcha a shoilleireachadh nas fhaide."
+}

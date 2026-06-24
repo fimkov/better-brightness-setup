@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Inställning av ljusstyrka",
+    "betterbrightness.instruction": "Dra skjutreglaget tills varje bricka matchar dess etikett nedan",
+    "betterbrightness.done_button": "Gjort",
+    "betterbrightness.slider.brightness": "Ljusstyrka: %s%%",
+    "betterbrightness.panel.hidden": "Bör döljas",
+    "betterbrightness.panel.faint": "Knappt synligt",
+    "betterbrightness.panel.clear": "Tydligt synligt",
+    "betterbrightness.panel.bright": "Ljus",
+    "betterbrightness.short.hidden": "Dold",
+    "betterbrightness.short.barely": "Nätt och jämnt",
+    "betterbrightness.short.clear": "Rensa",
+    "betterbrightness.short.bright": "Ljus",
+    "betterbrightness.options.gamma.brightest": "Ljusast",
+    "betterbrightness.setup_button": "Ställ in ljusstyrka",
+    "text.autoconfig.betterbrightness.title": "Bättre inställning av ljusstyrka",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maximal ljusstyrka",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Högsta ljusstyrka som reglagen tillåter, i procent av vanilj. 100% = vanilj; höj den för att lysa upp mörka scener ytterligare."
+}

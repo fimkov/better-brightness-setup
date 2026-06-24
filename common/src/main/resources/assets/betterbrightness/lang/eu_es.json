@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Distira konfigurazioa",
+    "betterbrightness.instruction": "Arrastatu graduatzailea fitxa bakoitza bere etiketarekin bat datorren arte",
+    "betterbrightness.done_button": "Eginda",
+    "betterbrightness.slider.brightness": "Distira: %s%%",
+    "betterbrightness.panel.hidden": "Ezkutatu egin behar da",
+    "betterbrightness.panel.faint": "Ozta-ozta ikusten",
+    "betterbrightness.panel.clear": "Argi eta garbi ikusten da",
+    "betterbrightness.panel.bright": "Distiratsua",
+    "betterbrightness.short.hidden": "Ezkutuan",
+    "betterbrightness.short.barely": "Ozta-ozta",
+    "betterbrightness.short.clear": "Garbi",
+    "betterbrightness.short.bright": "Distiratsua",
+    "betterbrightness.options.gamma.brightest": "Distiratsuena",
+    "betterbrightness.setup_button": "Konfiguratu Distira",
+    "text.autoconfig.betterbrightness.title": "Distira konfigurazio hobea",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Distira maximoa",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Irristatzaileek ahalbidetzen duten distira handiena, bainilaren ehuneko gisa. % 100 = bainila; altxa ezazu eszena ilunak gehiago argitzeko."
+}

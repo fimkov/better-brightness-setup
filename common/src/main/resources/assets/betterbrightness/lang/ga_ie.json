@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Socrú Gile",
+    "betterbrightness.instruction": "Tarraing an sleamhnán go dtí go dtagann gach tíl lena lipéad thíos",
+    "betterbrightness.done_button": "Déanta",
+    "betterbrightness.slider.brightness": "Gile: %sZ%%",
+    "betterbrightness.panel.hidden": "Ba chóir a bheith i bhfolach",
+    "betterbrightness.panel.faint": "Ar éigean le feiceáil",
+    "betterbrightness.panel.clear": "Le feiceáil go soiléir",
+    "betterbrightness.panel.bright": "Geal",
+    "betterbrightness.short.hidden": "i bhfolach",
+    "betterbrightness.short.barely": "Ar éigean",
+    "betterbrightness.short.clear": "Glan",
+    "betterbrightness.short.bright": "Geal",
+    "betterbrightness.options.gamma.brightest": "Is gile",
+    "betterbrightness.setup_button": "Socrú Gile",
+    "text.autoconfig.betterbrightness.title": "Socrú Gile Níos Fearr",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Gile uasta",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Gile is airde a cheadaíonn na sleamhnáin, mar faoin gcéad de vanilla. 100% = fanaile; ardaigh é chun radhairc dhorcha a ghealú tuilleadh."
+}

@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Brightness Setup",
+    "betterbrightness.instruction": "Drag the slider until each tile matches its label below",
+    "betterbrightness.done_button": "Done",
+    "betterbrightness.slider.brightness": "Brightness: %s%%",
+    "betterbrightness.panel.hidden": "Should be hidden",
+    "betterbrightness.panel.faint": "Barely visible",
+    "betterbrightness.panel.clear": "Clearly visible",
+    "betterbrightness.panel.bright": "Bright",
+    "betterbrightness.short.hidden": "Hidden",
+    "betterbrightness.short.barely": "Barely",
+    "betterbrightness.short.clear": "Clear",
+    "betterbrightness.short.bright": "Bright",
+    "betterbrightness.options.gamma.brightest": "Brightest",
+    "betterbrightness.setup_button": "Setup Brightness",
+    "text.autoconfig.betterbrightness.title": "Better Brightness Setup",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maximum brightness",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Highest brightness the sliders allow, as a percent of vanilla. 100% = vanilla; raise it to brighten dark scenes further."
+}

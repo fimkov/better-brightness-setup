@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Hellegkeet Setup",
+    "betterbrightness.instruction": "Zréck de Schieber bis all Fliesen mat sengem Label entsprécht",
+    "betterbrightness.done_button": "Gemaach",
+    "betterbrightness.slider.brightness": "Hellegkeet: %s%%",
+    "betterbrightness.panel.hidden": "Sollt verstoppt ginn",
+    "betterbrightness.panel.faint": "Kaum sichtbar",
+    "betterbrightness.panel.clear": "Kloer ze gesinn",
+    "betterbrightness.panel.bright": "Hell",
+    "betterbrightness.short.hidden": "Verstoppt",
+    "betterbrightness.short.barely": "Kaum",
+    "betterbrightness.short.clear": "Kloer",
+    "betterbrightness.short.bright": "Hell",
+    "betterbrightness.options.gamma.brightest": "Hellegst",
+    "betterbrightness.setup_button": "Setup Hellegkeet",
+    "text.autoconfig.betterbrightness.title": "Besser Hellegkeet Setup",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maximal Hellegkeet",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Héchst Hellegkeet erlaben d'Sliders, als Prozentsaz vun Vanille. 100% = Vanille; erhéijen et fir däischter Szenen méi hell ze maachen."
+}

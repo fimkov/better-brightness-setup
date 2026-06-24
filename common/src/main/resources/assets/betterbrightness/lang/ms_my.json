@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Persediaan Kecerahan",
+    "betterbrightness.instruction": "Seret peluncur sehingga setiap jubin sepadan dengan labelnya di bawah",
+    "betterbrightness.done_button": "Selesai",
+    "betterbrightness.slider.brightness": "Kecerahan: %s%%",
+    "betterbrightness.panel.hidden": "Patut disembunyikan",
+    "betterbrightness.panel.faint": "Hampir tidak kelihatan",
+    "betterbrightness.panel.clear": "Jelas kelihatan",
+    "betterbrightness.panel.bright": "Terang",
+    "betterbrightness.short.hidden": "Tersembunyi",
+    "betterbrightness.short.barely": "Hampir tidak",
+    "betterbrightness.short.clear": "Jelas",
+    "betterbrightness.short.bright": "Terang",
+    "betterbrightness.options.gamma.brightest": "Paling terang",
+    "betterbrightness.setup_button": "Persediaan Kecerahan",
+    "text.autoconfig.betterbrightness.title": "Persediaan Kecerahan yang Lebih Baik",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Kecerahan maksimum",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Kecerahan tertinggi yang dibenarkan oleh peluncur, sebagai peratusan vanila. 100% = vanila; menaikkannya untuk mencerahkan lagi pemandangan gelap."
+}

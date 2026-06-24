@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Nastavenie jasu",
+    "betterbrightness.instruction": "Ťahajte posúvač, kým sa každá dlaždica nezhoduje s jej štítkom nižšie",
+    "betterbrightness.done_button": "Hotovo",
+    "betterbrightness.slider.brightness": "Jas: %s%%",
+    "betterbrightness.panel.hidden": "Malo by byť skryté",
+    "betterbrightness.panel.faint": "Sotva viditeľné",
+    "betterbrightness.panel.clear": "Jasne viditeľné",
+    "betterbrightness.panel.bright": "Svetlý",
+    "betterbrightness.short.hidden": "Skryté",
+    "betterbrightness.short.barely": "Sotva",
+    "betterbrightness.short.clear": "Jasné",
+    "betterbrightness.short.bright": "Svetlý",
+    "betterbrightness.options.gamma.brightest": "Najjasnejšie",
+    "betterbrightness.setup_button": "Nastavenie jasu",
+    "text.autoconfig.betterbrightness.title": "Lepšie nastavenie jasu",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maximálny jas",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Najvyšší jas, aký umožňujú posúvače, ako percento vanilky. 100 % = vanilka; zvýšte ho, aby ste ešte viac rozjasnili tmavé scény."
+}

@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Налада яркасці",
+    "betterbrightness.instruction": "Перацягніце паўзунок, пакуль кожная плітка не будзе супадаць з пазнакай ніжэй",
+    "betterbrightness.done_button": "Гатова",
+    "betterbrightness.slider.brightness": "Яркасць: %s%%",
+    "betterbrightness.panel.hidden": "Варта схаваць",
+    "betterbrightness.panel.faint": "Ледзь відаць",
+    "betterbrightness.panel.clear": "Добра відаць",
+    "betterbrightness.panel.bright": "Яркая",
+    "betterbrightness.short.hidden": "Схаваны",
+    "betterbrightness.short.barely": "Ледзьве",
+    "betterbrightness.short.clear": "Ясна",
+    "betterbrightness.short.bright": "Яркая",
+    "betterbrightness.options.gamma.brightest": "Самы яркі",
+    "betterbrightness.setup_button": "Наладзіць яркасць",
+    "text.autoconfig.betterbrightness.title": "Лепшая налада яркасці",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Максімальная яркасць",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Самая высокая яркасць, якую дазваляюць паўзункі, у працэнтах ванілі. 100% = ваніль; падніміце яго, каб яшчэ больш асвятліць цёмныя сцэны."
+}

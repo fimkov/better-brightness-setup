@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Setup ng Liwanag",
+    "betterbrightness.instruction": "I-drag ang slider hanggang sa tumugma ang bawat tile sa label nito sa ibaba",
+    "betterbrightness.done_button": "Tapos na",
+    "betterbrightness.slider.brightness": "Liwanag: %s%%",
+    "betterbrightness.panel.hidden": "Dapat nakatago",
+    "betterbrightness.panel.faint": "Halos hindi nakikita",
+    "betterbrightness.panel.clear": "Malinaw na nakikita",
+    "betterbrightness.panel.bright": "Maliwanag",
+    "betterbrightness.short.hidden": "Nakatago",
+    "betterbrightness.short.barely": "bahagya",
+    "betterbrightness.short.clear": "Maaliwalas",
+    "betterbrightness.short.bright": "Maliwanag",
+    "betterbrightness.options.gamma.brightest": "Pinakamaliwanag",
+    "betterbrightness.setup_button": "I-setup ang Liwanag",
+    "text.autoconfig.betterbrightness.title": "Mas mahusay na Pag-setup ng Liwanag",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Pinakamataas na liwanag",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Pinakamataas na liwanag na pinapayagan ng mga slider, bilang isang porsyento ng vanilla. 100% = banilya; itaas ito para lalong magpatingkad ng mga madilim na eksena."
+}

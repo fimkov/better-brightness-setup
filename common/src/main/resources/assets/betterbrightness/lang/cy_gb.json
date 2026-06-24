@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Gosod Disgleirdeb",
+    "betterbrightness.instruction": "Llusgwch y llithrydd nes bod pob teils yn cyfateb i'w label isod",
+    "betterbrightness.done_button": "Wedi'i wneud",
+    "betterbrightness.slider.brightness": "Disgleirdeb: %s%%",
+    "betterbrightness.panel.hidden": "Dylid ei guddio",
+    "betterbrightness.panel.faint": "Prin yn weladwy",
+    "betterbrightness.panel.clear": "Yn amlwg yn weladwy",
+    "betterbrightness.panel.bright": "Disglair",
+    "betterbrightness.short.hidden": "Cudd",
+    "betterbrightness.short.barely": "Prin",
+    "betterbrightness.short.clear": "Clir",
+    "betterbrightness.short.bright": "Disglair",
+    "betterbrightness.options.gamma.brightest": "Disgleiriaf",
+    "betterbrightness.setup_button": "Disgleirdeb Gosod",
+    "text.autoconfig.betterbrightness.title": "Gwell Gosodiad Disgleirdeb",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Uchafswm disgleirdeb",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Y disgleirdeb uchaf y mae'r llithryddion yn ei ganiatáu, fel y cant o fanila. 100% = fanila; ei godi i fywiogi golygfeydd tywyll ymhellach."
+}

@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "تنظیم روشنایی",
+    "betterbrightness.instruction": "نوار لغزنده را بکشید تا هر کاشی با برچسب خود در زیر مطابقت داشته باشد",
+    "betterbrightness.done_button": "انجام شد",
+    "betterbrightness.slider.brightness": "روشنایی: %s%%",
+    "betterbrightness.panel.hidden": "باید پنهان شود",
+    "betterbrightness.panel.faint": "به سختی قابل مشاهده است",
+    "betterbrightness.panel.clear": "به وضوح قابل مشاهده است",
+    "betterbrightness.panel.bright": "روشن",
+    "betterbrightness.short.hidden": "پنهان شده است",
+    "betterbrightness.short.barely": "به سختی",
+    "betterbrightness.short.clear": "پاک کردن",
+    "betterbrightness.short.bright": "روشن",
+    "betterbrightness.options.gamma.brightest": "روشن ترین",
+    "betterbrightness.setup_button": "تنظیم روشنایی",
+    "text.autoconfig.betterbrightness.title": "تنظیم بهتر روشنایی",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "حداکثر روشنایی",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "بالاترین روشنایی که لغزنده اجازه می دهد، به عنوان درصد وانیل. 100٪ = وانیل؛ آن را بالا ببرید تا صحنه های تاریک بیشتر روشن شود."
+}

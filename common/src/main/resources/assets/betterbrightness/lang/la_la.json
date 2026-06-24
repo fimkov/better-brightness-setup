@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "splendor Setup",
+    "betterbrightness.instruction": "Trahunt labor lapsus donec se tegula aequet suum pittacium infra",
+    "betterbrightness.done_button": "Done",
+    "betterbrightness.slider.brightness": "Splendor: %s%%",
+    "betterbrightness.panel.hidden": "Si occultari",
+    "betterbrightness.panel.faint": "Vix visibilis",
+    "betterbrightness.panel.clear": "Evidenter visibilis",
+    "betterbrightness.panel.bright": "Splendida",
+    "betterbrightness.short.hidden": "Occultus",
+    "betterbrightness.short.barely": "Vix",
+    "betterbrightness.short.clear": "Patet",
+    "betterbrightness.short.bright": "Splendida",
+    "betterbrightness.options.gamma.brightest": "Brightest",
+    "betterbrightness.setup_button": "Setup splendor",
+    "text.autoconfig.betterbrightness.title": "Melior claritas PRAEFIXUS",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maxima claritas",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Summa claritas iunctae sino, ut cento vanilla. 100% = vanilla; resuscitet eam, ut lucidus scenas adhuc obscurat."
+}

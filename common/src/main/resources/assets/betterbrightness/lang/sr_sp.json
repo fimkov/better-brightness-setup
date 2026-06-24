@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Бригхтнесс Сетуп",
+    "betterbrightness.instruction": "Превуците клизач док се свака плочица не поклопи са ознаком испод",
+    "betterbrightness.done_button": "Готово",
+    "betterbrightness.slider.brightness": "Brightness: %s%%",
+    "betterbrightness.panel.hidden": "Требало би да буде скривено",
+    "betterbrightness.panel.faint": "Једва видљиво",
+    "betterbrightness.panel.clear": "Јасно видљиво",
+    "betterbrightness.panel.bright": "Бригхт",
+    "betterbrightness.short.hidden": "Скривено",
+    "betterbrightness.short.barely": "Једва",
+    "betterbrightness.short.clear": "Јасно",
+    "betterbrightness.short.bright": "Бригхт",
+    "betterbrightness.options.gamma.brightest": "Најсветлије",
+    "betterbrightness.setup_button": "Сетуп Бригхтнесс",
+    "text.autoconfig.betterbrightness.title": "Боље подешавање осветљености",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Максимална осветљеност",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Највећа осветљеност коју клизачи дозвољавају, као проценат ваниле. 100% = ванила; подигните га да додатно осветлите мрачне сцене."
+}

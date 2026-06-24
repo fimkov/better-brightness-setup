@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "亮度设置",
+    "betterbrightness.instruction": "拖动滑块，直到每个图块与其下面的标签匹配",
+    "betterbrightness.done_button": "完毕",
+    "betterbrightness.slider.brightness": "亮度：%s%%",
+    "betterbrightness.panel.hidden": "应该隐藏",
+    "betterbrightness.panel.faint": "几乎看不见",
+    "betterbrightness.panel.clear": "清晰可见",
+    "betterbrightness.panel.bright": "明亮的",
+    "betterbrightness.short.hidden": "隐",
+    "betterbrightness.short.barely": "仅仅",
+    "betterbrightness.short.clear": "清除",
+    "betterbrightness.short.bright": "明亮的",
+    "betterbrightness.options.gamma.brightest": "最亮",
+    "betterbrightness.setup_button": "设置亮度",
+    "text.autoconfig.betterbrightness.title": "更好的亮度设置",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "最大亮度",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "滑块允许的最高亮度，以香草的百分比表示。 100% = 香草；将其调高可进一步提亮黑暗场景。"
+}

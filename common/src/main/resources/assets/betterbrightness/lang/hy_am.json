@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Պայծառության կարգավորում",
+    "betterbrightness.instruction": "Քաշեք սահիչը, մինչև յուրաքանչյուր սալիկ համընկնի ստորև նշված իր պիտակի վրա",
+    "betterbrightness.done_button": "Կատարված է",
+    "betterbrightness.slider.brightness": "Պայծառություն՝ %s%%",
+    "betterbrightness.panel.hidden": "Պետք է թաքցնել",
+    "betterbrightness.panel.faint": "Հազիվ տեսանելի",
+    "betterbrightness.panel.clear": "Հստակ տեսանելի",
+    "betterbrightness.panel.bright": "Պայծառ",
+    "betterbrightness.short.hidden": "Թաքնված",
+    "betterbrightness.short.barely": "Հազիվ",
+    "betterbrightness.short.clear": "Պարզ",
+    "betterbrightness.short.bright": "Պայծառ",
+    "betterbrightness.options.gamma.brightest": "Ամենապայծառ",
+    "betterbrightness.setup_button": "Կարգավորեք պայծառությունը",
+    "text.autoconfig.betterbrightness.title": "Ավելի լավ պայծառության կարգավորում",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Առավելագույն պայծառություն",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Ամենաբարձր պայծառությունը, որ թույլ են տալիս սահիկները՝ որպես վանիլի տոկոս: 100% = վանիլին; բարձրացրեք այն՝ մութ տեսարաններն ավելի պայծառացնելու համար:"
+}

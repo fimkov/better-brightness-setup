@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "הגדרת בהירות",
+    "betterbrightness.instruction": "גרור את המחוון עד שכל אריח תואם את התווית שלו למטה",
+    "betterbrightness.done_button": "נַעֲשָׂה",
+    "betterbrightness.slider.brightness": "בהירות: %s%%",
+    "betterbrightness.panel.hidden": "צריך להיות מוסתר",
+    "betterbrightness.panel.faint": "בקושי נראה",
+    "betterbrightness.panel.clear": "גלוי בבירור",
+    "betterbrightness.panel.bright": "בָּהִיר",
+    "betterbrightness.short.hidden": "מוּסתָר",
+    "betterbrightness.short.barely": "בְּקוֹשִׁי",
+    "betterbrightness.short.clear": "בָּרוּר",
+    "betterbrightness.short.bright": "בָּהִיר",
+    "betterbrightness.options.gamma.brightest": "הכי בהיר",
+    "betterbrightness.setup_button": "הגדר בהירות",
+    "text.autoconfig.betterbrightness.title": "הגדרת בהירות טובה יותר",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "בהירות מרבית",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "הבהירות הגבוהה ביותר שהמחוונים מאפשרים, כאחוז וניל. 100% = וניל; להעלות אותו כדי להאיר עוד סצנות אפלות."
+}

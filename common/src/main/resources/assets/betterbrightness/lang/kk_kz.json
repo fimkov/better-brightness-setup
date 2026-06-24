@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Жарықтықты орнату",
+    "betterbrightness.instruction": "Әрбір тақта төмендегі белгіге сәйкес келгенше жүгірткіні сүйреңіз",
+    "betterbrightness.done_button": "Дайын",
+    "betterbrightness.slider.brightness": "Жарықтық: %s%%",
+    "betterbrightness.panel.hidden": "Жасырыну керек",
+    "betterbrightness.panel.faint": "Әрең көрінеді",
+    "betterbrightness.panel.clear": "Айқын көрінеді",
+    "betterbrightness.panel.bright": "Жарқын",
+    "betterbrightness.short.hidden": "Жасырын",
+    "betterbrightness.short.barely": "Әрең",
+    "betterbrightness.short.clear": "Таза",
+    "betterbrightness.short.bright": "Жарқын",
+    "betterbrightness.options.gamma.brightest": "Ең жарқын",
+    "betterbrightness.setup_button": "Жарықтықты орнату",
+    "text.autoconfig.betterbrightness.title": "Жақсырақ жарықтық орнату",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Максималды жарықтық",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Ванильдің пайызы ретінде сырғытпалар рұқсат ететін ең жоғары жарықтық. 100% = ваниль; қараңғы көріністерді одан әрі жарықтандыру үшін оны көтеріңіз."
+}

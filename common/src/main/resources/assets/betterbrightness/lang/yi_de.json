@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "ברייטנאַס סעטאַפּ",
+    "betterbrightness.instruction": "שלעפּן די סליידער ביז יעדער קאַכל גלייַכן זיין פירמע אונטן",
+    "betterbrightness.done_button": "געטאן",
+    "betterbrightness.slider.brightness": "ברייטנאַס: %s%%",
+    "betterbrightness.panel.hidden": "זאָל זייַן פאַרבאָרגן",
+    "betterbrightness.panel.faint": "קוים קענטיק",
+    "betterbrightness.panel.clear": "קלאר קענטיק",
+    "betterbrightness.panel.bright": "העל",
+    "betterbrightness.short.hidden": "פאַרבאָרגן",
+    "betterbrightness.short.barely": "קוים",
+    "betterbrightness.short.clear": "קלאָר",
+    "betterbrightness.short.bright": "העל",
+    "betterbrightness.options.gamma.brightest": "העלסטע",
+    "betterbrightness.setup_button": "סעטאַפּ ברייטנאַס",
+    "text.autoconfig.betterbrightness.title": "בעסער ברייטנאַס סעטאַפּ",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "מאַקסימום ברייטנאַס",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "העכסטן ברייטנאַס די סלידערס לאָזן, ווי אַ פּראָצענט פון וואַניל. 100% = וואַניל; כאַפּן עס צו ברייטאַן פינצטער סינז ווייַטער."
+}

@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Гэрэлтүүлгийн тохиргоо",
+    "betterbrightness.instruction": "Хавтан бүр доор байгаа шошготой таарах хүртэл гулсагчийг чир",
+    "betterbrightness.done_button": "Дууслаа",
+    "betterbrightness.slider.brightness": "Гэрэлтүүлэг: %s%%",
+    "betterbrightness.panel.hidden": "Нууцлах ёстой",
+    "betterbrightness.panel.faint": "Бараг харагдахгүй",
+    "betterbrightness.panel.clear": "Тодорхой харагдаж байна",
+    "betterbrightness.panel.bright": "Гэрэлт",
+    "betterbrightness.short.hidden": "Нуугдсан",
+    "betterbrightness.short.barely": "Дөнгөж",
+    "betterbrightness.short.clear": "Тодорхой",
+    "betterbrightness.short.bright": "Гэрэлт",
+    "betterbrightness.options.gamma.brightest": "Хамгийн тод",
+    "betterbrightness.setup_button": "Гэрэлтүүлгийг тохируулах",
+    "text.autoconfig.betterbrightness.title": "Илүү сайн гэрэлтүүлгийн тохиргоо",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Хамгийн их тод байдал",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Гулсагчуудын зөвшөөрөгдсөн хамгийн дээд тод байдал нь ванилийн хувиар. 100% = ваниллин; харанхуй үзэгдлүүдийг илүү гэрэлтүүлэхийн тулд үүнийг дээшлүүлнэ."
+}

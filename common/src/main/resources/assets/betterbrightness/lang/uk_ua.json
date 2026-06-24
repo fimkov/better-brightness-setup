@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Налаштування яскравості",
+    "betterbrightness.instruction": "Перетягуйте повзунок, доки кожна плитка не збігатиметься з міткою нижче",
+    "betterbrightness.done_button": "Готово",
+    "betterbrightness.slider.brightness": "Яскравість: %s%%",
+    "betterbrightness.panel.hidden": "Слід приховати",
+    "betterbrightness.panel.faint": "Ледве видно",
+    "betterbrightness.panel.clear": "Чітко видно",
+    "betterbrightness.panel.bright": "Яскравий",
+    "betterbrightness.short.hidden": "Прихований",
+    "betterbrightness.short.barely": "Ледве",
+    "betterbrightness.short.clear": "ясно",
+    "betterbrightness.short.bright": "Яскравий",
+    "betterbrightness.options.gamma.brightest": "Найяскравіший",
+    "betterbrightness.setup_button": "Налаштувати яскравість",
+    "text.autoconfig.betterbrightness.title": "Краще налаштування яскравості",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Максимальна яскравість",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Найвища яскравість, яку дозволяють повзунки, як відсоток ванілі. 100% = ваніль; підніміть його, щоб ще більше освітлити темні сцени."
+}
