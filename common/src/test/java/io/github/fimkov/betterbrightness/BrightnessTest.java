@@ -6,13 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BrightnessTest {
     @Test void mapsSliderEndpointsAndMidpoint() {
+        // no-arg delegates to maxPercent() which returns MIN_PERCENT=100 in tests (config not loaded)
         assertEquals(0.0, Brightness.sliderToGamma(0.0), 1e-9);
-        assertEquals(2.0, Brightness.sliderToGamma(1.0), 1e-9);
-        assertEquals(1.0, Brightness.sliderToGamma(0.5), 1e-9);
+        assertEquals(1.0, Brightness.sliderToGamma(1.0), 1e-9);  // 100% default: gamma 0..1
+        assertEquals(0.5, Brightness.sliderToGamma(0.5), 1e-9);
     }
     @Test void clampsSliderOutOfRange() {
         assertEquals(0.0, Brightness.sliderToGamma(-3.0), 1e-9);
-        assertEquals(2.0, Brightness.sliderToGamma(7.0), 1e-9);
+        assertEquals(1.0, Brightness.sliderToGamma(7.0), 1e-9);  // clamped at maxPercent/100 = 1.0
     }
     @Test void displayedBrightnessFollowsMcGammaCurve() {
         // A pure-black light level (0) stays black, a full light level (1) stays full — for any gamma.
@@ -40,5 +41,24 @@ class BrightnessTest {
         assertEquals(1.0, Brightness.lerp(0.0, 1.0, 1.0), 1e-9);
         assertEquals(0.5, Brightness.lerp(0.0, 1.0, 0.5), 1e-9);
         assertEquals(1.0, Brightness.lerp(0.0, 1.0, 5.0), 1e-9); // t clamped to 1
+    }
+
+    // --- sliderToGamma(t, maxPercent) overload ---
+    @Test void sliderToGammaWithMaxPercentZeroT() {
+        assertEquals(0.0, Brightness.sliderToGamma(0.0, 100), 1e-9);
+        assertEquals(0.0, Brightness.sliderToGamma(0.0, 200), 1e-9);
+        assertEquals(0.0, Brightness.sliderToGamma(0.0, 500), 1e-9);
+    }
+    @Test void sliderToGammaWithMaxPercentFullT() {
+        assertEquals(1.0, Brightness.sliderToGamma(1.0, 100), 1e-9);
+        assertEquals(2.0, Brightness.sliderToGamma(1.0, 200), 1e-9);
+        assertEquals(5.0, Brightness.sliderToGamma(1.0, 500), 1e-9);
+    }
+    @Test void sliderToGammaWithMaxPercentMidT() {
+        assertEquals(1.0, Brightness.sliderToGamma(0.5, 200), 1e-9);
+    }
+    @Test void sliderToGammaWithMaxPercentClampsT() {
+        // t > 1.0 is clamped to 1.0, so result is maxPercent/100
+        assertEquals(1.0, Brightness.sliderToGamma(2.0, 100), 1e-9);
     }
 }

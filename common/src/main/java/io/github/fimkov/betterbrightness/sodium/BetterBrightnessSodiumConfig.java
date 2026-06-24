@@ -1,5 +1,6 @@
 package io.github.fimkov.betterbrightness.sodium;
 
+import io.github.fimkov.betterbrightness.BetterBrightnessConfig;
 import net.caffeinemc.mods.sodium.api.config.ConfigEntryPoint;
 import net.caffeinemc.mods.sodium.api.config.ConfigEntryPointForge;
 import net.caffeinemc.mods.sodium.api.config.structure.ConfigBuilder;
@@ -28,7 +29,7 @@ public final class BetterBrightnessSodiumConfig implements ConfigEntryPoint {
                 .registerOptionOverlay(
                         gammaId,
                         builder.createIntegerOption(gammaId)
-                                .setRange(0, 200, 1)
+                                .setRange(0, BetterBrightnessConfig.maxPercent(), 1)
                                 .setValueFormatter(value -> Component.literal(value + "%"))
                                 .setBinding(
                                         value -> Minecraft.getInstance().options.gamma().set(value * 0.01D),

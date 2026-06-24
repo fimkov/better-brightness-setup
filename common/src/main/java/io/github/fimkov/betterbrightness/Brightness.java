@@ -3,9 +3,18 @@ package io.github.fimkov.betterbrightness;
 public final class Brightness {
     private Brightness() {}
 
-    /** slider t in [0,1] -> gamma in [0.0, 2.0] (vanilla min .. 2x vanilla max), clamped. */
+    /**
+     * slider t in [0,1] -> gamma scaled by {@code maxPercent/100.0}, clamped.
+     * At maxPercent=100 (vanilla default) this returns t (gamma 0..1); at 200 it doubles to 0..2,
+     * at 500 it quintuples to 0..5. t is clamped to [0,1] before scaling.
+     */
+    public static double sliderToGamma(double t, int maxPercent) {
+        return clamp01(t) * (maxPercent / 100.0);
+    }
+
+    /** slider t in [0,1] -> gamma using the live configured max brightness, clamped. */
     public static double sliderToGamma(double t) {
-        return clamp01(t) * 2.0;
+        return sliderToGamma(t, BetterBrightnessConfig.maxPercent());
     }
 
     /**
