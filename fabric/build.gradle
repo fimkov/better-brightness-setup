@@ -28,6 +28,9 @@ dependencies {
 
     // Sodium 0.9.0 compile-only for Fabric. NOT shipped with the mod (soft optional dep).
     modCompileOnly "maven.modrinth:sodium:mc26.2-0.9.0-fabric"
+
+    // Cloth Config: REQUIRED runtime dependency (provides the AutoConfig holder at runtime).
+    modImplementation "maven.modrinth:cloth-config:26.2.155+fabric"
 }
 
 processResources {

@@ -33,6 +33,9 @@ dependencies {
 
     // Sodium 0.9.0 compile-only for NeoForge. NOT shipped with the mod (soft optional dep).
     compileOnly "maven.modrinth:sodium:mc26.2-0.9.0-neoforge"
+
+    // Cloth Config: REQUIRED runtime dependency (provides the AutoConfig holder at runtime).
+    modImplementation "maven.modrinth:cloth-config:26.2.155+neoforge"
 }
 
 processResources {
