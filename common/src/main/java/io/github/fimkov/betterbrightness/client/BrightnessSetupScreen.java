@@ -79,8 +79,9 @@ public class BrightnessSetupScreen extends Screen {
     }
 
     /** Slider label: "Brightness: NNN%" using the 0..200 scale. */
-    private static String sliderLabel(double sliderValue) {
-        return "Brightness: " + Brightness.toPercent(Brightness.sliderToGamma(sliderValue)) + "%";
+    private static Component sliderLabel(double sliderValue) {
+        return Component.translatable("betterbrightness.slider.brightness",
+                Brightness.toPercent(Brightness.sliderToGamma(sliderValue)));
     }
 
     @Override
@@ -91,10 +92,10 @@ public class BrightnessSetupScreen extends Screen {
 
         addRenderableWidget(new AbstractSliderButton(
                 cx - 100, this.height - 56, 200, 20,
-                Component.literal(sliderLabel(slider)), slider) {
+                sliderLabel(slider), slider) {
             @Override
             protected void updateMessage() {
-                setMessage(Component.literal(sliderLabel(this.value)));
+                setMessage(sliderLabel(this.value));
             }
 
             @Override
@@ -103,7 +104,7 @@ public class BrightnessSetupScreen extends Screen {
             }
         });
 
-        addRenderableWidget(Button.builder(Component.literal("Done"), b -> onDone())
+        addRenderableWidget(Button.builder(Component.translatable("betterbrightness.done_button"), b -> onDone())
                 .bounds(cx - 100, this.height - 30, 200, 20)
                 .build());
     }
