@@ -6,6 +6,7 @@
     "client": [
         "OptionIdAccessor",
         "OptionListWidgetMixin",
+        "ControlElementMixin",
         "SliderControlElementMixin"
     ],
     "injectors": {

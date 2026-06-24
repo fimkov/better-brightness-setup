@@ -18,25 +18,32 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.Slice;
 
 /**
- * Gives ONLY the Sodium brightness option's row ({@code sodium:general.gamma}) extra vertical
- * height — room for the 4 inline calibration icons + captions that {@link SliderControlElementMixin}
- * draws below the track. Every other row keeps Sodium's uniform {@code Layout.entryHeight(font)}.
+ * Reserves a blank vertical band <em>below</em> ONLY the Sodium brightness option's row
+ * ({@code sodium:general.gamma}) — room for the 4 inline calibration icons + captions that
+ * {@link SliderControlElementMixin} draws there. Every other row keeps Sodium's uniform
+ * {@code Layout.entryHeight(font)}.
  *
  * <p><b>How Sodium lays out rows (0.9.0, verified from bytecode).</b> {@code OptionListWidget}
  * computes one fixed {@code this.entryHeight = Layout.entryHeight(this.font)} (= {@code font.lineHeight*2})
  * and, for each option, builds {@code new Dim2i(x, y + listHeight, width, this.entryHeight)}, hands it to
  * {@code control.createElement(...)}, then advances {@code listHeight += this.entryHeight}. The control
- * does not get to declare its own height. So to make one row taller we must change BOTH the {@code Dim2i}
- * height handed to that row's element AND the matching {@code listHeight} advance, or the list geometry
- * (scroll extent, the rows below) desyncs.
+ * does not get to declare its own height.
+ *
+ * <p>We deliberately leave the gamma row's {@code Dim2i} <em>unchanged</em>: enlarging it would push the
+ * element's {@code getCenterY()} (= {@code getY()+getHeight()/2}) down and float Sodium's slider + value
+ * label in the middle of an oversized row (the "widget too big" look). Instead we inflate ONLY the
+ * {@code listHeight} advance for that one row — the element renders at normal height with its slider + label
+ * pinned to the top, and the inflated advance pushes the NEXT option down, leaving a blank band directly
+ * under the row that {@link SliderControlElementMixin} draws the icons into. (Drawing into that band is safe:
+ * {@code OptionListWidget} scissors only the whole list viewport, never per-row.)
  *
  * <p><b>Mechanism (two coordinated redirects, scoped to the gamma row).</b>
  * <ol>
  *   <li>{@code @Redirect} the single {@code Control.createElement(...)} call in each row loop
  *       ({@code renderAllPages} / {@code renderFilteredOptions}). The handler reads the bound option's id
- *       via {@link OptionIdAccessor}; for {@code sodium:general.gamma} it rebuilds the {@code Dim2i} taller
- *       by {@link #betterbrightness$extraHeight()} and records that delta in {@link #betterbrightness$extra};
- *       for every other option it sets the delta to {@code 0} and passes the dimensions through unchanged.</li>
+ *       via {@link OptionIdAccessor}; for {@code sodium:general.gamma} it records the reserve height
+ *       ({@link #betterbrightness$extraHeight()}) in {@link #betterbrightness$extra} but passes the
+ *       {@code Dim2i} through UNCHANGED; for every other option it sets the delta to {@code 0}.</li>
  *   <li>{@code @Redirect} the {@code this.entryHeight} field read that feeds {@code listHeight += entryHeight}
  *       <em>immediately after</em> {@code createElement} (isolated with a {@code @Slice} starting at the
  *       {@code createElement} invoke, so only that one read is affected), returning
@@ -69,16 +76,19 @@ public abstract class OptionListWidgetMixin {
     private int betterbrightness$extra;
 
     /**
-     * Extra vertical room reserved under the brightness slider for the icon row + per-column labels.
+     * Blank vertical room reserved <em>below</em> the brightness row for the icon row + per-column labels.
      *
-     * <p>Sodium centres its slider + value label at the row's {@code getCenterY()}, so the icons can only
-     * use the BELOW-slider half of the row (~{@code extra/2 - SLIDER_HEIGHT/2}). To fit a ~16-18px icon plus
-     * a label line there without crowding, we reserve {@code lineHeight*7} — enough below-slider room while
-     * staying clear of the next option, since the matching {@code listHeight} advance starts that next row
-     * exactly at this row's bottom.
+     * <p>We do NOT enlarge the row element's own {@code Dim2i} (that would move Sodium's
+     * {@code getCenterY()} down and float the slider + value label in the middle of an oversized row — the
+     * "widget too big" look). The element keeps its normal height, so Sodium draws the slider + label pinned
+     * to the top; we only inflate the {@code listHeight} advance by this much, which pushes the NEXT option
+     * down and leaves a blank band right under this row. {@link SliderControlElementMixin} draws the 16px
+     * icons + a label line into that band (which is safe to draw into: {@code OptionListWidget} scissors only
+     * the whole list viewport, never per-row). {@code lineHeight*4} ≈ 36px fits a 16px icon + label snugly
+     * while staying compact.
      */
     private int betterbrightness$extraHeight() {
-        return Minecraft.getInstance().font.lineHeight * 7;
+        return Minecraft.getInstance().font.lineHeight * 4;
     }
 
     /**
@@ -98,24 +108,22 @@ public abstract class OptionListWidgetMixin {
             ))
     private ControlElement betterbrightness$tallerGammaRow(
             Control control, Screen screen, AbstractOptionList list, Dim2i dim, ColorTheme theme) {
-        Dim2i useDim = dim;
         this.betterbrightness$extra = 0;
 
         try {
             Option option = control.getOption();
             Identifier id = ((OptionIdAccessor) (Object) option).betterbrightness$getId();
             if (BRIGHTNESS_OPTION_ID.equals(id)) {
-                int extra = this.betterbrightness$extraHeight();
-                this.betterbrightness$extra = extra;
-                useDim = new Dim2i(dim.x(), dim.y(), dim.width(), dim.height() + extra);
+                // Reserve blank space below this row via the listHeight advance only; the element keeps its
+                // normal Dim2i so Sodium's slider + label render pinned to the top (not floated in the centre).
+                this.betterbrightness$extra = this.betterbrightness$extraHeight();
             }
         } catch (Throwable ignored) {
             // If anything about Sodium's option model shifts, fall back to the unmodified row.
             this.betterbrightness$extra = 0;
-            useDim = dim;
         }
 
-        return control.createElement(screen, list, useDim, theme);
+        return control.createElement(screen, list, dim, theme);
     }
 
     /**
