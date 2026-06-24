@@ -68,9 +68,17 @@ public abstract class OptionListWidgetMixin {
      */
     private int betterbrightness$extra;
 
-    /** Extra vertical room reserved under the brightness slider for the icon row + captions. */
+    /**
+     * Extra vertical room reserved under the brightness slider for the icon row + per-column labels.
+     *
+     * <p>Sodium centres its slider + value label at the row's {@code getCenterY()}, so the icons can only
+     * use the BELOW-slider half of the row (~{@code extra/2 - SLIDER_HEIGHT/2}). To fit a ~16-18px icon plus
+     * a label line there without crowding, we reserve {@code lineHeight*7} — enough below-slider room while
+     * staying clear of the next option, since the matching {@code listHeight} advance starts that next row
+     * exactly at this row's bottom.
+     */
     private int betterbrightness$extraHeight() {
-        return Minecraft.getInstance().font.lineHeight * 4;
+        return Minecraft.getInstance().font.lineHeight * 7;
     }
 
     /**
