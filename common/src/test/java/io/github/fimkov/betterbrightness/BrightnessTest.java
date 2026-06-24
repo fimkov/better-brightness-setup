@@ -1,0 +1,21 @@
+package io.github.fimkov.betterbrightness;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class BrightnessTest {
+    @Test void mapsSliderEndpointsAndMidpoint() {
+        assertEquals(0.0, Brightness.sliderToGamma(0.0), 1e-9);
+        assertEquals(2.0, Brightness.sliderToGamma(1.0), 1e-9);
+        assertEquals(1.0, Brightness.sliderToGamma(0.5), 1e-9);
+    }
+    @Test void clampsSliderOutOfRange() {
+        assertEquals(0.0, Brightness.sliderToGamma(-3.0), 1e-9);
+        assertEquals(2.0, Brightness.sliderToGamma(7.0), 1e-9);
+    }
+    @Test void panelVisibilityRamps() {
+        assertEquals(0.0, Brightness.panelVisibility(0.10, 0.5), 1e-9); // below threshold -> hidden
+        assertEquals(1.0, Brightness.panelVisibility(1.50, 0.5), 1e-9); // well above -> fully visible
+        assertEquals(0.5, Brightness.panelVisibility(0.75, 0.5), 1e-9); // mid-ramp
+    }
+}
