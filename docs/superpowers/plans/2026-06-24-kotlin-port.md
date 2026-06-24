@@ -1,5 +1,7 @@
 # Kotlin Port Implementation Plan
 
+> **STATUS: DEFERRED (2026-06-24).** Blocked on `kotlinforforge-neoforge` having no Minecraft 26.2 build (newest 6.2.0 caps at `[1.21.9,26.2)`). Fabric side is ready (fabric-language-kotlin 1.13.12 / Kotlin 2.4.0). Revisit when kotlinforforge supports 26.2. See [KOTLIN-NOTES.md](KOTLIN-NOTES.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Port the "Better Brightness Setup" mod from Java to Kotlin (behavior-identical), keeping the Mixin and its ValueSet in Java, so the codebase is Kotlin for future maintenance.
