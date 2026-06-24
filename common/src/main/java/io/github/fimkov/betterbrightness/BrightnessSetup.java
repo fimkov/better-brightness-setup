@@ -48,7 +48,9 @@ public final class BrightnessSetup {
      * and the persistent marker is absent.
      */
     public static boolean shouldOpen() {
-        return !shownThisSession && !Marker.isDone(Platform.getConfigFolder());
+        if (shownThisSession) return false;
+        if (Minecraft.getInstance().options.onboardAccessibility) return false; // wait for vanilla onboarding
+        return !Marker.isDone(Platform.getConfigFolder());
     }
 
     /**
