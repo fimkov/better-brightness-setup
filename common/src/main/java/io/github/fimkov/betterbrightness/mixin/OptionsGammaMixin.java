@@ -86,6 +86,8 @@ public abstract class OptionsGammaMixin {
             Component label;
             if (pct == 0) {
                 label = Component.translatable("options.gamma.min");
+            } else if (pct == 50) {
+                label = Component.translatable("options.gamma.default");
             } else if (pct == 100) {
                 label = Component.translatable("options.gamma.max");
             } else if (pct == 200) {
