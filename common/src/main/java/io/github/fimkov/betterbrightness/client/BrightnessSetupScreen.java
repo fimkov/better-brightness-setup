@@ -125,7 +125,7 @@ public class BrightnessSetupScreen extends Screen {
             int col = i % 2, row = i / 2;
             int x = ox + col * (pw + gapX);
             int y = oy + row * (ph + gapY);
-            panels[i].render(graphics, this.font, x, y, pw, ph, gamma);
+            panels[i].render(graphics, this.font, x, y, pw, gamma, 1.0f);
         }
     }
 }

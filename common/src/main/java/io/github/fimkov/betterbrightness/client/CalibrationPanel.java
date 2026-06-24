@@ -47,6 +47,11 @@ public final class CalibrationPanel {
      * @param srcW      width of the sampled region
      * @param srcH      height of the sampled region
      */
+    // Per-panel easing state.
+    private double displayedVis = 0.0;
+    private long lastMillis = 0L;
+    private static final double EASE_TAU_MS = 90.0; // smaller = snappier
+
     public CalibrationPanel(double threshold, Component caption, Identifier texture,
                             int texW, int texH, float u, float v, int srcW, int srcH) {
         this.threshold = threshold;
@@ -60,28 +65,47 @@ public final class CalibrationPanel {
         this.srcH = srcH;
     }
 
-    public void render(GuiGraphicsExtractor g, Font font, int x, int y, int w, int h, double gamma) {
-        // Dark backing so the fade reads as "emerging from the dark".
-        g.fill(x, y, x + w, y + h, 0xFF101010);
+    public void render(GuiGraphicsExtractor g, Font font, int x, int y, int tile, double gamma, float fadeAlpha) {
+        // Dark backing + soft 1px inner frame.
+        g.fill(x, y, x + tile, y + tile, withAlpha(0xFF101010, fadeAlpha));
+        g.fill(x, y, x + tile, y + 1, withAlpha(0xFF3A3A42, fadeAlpha));               // top
+        g.fill(x, y + tile - 1, x + tile, y + tile, withAlpha(0xFF3A3A42, fadeAlpha)); // bottom
+        g.fill(x, y, x + 1, y + tile, withAlpha(0xFF3A3A42, fadeAlpha));               // left
+        g.fill(x + tile - 1, y, x + tile, y + tile, withAlpha(0xFF3A3A42, fadeAlpha)); // right
 
-        double vis = Brightness.panelVisibility(gamma, threshold);
-        int alpha = (int) Math.round(vis * 255.0);
-        int argb = (alpha << 24) | 0xFFFFFF;
+        // Ease displayedVis toward the live target.
+        long now = System.currentTimeMillis();
+        double target = Brightness.panelVisibility(gamma, threshold);
+        if (lastMillis == 0L) {
+            displayedVis = target;
+        } else {
+            double dt = now - lastMillis;
+            displayedVis = Brightness.lerp(displayedVis, target, dt / EASE_TAU_MS);
+        }
+        lastMillis = now;
 
-        // Inner area: leave a small margin inside the backing.
-        int ix = x + 6;
-        int iy = y + 6;
-        int iw = w - 12;
-        int ih = h - 12;
-
+        // Square texture centered in the tile content area (margin 8). Square src -> square dest: no stretch.
+        int margin = 8;
+        int s = tile - margin * 2;
+        int ix = x + margin;
+        int iy = y + margin;
+        int texAlpha = (int) Math.round(displayedVis * fadeAlpha * 255.0);
+        int argb = (texAlpha << 24) | 0xFFFFFF;
         try {
-            g.blit(RenderPipelines.GUI_TEXTURED, texture,
-                    ix, iy, u, v, iw, ih, srcW, srcH, texW, texH, argb);
+            g.blit(RenderPipelines.GUI_TEXTURED, texture, ix, iy, u, v, s, s, srcW, srcH, texW, texH, argb);
         } catch (Throwable t) {
-            // One bad texture must not break the whole screen.
-            g.fill(x + 6, y + 6, x + w - 6, y + h - 6, 0xFF402020);
+            g.fill(ix, iy, ix + s, iy + s, withAlpha(0xFF402020, fadeAlpha));
         }
 
-        g.centeredText(font, caption, x + w / 2, y + h + 4, 0xFFFFFF);
+        // Target label centered below the tile, faded with the screen.
+        int textColor = (Math.round(fadeAlpha * 255.0f) << 24) | 0xFFFFFF;
+        g.centeredText(font, caption, x + tile / 2, y + tile + 6, textColor);
+    }
+
+    /** Multiply an ARGB color's alpha by f in [0,1]. */
+    private static int withAlpha(int argb, float f) {
+        int a = (argb >>> 24) & 0xFF;
+        int na = Math.round(a * Math.max(0f, Math.min(1f, f)));
+        return (na << 24) | (argb & 0xFFFFFF);
     }
 }
