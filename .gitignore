@@ -5,3 +5,7 @@ run/
 *.classpath
 .idea/
 *.iml
+
+# Python bytecode from tools/translate.py
+__pycache__/
+*.pyc
