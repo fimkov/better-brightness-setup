@@ -3,5 +3,6 @@
     "betterbrightness.panel.hidden": "This shape should NOT be visible",
     "betterbrightness.panel.faint": "This should be barely visible",
     "betterbrightness.panel.clear": "This should be clearly visible",
-    "betterbrightness.panel.bright": "This should be brightly visible"
+    "betterbrightness.panel.bright": "This should be brightly visible",
+    "betterbrightness.options.gamma.brightest": "Brightest"
 }
