@@ -48,6 +48,7 @@ allprojects {
 
     repositories {
         // Loom adds the essential Minecraft repositories automatically.
+        maven { url "https://api.modrinth.com/maven" }
     }
 
     tasks.withType(JavaCompile).configureEach {

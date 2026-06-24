@@ -16,6 +16,10 @@ First-launch brightness-calibration screen.
 [[mixins]]
 config = "betterbrightness.mixins.json"
 
+# Sodium optional mixin config (required=false → no-op when Sodium is absent).
+[[mixins]]
+config = "betterbrightness.sodium.mixins.json"
+
 [[dependencies.betterbrightness]]
 modId = "neoforge"
 type = "required"

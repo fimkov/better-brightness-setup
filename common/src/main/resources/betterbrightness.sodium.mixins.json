@@ -1,0 +1,10 @@
+{
+    "required": false,
+    "minVersion": "0.8.7",
+    "package": "io.github.fimkov.betterbrightness.mixin.sodium",
+    "compatibilityLevel": "JAVA_25",
+    "client": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

@@ -25,6 +25,9 @@ dependencies {
     // exist (nothing to remap), so we consume :common as a plain project dependency and bundle it.
     common(project(path: ":common")) { transitive false }
     shadowCommon(project(path: ":common")) { transitive false }
+
+    // Sodium 0.9.0 compile-only for Fabric. NOT shipped with the mod (soft optional dep).
+    modCompileOnly "maven.modrinth:sodium:mc26.2-0.9.0-fabric"
 }
 
 processResources {
