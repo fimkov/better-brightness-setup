@@ -5,7 +5,7 @@ plugins {
     // Architectury Loom therefore requires its "no-remap" variant for this MC era -- the standard
     // dev.architectury.loom plugin aborts with: "The Minecraft version '26.2' is unobfuscated
     // (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the
-    // dev.architectury.loom-no-remap plugin instead." See docs/superpowers/plans/API-NOTES.md.
+    // dev.architectury.loom-no-remap plugin instead."
     id "dev.architectury.loom-no-remap" version "1.17.487" apply false
 }
 
