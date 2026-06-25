@@ -36,8 +36,10 @@ LANG_DIR = os.path.join(
 )
 EN_US = os.path.join(LANG_DIR, "en_us.json")
 
-# Locales the controller writes by hand -- never generated here.
-EXCLUDE = {"en_us", "en_pt", "lol_us"}
+# Locales written/curated by hand -- never machine-generated here (would clobber the corrections).
+# en_us is the source; en_pt/lol_us are the joke locales; ru_ru was hand-fixed (Google mistranslated
+# "Done" -> "Сделанный" and "Clear" -> "Прозрачный").
+EXCLUDE = {"en_us", "en_pt", "lol_us", "ru_ru"}
 
 # --------------------------------------------------------------------------
 # Minecraft locale code -> Google Translate language code.
