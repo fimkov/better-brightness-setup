@@ -1,7 +1,7 @@
 {
     "betterbrightness.title": "Konfiguracja jasności",
     "betterbrightness.instruction": "Przeciągaj suwak, aż każdy kafelek będzie odpowiadał swojej etykiecie poniżej",
-    "betterbrightness.done_button": "Zrobione",
+    "betterbrightness.done_button": "Gotowe",
     "betterbrightness.slider.brightness": "Jasność: %s%%",
     "betterbrightness.panel.hidden": "Należy ukryć",
     "betterbrightness.panel.faint": "Ledwo widoczne",
@@ -9,7 +9,7 @@
     "betterbrightness.panel.bright": "Jasny",
     "betterbrightness.short.hidden": "Ukryty",
     "betterbrightness.short.barely": "Ledwie",
-    "betterbrightness.short.clear": "Jasne",
+    "betterbrightness.short.clear": "Widoczne",
     "betterbrightness.short.bright": "Jasny",
     "betterbrightness.options.gamma.brightest": "Najjaśniejszy",
     "betterbrightness.setup_button": "Ustaw jasność",

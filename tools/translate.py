@@ -37,9 +37,14 @@ LANG_DIR = os.path.join(
 EN_US = os.path.join(LANG_DIR, "en_us.json")
 
 # Locales written/curated by hand -- never machine-generated here (would clobber the corrections).
-# en_us is the source; en_pt/lol_us are the joke locales; ru_ru was hand-fixed (Google mistranslated
-# "Done" -> "Сделанный" and "Clear" -> "Прозрачный").
-EXCLUDE = {"en_us", "en_pt", "lol_us", "ru_ru"}
+# en_us is the source; en_pt/lol_us are the joke locales; ru_ru + the 10 major languages below were
+# hand-fixed because Google mistranslated the short/ambiguous labels (e.g. "Done" as a past participle
+# instead of the gui.done term, and "Clear" as "transparent"/"delete" instead of "visible").
+EXCLUDE = {
+    "en_us", "en_pt", "lol_us",
+    "ru_ru", "de_de", "fr_fr", "es_es", "it_it", "pt_br",
+    "uk_ua", "zh_cn", "ja_jp", "ko_kr", "pl_pl",
+}
 
 # --------------------------------------------------------------------------
 # Minecraft locale code -> Google Translate language code.
