@@ -3,7 +3,7 @@
     "id": "betterbrightness",
     "version": "${version}",
     "name": "Better Brightness Setup",
-    "description": "First-launch brightness-calibration screen.",
+    "description": "Improves Minecraft's brightness setup and adds a first-launch calibration screen that previews how bright the game will actually look.",
     "authors": [
         "fimkov"
     ],

@@ -27,7 +27,7 @@
 
 ## Project setup (if the project doesn't exist yet)
 - **Name:** Better Brightness Setup
-- **Summary:** A beautiful first-launch screen to calibrate your in-game brightness, with a faithful preview of how blocks will actually look.
+- **Summary:** Improves Minecraft's brightness setup — a first-launch calibration screen with a faithful preview of how bright the game will actually look.
 - **Categories:** Utility, Decoration *(client-side)*
 - **Client/Server:** Client required, Server unsupported
 - **License:** MIT
