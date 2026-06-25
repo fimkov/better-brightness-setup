@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Ρύθμιση φωτεινότητας",
+    "betterbrightness.instruction": "Σύρετε το ρυθμιστικό μέχρι κάθε πλακίδιο να ταιριάζει με την παρακάτω ετικέτα",
+    "betterbrightness.done_button": "Γινώμενος",
+    "betterbrightness.slider.brightness": "Φωτεινότητα: %s%%",
+    "betterbrightness.panel.hidden": "Θα πρέπει να κρυφτεί",
+    "betterbrightness.panel.faint": "Ελάχιστα ορατή",
+    "betterbrightness.panel.clear": "Ξεκάθαρα ορατό",
+    "betterbrightness.panel.bright": "Ευφυής",
+    "betterbrightness.short.hidden": "Κεκρυμμένος",
+    "betterbrightness.short.barely": "Μόλις",
+    "betterbrightness.short.clear": "Σαφής",
+    "betterbrightness.short.bright": "Ευφυής",
+    "betterbrightness.options.gamma.brightest": "Πιο φωτεινό",
+    "betterbrightness.setup_button": "Ρύθμιση φωτεινότητας",
+    "text.autoconfig.betterbrightness.title": "Καλύτερη ρύθμιση φωτεινότητας",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Μέγιστη φωτεινότητα",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Η υψηλότερη φωτεινότητα που επιτρέπουν τα ρυθμιστικά, ως ποσοστό βανίλιας. 100% = βανίλια; σηκώστε το για να φωτίσετε περισσότερο τις σκοτεινές σκηνές."
+}

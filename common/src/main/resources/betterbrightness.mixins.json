@@ -4,7 +4,8 @@
     "package": "io.github.fimkov.betterbrightness.mixin",
     "compatibilityLevel": "JAVA_25",
     "client": [
-        "OptionsGammaMixin"
+        "OptionsGammaMixin",
+        "VideoSettingsScreenMixin"
     ],
     "injectors": {
         "defaultRequire": 1

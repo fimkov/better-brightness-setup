@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "亮度設定",
+    "betterbrightness.instruction": "拖曳滑桿，直到每個圖塊與其下面的標籤匹配",
+    "betterbrightness.done_button": "完畢",
+    "betterbrightness.slider.brightness": "亮度：%s%%",
+    "betterbrightness.panel.hidden": "應該隱藏",
+    "betterbrightness.panel.faint": "幾乎看不見",
+    "betterbrightness.panel.clear": "清晰可見",
+    "betterbrightness.panel.bright": "明亮的",
+    "betterbrightness.short.hidden": "隱",
+    "betterbrightness.short.barely": "僅僅",
+    "betterbrightness.short.clear": "清除",
+    "betterbrightness.short.bright": "明亮的",
+    "betterbrightness.options.gamma.brightest": "最亮",
+    "betterbrightness.setup_button": "設定亮度",
+    "text.autoconfig.betterbrightness.title": "更好的亮度設定",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "最大亮度",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "滑桿允許的最高亮度，以香草的百分比表示。 100% = 香草；將其調高可進一步提亮黑暗場景。"
+}

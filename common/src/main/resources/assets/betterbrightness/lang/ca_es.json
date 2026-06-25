@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Configuració de la brillantor",
+    "betterbrightness.instruction": "Arrossegueu el control lliscant fins que cada fitxa coincideixi amb la seva etiqueta a continuació",
+    "betterbrightness.done_button": "Fet",
+    "betterbrightness.slider.brightness": "Brillantor: %s%%",
+    "betterbrightness.panel.hidden": "Hauria d'estar amagat",
+    "betterbrightness.panel.faint": "Amb prou feines visibles",
+    "betterbrightness.panel.clear": "Clarament visible",
+    "betterbrightness.panel.bright": "Lluminós",
+    "betterbrightness.short.hidden": "Ocult",
+    "betterbrightness.short.barely": "Amb prou feines",
+    "betterbrightness.short.clear": "Clar",
+    "betterbrightness.short.bright": "Lluminós",
+    "betterbrightness.options.gamma.brightest": "El més brillant",
+    "betterbrightness.setup_button": "Configura la brillantor",
+    "text.autoconfig.betterbrightness.title": "Millor configuració de brillantor",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Màxima brillantor",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "La brillantor més alta que permeten els controls lliscants, com a percentatge de vainilla. 100% = vainilla; aixeca-lo per il·luminar encara més les escenes fosques."
+}

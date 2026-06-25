@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Heleduse seadistamine",
+    "betterbrightness.instruction": "Lohistage liugurit, kuni iga paan vastab allpool olevale sildile",
+    "betterbrightness.done_button": "Valmis",
+    "betterbrightness.slider.brightness": "Heledus: %s%%",
+    "betterbrightness.panel.hidden": "Peaks peitma",
+    "betterbrightness.panel.faint": "Vaevalt näha",
+    "betterbrightness.panel.clear": "Selgelt nähtav",
+    "betterbrightness.panel.bright": "Hele",
+    "betterbrightness.short.hidden": "Peidetud",
+    "betterbrightness.short.barely": "Vaevalt",
+    "betterbrightness.short.clear": "Selge",
+    "betterbrightness.short.bright": "Hele",
+    "betterbrightness.options.gamma.brightest": "Heledaim",
+    "betterbrightness.setup_button": "Heleduse seadistamine",
+    "text.autoconfig.betterbrightness.title": "Parem heleduse seadistus",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimaalne heledus",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Suurim heledus, mida liugurid võimaldavad, vanilje protsendina. 100% = vanill; tõstke see üles, et tumedaid stseene veelgi heledamaks muuta."
+}

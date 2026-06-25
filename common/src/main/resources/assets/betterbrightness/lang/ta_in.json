@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "பிரகாச அமைப்பு",
+    "betterbrightness.instruction": "ஒவ்வொரு ஓடும் கீழே உள்ள லேபிளுடன் பொருந்தும் வரை ஸ்லைடரை இழுக்கவும்",
+    "betterbrightness.done_button": "முடிந்தது",
+    "betterbrightness.slider.brightness": "பிரகாசம்: %s%%",
+    "betterbrightness.panel.hidden": "மறைக்கப்பட வேண்டும்",
+    "betterbrightness.panel.faint": "அரிதாகவே தெரியும்",
+    "betterbrightness.panel.clear": "தெளிவாகத் தெரியும்",
+    "betterbrightness.panel.bright": "பிரகாசமான",
+    "betterbrightness.short.hidden": "மறைக்கப்பட்டது",
+    "betterbrightness.short.barely": "அரிதாகவே",
+    "betterbrightness.short.clear": "தெளிவு",
+    "betterbrightness.short.bright": "பிரகாசமான",
+    "betterbrightness.options.gamma.brightest": "பிரகாசமான",
+    "betterbrightness.setup_button": "பிரகாசத்தை அமைக்கவும்",
+    "text.autoconfig.betterbrightness.title": "சிறந்த பிரகாச அமைப்பு",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "அதிகபட்ச பிரகாசம்",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "வெண்ணிலாவின் சதவீதமாக, ஸ்லைடர்கள் அனுமதிக்கும் அதிகபட்ச பிரகாசம். 100% = வெண்ணிலா; இருண்ட காட்சிகளை மேலும் பிரகாசமாக்க அதை உயர்த்தவும்."
+}

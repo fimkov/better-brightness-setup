@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "明るさの設定",
+    "betterbrightness.instruction": "各タイルが下のラベルと一致するまでスライダーをドラッグします。",
+    "betterbrightness.done_button": "完了",
+    "betterbrightness.slider.brightness": "明るさ: %s%%",
+    "betterbrightness.panel.hidden": "隠すべき",
+    "betterbrightness.panel.faint": "かろうじて見える",
+    "betterbrightness.panel.clear": "はっきりと見える",
+    "betterbrightness.panel.bright": "明るい",
+    "betterbrightness.short.hidden": "非表示",
+    "betterbrightness.short.barely": "わずか",
+    "betterbrightness.short.clear": "明瞭",
+    "betterbrightness.short.bright": "明るい",
+    "betterbrightness.options.gamma.brightest": "最も明るい",
+    "betterbrightness.setup_button": "明るさの設定",
+    "text.autoconfig.betterbrightness.title": "より良い明るさの設定",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "最大輝度",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "スライダーで許可される最高の明るさ (バニラのパーセント)。 100% = バニラ;上げると暗いシーンがさらに明るくなります。"
+}

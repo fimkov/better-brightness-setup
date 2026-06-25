@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "ప్రకాశం సెటప్",
+    "betterbrightness.instruction": "ప్రతి టైల్ క్రింది దాని లేబుల్‌తో సరిపోలే వరకు స్లయిడర్‌ను లాగండి",
+    "betterbrightness.done_button": "పూర్తయింది",
+    "betterbrightness.slider.brightness": "ప్రకాశం: %s%%",
+    "betterbrightness.panel.hidden": "దాచిపెట్టాలి",
+    "betterbrightness.panel.faint": "చాలా తక్కువగా కనిపిస్తుంది",
+    "betterbrightness.panel.clear": "స్పష్టంగా కనిపిస్తుంది",
+    "betterbrightness.panel.bright": "ప్రకాశవంతమైన",
+    "betterbrightness.short.hidden": "దాచబడింది",
+    "betterbrightness.short.barely": "కేవలం",
+    "betterbrightness.short.clear": "క్లియర్",
+    "betterbrightness.short.bright": "ప్రకాశవంతమైన",
+    "betterbrightness.options.gamma.brightest": "ప్రకాశవంతమైన",
+    "betterbrightness.setup_button": "సెటప్ ప్రకాశం",
+    "text.autoconfig.betterbrightness.title": "మెరుగైన బ్రైట్‌నెస్ సెటప్",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "గరిష్ట ప్రకాశం",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "స్లయిడర్‌లు అనుమతించే అత్యధిక ప్రకాశం, వనిల్లా శాతంగా. 100% = వనిల్లా; చీకటి దృశ్యాలను మరింత ప్రకాశవంతం చేయడానికి దాన్ని పెంచండి."
+}

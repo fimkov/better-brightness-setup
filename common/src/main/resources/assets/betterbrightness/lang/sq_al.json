@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Konfigurimi i ndriçimit",
+    "betterbrightness.instruction": "Zvarritni rrëshqitësin derisa secila pllakë të përputhet me etiketën e saj më poshtë",
+    "betterbrightness.done_button": "U krye",
+    "betterbrightness.slider.brightness": "Shkëlqimi: %s%%",
+    "betterbrightness.panel.hidden": "Duhet të fshihet",
+    "betterbrightness.panel.faint": "Mezi i dukshëm",
+    "betterbrightness.panel.clear": "Qartë e dukshme",
+    "betterbrightness.panel.bright": "E ndritshme",
+    "betterbrightness.short.hidden": "I fshehur",
+    "betterbrightness.short.barely": "Mezi",
+    "betterbrightness.short.clear": "E qartë",
+    "betterbrightness.short.bright": "E ndritshme",
+    "betterbrightness.options.gamma.brightest": "Më e ndritshme",
+    "betterbrightness.setup_button": "Vendosja e ndriçimit",
+    "text.autoconfig.betterbrightness.title": "Konfigurimi më i mirë i ndriçimit",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Shkëlqimi maksimal",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Shkëlqimi më i lartë që lejojnë rrëshqitësit, si përqindje e vaniljes. 100% = vanilje; ngrijeni atë për të ndriçuar më tej skenat e errëta."
+}

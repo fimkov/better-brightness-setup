@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Parlaklık Kurulumu",
+    "betterbrightness.instruction": "Her döşeme aşağıdaki etiketiyle eşleşene kadar kaydırıcıyı sürükleyin",
+    "betterbrightness.done_button": "Tamamlamak",
+    "betterbrightness.slider.brightness": "Parlaklık: %s%%",
+    "betterbrightness.panel.hidden": "Gizli olmalı",
+    "betterbrightness.panel.faint": "Zar zor görülebilir",
+    "betterbrightness.panel.clear": "Açıkça görülebilir",
+    "betterbrightness.panel.bright": "Parlak",
+    "betterbrightness.short.hidden": "Gizlenmiş",
+    "betterbrightness.short.barely": "Neredeyse",
+    "betterbrightness.short.clear": "Temizlemek",
+    "betterbrightness.short.bright": "Parlak",
+    "betterbrightness.options.gamma.brightest": "En parlak",
+    "betterbrightness.setup_button": "Parlaklığı Ayarla",
+    "text.autoconfig.betterbrightness.title": "Daha İyi Parlaklık Kurulumu",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimum parlaklık",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Vanilya yüzdesi olarak kaydırıcıların izin verdiği en yüksek parlaklık. %100 = vanilya; Karanlık sahneleri daha da aydınlatmak için onu kaldırın."
+}

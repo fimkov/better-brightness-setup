@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Impostazione della luminosità",
+    "betterbrightness.instruction": "Trascina il cursore finché ogni riquadro non corrisponde all'etichetta sottostante",
+    "betterbrightness.done_button": "Fatto",
+    "betterbrightness.slider.brightness": "Luminosità: %s%%",
+    "betterbrightness.panel.hidden": "Dovrebbe essere nascosto",
+    "betterbrightness.panel.faint": "Appena visibile",
+    "betterbrightness.panel.clear": "Chiaramente visibile",
+    "betterbrightness.panel.bright": "Luminoso",
+    "betterbrightness.short.hidden": "Nascosto",
+    "betterbrightness.short.barely": "Appena",
+    "betterbrightness.short.clear": "Visibile",
+    "betterbrightness.short.bright": "Luminoso",
+    "betterbrightness.options.gamma.brightest": "Il più luminoso",
+    "betterbrightness.setup_button": "Imposta luminosità",
+    "text.autoconfig.betterbrightness.title": "Migliore impostazione della luminosità",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Massima luminosità",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Luminosità massima consentita dai dispositivi di scorrimento, come percentuale di Vanilla. 100% = vaniglia; alzarlo per schiarire ulteriormente le scene buie."
+}

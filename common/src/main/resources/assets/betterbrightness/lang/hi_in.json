@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "चमक सेटअप",
+    "betterbrightness.instruction": "स्लाइडर को तब तक खींचें जब तक कि प्रत्येक टाइल नीचे दिए गए उसके लेबल से मेल न खाए",
+    "betterbrightness.done_button": "हो गया",
+    "betterbrightness.slider.brightness": "चमक: %s%%",
+    "betterbrightness.panel.hidden": "छुपाया जाना चाहिए",
+    "betterbrightness.panel.faint": "बमुश्किल दिखाई देता है",
+    "betterbrightness.panel.clear": "साफ़ दिख रहा है",
+    "betterbrightness.panel.bright": "चमकदार",
+    "betterbrightness.short.hidden": "छिपा हुआ",
+    "betterbrightness.short.barely": "मुश्किल से",
+    "betterbrightness.short.clear": "स्पष्ट",
+    "betterbrightness.short.bright": "चमकदार",
+    "betterbrightness.options.gamma.brightest": "प्रतिभाशाली",
+    "betterbrightness.setup_button": "सेटअप चमक",
+    "text.autoconfig.betterbrightness.title": "बेहतर चमक सेटअप",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "अधिकतम चमक",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "वेनिला के प्रतिशत के रूप में, स्लाइडर उच्चतम चमक की अनुमति देते हैं। 100% = वेनिला; अंधेरे दृश्यों को और अधिक उज्ज्वल करने के लिए इसे बढ़ाएं।"
+}

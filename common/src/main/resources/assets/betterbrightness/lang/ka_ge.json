@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "სიკაშკაშის დაყენება",
+    "betterbrightness.instruction": "გადაათრიეთ სლაიდერი, სანამ თითოეული ფილა ემთხვევა მის ეტიკეტს ქვემოთ",
+    "betterbrightness.done_button": "შესრულებულია",
+    "betterbrightness.slider.brightness": "სიკაშკაშე: %s%%",
+    "betterbrightness.panel.hidden": "უნდა დაიმალოს",
+    "betterbrightness.panel.faint": "ძლივს ჩანს",
+    "betterbrightness.panel.clear": "აშკარად ჩანს",
+    "betterbrightness.panel.bright": "ნათელი",
+    "betterbrightness.short.hidden": "დამალული",
+    "betterbrightness.short.barely": "ძლივს",
+    "betterbrightness.short.clear": "წმინდა",
+    "betterbrightness.short.bright": "ნათელი",
+    "betterbrightness.options.gamma.brightest": "ყველაზე ნათელი",
+    "betterbrightness.setup_button": "სიკაშკაშის დაყენება",
+    "text.autoconfig.betterbrightness.title": "უკეთესი სიკაშკაშის დაყენება",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "მაქსიმალური სიკაშკაშე",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "ყველაზე მაღალი სიკაშკაშე, რაც საშუალებას იძლევა სლაიდერები, როგორც ვანილის პროცენტი. 100% = ვანილი; აწიეთ იგი ბნელი სცენების შემდგომ გასანათებლად."
+}

@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Kirkkauden asetukset",
+    "betterbrightness.instruction": "Vedä liukusäädintä, kunnes jokainen laatta vastaa alla olevaa otsikkoa",
+    "betterbrightness.done_button": "Tehty",
+    "betterbrightness.slider.brightness": "Kirkkaus: %s%%",
+    "betterbrightness.panel.hidden": "Pitäisi piilottaa",
+    "betterbrightness.panel.faint": "Tuskin näkyvä",
+    "betterbrightness.panel.clear": "Selvästi näkyvissä",
+    "betterbrightness.panel.bright": "Kirkas",
+    "betterbrightness.short.hidden": "Piilotettu",
+    "betterbrightness.short.barely": "Tuskin",
+    "betterbrightness.short.clear": "Selkeä",
+    "betterbrightness.short.bright": "Kirkas",
+    "betterbrightness.options.gamma.brightest": "Kirkkain",
+    "betterbrightness.setup_button": "Aseta kirkkaus",
+    "text.autoconfig.betterbrightness.title": "Parempi kirkkausasetus",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Suurin kirkkaus",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Suurin liukusäätimien sallima kirkkaus prosentteina vaniljasta. 100 % = vanilja; nosta se kirkastaaksesi tummia kohtauksia entisestään."
+}

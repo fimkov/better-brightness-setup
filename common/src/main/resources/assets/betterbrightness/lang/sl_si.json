@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Nastavitev svetlosti",
+    "betterbrightness.instruction": "Povlecite drsnik, dokler se vsaka ploščica ne ujema s svojo spodnjo oznako",
+    "betterbrightness.done_button": "Končano",
+    "betterbrightness.slider.brightness": "Svetlost: %s%%",
+    "betterbrightness.panel.hidden": "Moral bi biti skrit",
+    "betterbrightness.panel.faint": "Komaj vidno",
+    "betterbrightness.panel.clear": "Jasno vidno",
+    "betterbrightness.panel.bright": "Svetlo",
+    "betterbrightness.short.hidden": "Skrito",
+    "betterbrightness.short.barely": "Komaj",
+    "betterbrightness.short.clear": "jasno",
+    "betterbrightness.short.bright": "Svetlo",
+    "betterbrightness.options.gamma.brightest": "Najsvetlejši",
+    "betterbrightness.setup_button": "Nastavitev svetlosti",
+    "text.autoconfig.betterbrightness.title": "Boljša nastavitev svetlosti",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Največja svetlost",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Najvišja svetlost, ki jo dovoljujejo drsniki, kot odstotek vanilije. 100% = vanilija; dvignite ga, da dodatno osvetlite temne prizore."
+}

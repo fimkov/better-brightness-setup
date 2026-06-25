@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Configuration de la luminosité",
+    "betterbrightness.instruction": "Faites glisser le curseur jusqu'à ce que chaque vignette corresponde à son étiquette ci-dessous",
+    "betterbrightness.done_button": "Terminé",
+    "betterbrightness.slider.brightness": "Luminosité : %s%%",
+    "betterbrightness.panel.hidden": "Doit être caché",
+    "betterbrightness.panel.faint": "À peine visible",
+    "betterbrightness.panel.clear": "Bien visible",
+    "betterbrightness.panel.bright": "Lumineux",
+    "betterbrightness.short.hidden": "Caché",
+    "betterbrightness.short.barely": "À peine",
+    "betterbrightness.short.clear": "Visible",
+    "betterbrightness.short.bright": "Lumineux",
+    "betterbrightness.options.gamma.brightest": "Le plus brillant",
+    "betterbrightness.setup_button": "Configuration de la luminosité",
+    "text.autoconfig.betterbrightness.title": "Meilleure configuration de la luminosité",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Luminosité maximale",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Luminosité la plus élevée autorisée par les curseurs, en pourcentage de vanille. 100 % = vanille ; augmentez-le pour éclaircir davantage les scènes sombres."
+}

@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Setup tal-luminożità",
+    "betterbrightness.instruction": "Iddreggja s-slider sakemm kull maduma taqbel mat-tikketta tagħha hawn taħt",
+    "betterbrightness.done_button": "Magħmul",
+    "betterbrightness.slider.brightness": "Luminożità: %s%%",
+    "betterbrightness.panel.hidden": "Għandu jkun moħbi",
+    "betterbrightness.panel.faint": "Bilkemm jidher",
+    "betterbrightness.panel.clear": "Viżibbli b'mod ċar",
+    "betterbrightness.panel.bright": "Bright",
+    "betterbrightness.short.hidden": "Moħbija",
+    "betterbrightness.short.barely": "Bilkemm",
+    "betterbrightness.short.clear": "Ċara",
+    "betterbrightness.short.bright": "Bright",
+    "betterbrightness.options.gamma.brightest": "L-aktar brillanti",
+    "betterbrightness.setup_button": "Setup Luminożità",
+    "text.autoconfig.betterbrightness.title": "Setup Aħjar tal-Luminożità",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Luminożità massima",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "L-ogħla luminożità li s-sliders jippermettu, bħala perċentwali tal-vanilla. 100% = vanilla; għolliha biex idawlu xeni skuri aktar."
+}

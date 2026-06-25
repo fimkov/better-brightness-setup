@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Ryškumo nustatymas",
+    "betterbrightness.instruction": "Vilkite slankiklį, kol kiekviena plytelė atitiks toliau pateiktą etiketę",
+    "betterbrightness.done_button": "Atlikta",
+    "betterbrightness.slider.brightness": "Ryškumas: %s%%",
+    "betterbrightness.panel.hidden": "Turėtų būti paslėpta",
+    "betterbrightness.panel.faint": "Vos matomas",
+    "betterbrightness.panel.clear": "Aiškiai matosi",
+    "betterbrightness.panel.bright": "Ryškus",
+    "betterbrightness.short.hidden": "Paslėpta",
+    "betterbrightness.short.barely": "Vos",
+    "betterbrightness.short.clear": "Aišku",
+    "betterbrightness.short.bright": "Ryškus",
+    "betterbrightness.options.gamma.brightest": "Ryškiausias",
+    "betterbrightness.setup_button": "Nustatykite ryškumą",
+    "text.autoconfig.betterbrightness.title": "Geresnis ryškumo nustatymas",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimalus ryškumas",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Didžiausias ryškumas, kurį leidžia slankikliai, kaip vanilės procentas. 100% = vanilė; pakelkite jį, kad dar labiau paryškintumėte tamsias scenas."
+}

@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Pengaturan Kecerahan",
+    "betterbrightness.instruction": "Seret penggeser hingga setiap ubin cocok dengan labelnya di bawah",
+    "betterbrightness.done_button": "Selesai",
+    "betterbrightness.slider.brightness": "Kecerahan: %s%%",
+    "betterbrightness.panel.hidden": "Harus disembunyikan",
+    "betterbrightness.panel.faint": "Hampir tidak terlihat",
+    "betterbrightness.panel.clear": "Terlihat jelas",
+    "betterbrightness.panel.bright": "Terang",
+    "betterbrightness.short.hidden": "Tersembunyi",
+    "betterbrightness.short.barely": "Hampir tidak",
+    "betterbrightness.short.clear": "Jernih",
+    "betterbrightness.short.bright": "Terang",
+    "betterbrightness.options.gamma.brightest": "Paling terang",
+    "betterbrightness.setup_button": "Atur Kecerahan",
+    "text.autoconfig.betterbrightness.title": "Pengaturan Kecerahan Lebih Baik",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Kecerahan maksimum",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Kecerahan tertinggi yang diizinkan oleh penggeser, sebagai persentase vanilla. 100% = vanila; naikkan untuk lebih mencerahkan pemandangan gelap."
+}

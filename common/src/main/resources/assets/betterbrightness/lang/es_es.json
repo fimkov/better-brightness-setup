@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Configuración de brillo",
+    "betterbrightness.instruction": "Arrastre el control deslizante hasta que cada mosaico coincida con su etiqueta a continuación",
+    "betterbrightness.done_button": "Listo",
+    "betterbrightness.slider.brightness": "Brillo: %s%%",
+    "betterbrightness.panel.hidden": "Debe estar oculto",
+    "betterbrightness.panel.faint": "Apenas visible",
+    "betterbrightness.panel.clear": "Claramente visible",
+    "betterbrightness.panel.bright": "Brillante",
+    "betterbrightness.short.hidden": "Oculto",
+    "betterbrightness.short.barely": "Apenas",
+    "betterbrightness.short.clear": "Visible",
+    "betterbrightness.short.bright": "Brillante",
+    "betterbrightness.options.gamma.brightest": "Más brillante",
+    "betterbrightness.setup_button": "Configurar brillo",
+    "text.autoconfig.betterbrightness.title": "Mejor configuración de brillo",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Brillo máximo",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "El brillo más alto que permiten los controles deslizantes, como porcentaje de vainilla. 100% = vainilla; levántelo para iluminar aún más las escenas oscuras."
+}

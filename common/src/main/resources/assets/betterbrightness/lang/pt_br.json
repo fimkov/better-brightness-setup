@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Configuração de brilho",
+    "betterbrightness.instruction": "Arraste o controle deslizante até que cada bloco corresponda ao rótulo abaixo",
+    "betterbrightness.done_button": "Concluído",
+    "betterbrightness.slider.brightness": "Brilho: %s%%",
+    "betterbrightness.panel.hidden": "Deveria estar escondido",
+    "betterbrightness.panel.faint": "Pouco visível",
+    "betterbrightness.panel.clear": "Claramente visível",
+    "betterbrightness.panel.bright": "Brilhante",
+    "betterbrightness.short.hidden": "Escondido",
+    "betterbrightness.short.barely": "Apenas",
+    "betterbrightness.short.clear": "Visível",
+    "betterbrightness.short.bright": "Brilhante",
+    "betterbrightness.options.gamma.brightest": "Mais brilhante",
+    "betterbrightness.setup_button": "Configurar brilho",
+    "text.autoconfig.betterbrightness.title": "Melhor configuração de brilho",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Brilho máximo",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Maior brilho que os controles deslizantes permitem, como uma porcentagem de baunilha. 100% = baunilha; aumente-o para iluminar ainda mais as cenas escuras."
+}

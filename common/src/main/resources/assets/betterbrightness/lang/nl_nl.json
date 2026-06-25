@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Helderheid instellen",
+    "betterbrightness.instruction": "Versleep de schuifregelaar totdat elke tegel overeenkomt met het onderstaande label",
+    "betterbrightness.done_button": "Klaar",
+    "betterbrightness.slider.brightness": "Helderheid: %s%%",
+    "betterbrightness.panel.hidden": "Moet verborgen zijn",
+    "betterbrightness.panel.faint": "Nauwelijks zichtbaar",
+    "betterbrightness.panel.clear": "Duidelijk zichtbaar",
+    "betterbrightness.panel.bright": "Helder",
+    "betterbrightness.short.hidden": "Verborgen",
+    "betterbrightness.short.barely": "Nauwelijks",
+    "betterbrightness.short.clear": "Duidelijk",
+    "betterbrightness.short.bright": "Helder",
+    "betterbrightness.options.gamma.brightest": "Helderste",
+    "betterbrightness.setup_button": "Helderheid instellen",
+    "text.autoconfig.betterbrightness.title": "Betere helderheidsinstelling",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maximale helderheid",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "De hoogste helderheid die de schuifregelaars toestaan, als percentage vanille. 100% = vanille; verhoog deze om donkere scènes nog helderder te maken."
+}

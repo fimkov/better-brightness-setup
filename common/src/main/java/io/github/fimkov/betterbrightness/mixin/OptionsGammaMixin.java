@@ -10,8 +10,9 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Slice;
 
 /**
- * Widens the vanilla {@code gamma} (brightness) option's value space from {@code [0, 1]} to
- * {@code [0, 2]} so a chosen gamma above {@code 1.0} survives a restart.
+ * Widens the vanilla {@code gamma} (brightness) option's value space from {@code [0, 1]} to the
+ * {@code [0, 5.0]} ceiling (the 500% config max / 100) so a chosen gamma above
+ * {@code 1.0} (up to 500%) survives a restart.
  *
  * <p><b>Why a mixin is required.</b> Gamma's {@code ValueSet} is {@code OptionInstance.UnitDouble.INSTANCE},
  * whose {@code validateValue} <em>rejects</em> (does not clamp) anything outside {@code [0, 1]} and falls
@@ -20,11 +21,14 @@ import org.spongepowered.asm.mixin.injection.Slice;
  * to {@code 0.5}. So {@code > 1.0} written for the session does not persist across launches.
  *
  * <p><b>Fix.</b> Replace gamma's {@code ValueSet} with {@link GammaRange#INSTANCE} — a custom
- * {@code [0, 2]} {@code SliderableValueSet<Double>} whose codec is {@code Codec.doubleRange(0.0, 2.0)},
+ * {@code [0, 5.0]} {@code SliderableValueSet<Double>} whose codec is {@code Codec.doubleRange(0.0, 5.0)},
  * so the value written to {@code options.txt} is the <em>exposed</em> gamma (disk gamma == real gamma).
- * Now {@code set(2.0)} and {@code load(2.0)} are valid, {@code > 1.0} persists, the in-game gamma slider
- * spans {@code 0..2}, and there is no value doubling — an existing {@code gamma:0.5} still reads back as
- * {@code 0.5}. (An {@code xmap(v -> v * 2, v -> v / 2)} was rejected: its xmapped codec persists the
+ * Now {@code set(2.0)} and {@code load(2.0)} are valid and {@code > 1.0} persists, and there is no value
+ * doubling — an existing {@code gamma:0.5} still reads back as {@code 0.5}. (The vanilla gamma slider
+ * itself is replaced by a "Setup Brightness" button via {@code VideoSettingsScreenMixin}; this widened
+ * value space exists so the value the setup screen / Sodium write — up to the configured max — persists.
+ * The ceiling is the constant 5.0, not the live config max, so changing the config needs no restart.)
+ * (An {@code xmap(v -> v * 2, v -> v / 2)} was rejected: its xmapped codec persists the
  * underlying {@code [0, 1]} value, i.e. {@code gamma / 2}, which would silently double every existing
  * user's brightness on install.)
  *
@@ -57,7 +61,7 @@ public abstract class OptionsGammaMixin {
             index = 3
     )
     private OptionInstance.ValueSet<Double> betterbrightness$widenGammaRange(OptionInstance.ValueSet<Double> original) {
-        // [0, 2] value space that stores the exposed value on disk (disk gamma == real gamma).
+        // [0, 5.0] value space that stores the exposed value on disk (disk gamma == real gamma).
         return GammaRange.INSTANCE;
     }
 

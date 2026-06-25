@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Helderheid Opstelling",
+    "betterbrightness.instruction": "Sleep die skuifbalk totdat elke teël by sy etiket hieronder pas",
+    "betterbrightness.done_button": "Klaar",
+    "betterbrightness.slider.brightness": "Helderheid: %s%%",
+    "betterbrightness.panel.hidden": "Moet weggesteek word",
+    "betterbrightness.panel.faint": "Skaars sigbaar",
+    "betterbrightness.panel.clear": "Duidelik sigbaar",
+    "betterbrightness.panel.bright": "Helder",
+    "betterbrightness.short.hidden": "Versteek",
+    "betterbrightness.short.barely": "Skaars",
+    "betterbrightness.short.clear": "Duidelik",
+    "betterbrightness.short.bright": "Helder",
+    "betterbrightness.options.gamma.brightest": "Helderste",
+    "betterbrightness.setup_button": "Stel Helderheid op",
+    "text.autoconfig.betterbrightness.title": "Beter helderheid-opstelling",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimum helderheid",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Die hoogste helderheid wat die skuifbalk toelaat, as 'n persentasie vanielje. 100% = vanielje; verhoog dit om donker tonele verder op te helder."
+}

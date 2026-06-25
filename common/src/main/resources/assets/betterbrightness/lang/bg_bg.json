@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Настройка на яркостта",
+    "betterbrightness.instruction": "Плъзнете плъзгача, докато всяка плочка съвпадне с етикета си по-долу",
+    "betterbrightness.done_button": "Готово",
+    "betterbrightness.slider.brightness": "Яркост: %s%%",
+    "betterbrightness.panel.hidden": "Трябва да се скрие",
+    "betterbrightness.panel.faint": "Едва се вижда",
+    "betterbrightness.panel.clear": "Ясно се вижда",
+    "betterbrightness.panel.bright": "Ярък",
+    "betterbrightness.short.hidden": "Скрити",
+    "betterbrightness.short.barely": "Едва ли",
+    "betterbrightness.short.clear": "ясно",
+    "betterbrightness.short.bright": "Ярък",
+    "betterbrightness.options.gamma.brightest": "Най-ярък",
+    "betterbrightness.setup_button": "Настройка на яркостта",
+    "text.autoconfig.betterbrightness.title": "По-добра настройка на яркостта",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Максимална яркост",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Най-високата яркост, която плъзгачите позволяват, като процент ванилия. 100% = ванилия; повдигнете го, за да осветите допълнително тъмните сцени."
+}

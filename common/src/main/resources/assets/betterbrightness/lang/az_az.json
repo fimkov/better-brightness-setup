@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "Parlaqlıq Quraşdırma",
+    "betterbrightness.instruction": "Hər bir kafel aşağıdakı etiketə uyğun gələnə qədər kaydırıcıyı dartın",
+    "betterbrightness.done_button": "Bitdi",
+    "betterbrightness.slider.brightness": "Parlaqlıq: %s%%",
+    "betterbrightness.panel.hidden": "Gizlənməlidir",
+    "betterbrightness.panel.faint": "Az görünür",
+    "betterbrightness.panel.clear": "Aydın görünür",
+    "betterbrightness.panel.bright": "Parlaq",
+    "betterbrightness.short.hidden": "Gizli",
+    "betterbrightness.short.barely": "Az qala",
+    "betterbrightness.short.clear": "Təmiz",
+    "betterbrightness.short.bright": "Parlaq",
+    "betterbrightness.options.gamma.brightest": "Ən parlaq",
+    "betterbrightness.setup_button": "Parlaqlığı quraşdırın",
+    "text.autoconfig.betterbrightness.title": "Daha Yaxşı Parlaqlıq Quraşdırması",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "Maksimum parlaqlıq",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "Vanilin faizi kimi sürgülərin icazə verdiyi ən yüksək parlaqlıq. 100% = vanil; qaranlıq səhnələri daha da işıqlandırmaq üçün onu qaldırın."
+}

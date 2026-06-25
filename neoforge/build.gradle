@@ -30,6 +30,19 @@ dependencies {
     // exist (nothing to remap), so we consume :common as a plain project dependency and bundle it.
     common(project(path: ":common")) { transitive false }
     shadowCommon(project(path: ":common")) { transitive false }
+
+    // Sodium 0.9.0 compile-only for NeoForge. NOT shipped with the mod (soft optional dep).
+    // NOTE: `:neoforge:runClient` (dev) currently crashes at launch with a TypeNotPresentException for
+    // net.caffeinemc...Option — the architectury transformer eagerly computes stack-frames for our
+    // Sodium-referencing common classes and the dev-launch classpath omits the compileOnly Sodium. This is
+    // a dev-environment limitation of loom-no-remap + a compileOnly mod dep; the SHIPPED jar is unaffected
+    // (`:neoforge:build` is green — the build-time transformer has compileOnly on its classpath, and the
+    // Sodium classes are only loaded at runtime when Sodium is actually present). Test NeoForge from a
+    // packaged jar / a real instance with Sodium installed, not `:neoforge:runClient`.
+    compileOnly "maven.modrinth:sodium:mc26.2-0.9.0-neoforge"
+
+    // Cloth Config: REQUIRED runtime dependency (provides the AutoConfig holder at runtime).
+    modImplementation "maven.modrinth:cloth-config:26.2.155+neoforge"
 }
 
 processResources {

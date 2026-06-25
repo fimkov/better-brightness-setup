@@ -1,0 +1,19 @@
+{
+    "betterbrightness.title": "ಬ್ರೈಟ್ನೆಸ್ ಸೆಟಪ್",
+    "betterbrightness.instruction": "ಪ್ರತಿ ಟೈಲ್ ಕೆಳಗಿನ ಲೇಬಲ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗುವವರೆಗೆ ಸ್ಲೈಡರ್ ಅನ್ನು ಎಳೆಯಿರಿ",
+    "betterbrightness.done_button": "ಮುಗಿದಿದೆ",
+    "betterbrightness.slider.brightness": "ಪ್ರಕಾಶಮಾನ: %s%%",
+    "betterbrightness.panel.hidden": "ಮರೆಮಾಚಬೇಕು",
+    "betterbrightness.panel.faint": "ಅಷ್ಟೇನೂ ಗೋಚರಿಸುವುದಿಲ್ಲ",
+    "betterbrightness.panel.clear": "ಸ್ಪಷ್ಟವಾಗಿ ಗೋಚರಿಸುತ್ತದೆ",
+    "betterbrightness.panel.bright": "ಬ್ರೈಟ್",
+    "betterbrightness.short.hidden": "ಮರೆಮಾಡಲಾಗಿದೆ",
+    "betterbrightness.short.barely": "ಬರೀ",
+    "betterbrightness.short.clear": "ತೆರವುಗೊಳಿಸಿ",
+    "betterbrightness.short.bright": "ಬ್ರೈಟ್",
+    "betterbrightness.options.gamma.brightest": "ಅತ್ಯಂತ ಪ್ರಕಾಶಮಾನವಾದ",
+    "betterbrightness.setup_button": "ಸೆಟಪ್ ಬ್ರೈಟ್ನೆಸ್",
+    "text.autoconfig.betterbrightness.title": "ಉತ್ತಮ ಹೊಳಪಿನ ಸೆಟಪ್",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent": "ಗರಿಷ್ಠ ಹೊಳಪು",
+    "text.autoconfig.betterbrightness.option.maxBrightnessPercent.@Tooltip": "ಸ್ಲೈಡರ್‌ಗಳು ವೆನಿಲ್ಲಾದ ಶೇಕಡಾವಾರು ಗರಿಷ್ಠ ಹೊಳಪನ್ನು ಅನುಮತಿಸುತ್ತವೆ. 100% = ವೆನಿಲ್ಲಾ; ಡಾರ್ಕ್ ದೃಶ್ಯಗಳನ್ನು ಇನ್ನಷ್ಟು ಬೆಳಗಿಸಲು ಅದನ್ನು ಹೆಚ್ಚಿಸಿ."
+}
