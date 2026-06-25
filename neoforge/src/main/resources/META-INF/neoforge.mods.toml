@@ -7,6 +7,8 @@ modId = "betterbrightness"
 version = "${version}"
 displayName = "Better Brightness Setup"
 authors = "fimkov"
+logoFile = "icon.png"
+logoBlur = false
 description = '''
 Improves Minecraft's brightness setup and adds a first-launch calibration screen that previews how bright the game will actually look.
 '''
