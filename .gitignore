@@ -9,3 +9,6 @@ run/
 # Python bytecode from tools/translate.py
 __pycache__/
 *.pyc
+
+# Built release jars (distributed via Modrinth, not committed)
+/releases/
