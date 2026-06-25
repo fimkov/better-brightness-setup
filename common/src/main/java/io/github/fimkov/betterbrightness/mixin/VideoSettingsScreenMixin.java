@@ -16,23 +16,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.Arrays;
 
-/**
- * Replaces the vanilla brightness (gamma) slider in Video Settings with a "Setup Brightness" button
- * that opens our calibration screen — same half-width slot the slider occupied.
- *
- * <p>26.2: {@code VideoSettingsScreen.addOptions()} adds the Display section via
- * {@code this.list.addSmall(displayOptions(options))}; in that array {@code gamma} is paired with
- * {@code preferredGraphicsBackend} as the last small (half-width) row. We {@code @Redirect} that
- * {@code addSmall(OptionInstance[])} call (the redirect hands us the {@code OptionsList} receiver
- * directly — no {@code @Shadow} of the superclass {@code OptionsSubScreen.list}, which Mixin can't
- * resolve against this subclass target) and rebuild the section: every display option except
- * {@code gamma} and {@code preferredGraphicsBackend}, then a half-width row of
- * [Setup Brightness button | graphics-backend], so the button sits exactly where the slider was.
- * The button opens {@link BrightnessSetupScreen} with this screen as the parent (Done returns here).
- */
 @Mixin(VideoSettingsScreen.class)
 public abstract class VideoSettingsScreenMixin {
-
     @Redirect(
             method = "addOptions",
             at = @At(
@@ -44,12 +29,10 @@ public abstract class VideoSettingsScreenMixin {
         OptionInstance<Double> gamma = opts.gamma();
         OptionInstance<?> backend = opts.preferredGraphicsBackend();
 
-        // Display options minus gamma and the graphics-backend (re-added beside the button below).
         list.addSmall(Arrays.stream(displayOptions)
                 .filter(o -> o != gamma && o != backend)
                 .toArray(OptionInstance[]::new));
 
-        // gamma's old half-width slot: "Setup Brightness" button (left) + graphics-backend option (right).
         Button button = Button.builder(
                         Component.translatable("betterbrightness.setup_button"),
                         b -> Minecraft.getInstance().gui.setScreen(

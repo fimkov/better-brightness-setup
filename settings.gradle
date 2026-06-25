@@ -8,15 +8,11 @@ pluginManagement {
 }
 
 plugins {
-    // Allows Gradle to auto-provision the required JDK (Java 25) toolchain via Foojay.
     id "org.gradle.toolchains.foojay-resolver-convention" version "1.0.0"
 }
 
 include("common")
 include("fabric")
 include("neoforge")
-// NOTE: Forge is NOT included. Architectury does not publish architectury-forge for MC 26.2
-// (architectury-forge-21.0.2.jar -> HTTP 404) and Forge lags on newest MC versions.
-// A forge/ module can be added once architectury-forge ships for this MC version.
 
 rootProject.name = "betterbrightness"

@@ -13,13 +13,9 @@ description = '''
 Improves Minecraft's brightness setup and adds a first-launch calibration screen that previews how bright the game will actually look.
 '''
 
-# Gamma-persistence mixin (widens gamma's ValueSet to the [0, 5.0] ceiling so values up to 500% persist).
-# The config JSON + mixin class are bundled from :common into this jar by shadowJar. Client-only (see
-# "client" array in the JSON).
 [[mixins]]
 config = "betterbrightness.mixins.json"
 
-# Sodium optional mixin config (required=false → no-op when Sodium is absent).
 [[mixins]]
 config = "betterbrightness.sodium.mixins.json"
 
@@ -44,9 +40,6 @@ versionRange = "[21.0,)"
 ordering = "AFTER"
 side = "CLIENT"
 
-# Cloth Config is a hard runtime requirement: client init eagerly calls AutoConfig.register, which
-# class-loads me.shedaniel.autoconfig.* immediately. Declaring it required gives the user the loader's
-# clean "missing dependency" screen instead of a raw NoClassDefFoundError. NeoForge modId uses underscore.
 [[dependencies.betterbrightness]]
 modId = "cloth_config"
 type = "required"

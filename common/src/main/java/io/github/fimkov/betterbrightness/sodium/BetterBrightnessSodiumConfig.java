@@ -8,19 +8,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 
-/**
- * Sodium config-API integration: overlays the built-in Brightness (gamma) slider
- * to span 0–200% instead of the default 0–100%.
- *
- * <p>Registered as a Fabric entrypoint via {@code "sodium:config_api_user"} in
- * {@code fabric.mod.json}, and on NeoForge via the {@code @ConfigEntryPointForge}
- * annotation below.  This class is only instantiated when Sodium is present;
- * no code path in the rest of the mod touches these Sodium API types, so the
- * dependency is safely soft.</p>
- */
 @ConfigEntryPointForge("betterbrightness")
 public final class BetterBrightnessSodiumConfig implements ConfigEntryPoint {
-
     @Override
     public void registerConfigLate(ConfigBuilder builder) {
         var gammaId = Identifier.parse("sodium:general.gamma");

@@ -13,44 +13,15 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 
-/**
- * Vanilla-styled first-launch brightness calibration screen.
- *
- * <p>26.2 GUI uses a render-state extraction architecture: the engine draws the menu/panorama
- * background for us via {@code Screen.extractBackground(...)} (mirrored from {@code ConfirmScreen},
- * which does not override {@code extractRenderState} at all), so this screen only issues its own
- * draws (the title) and then defers to {@code super.extractRenderState(...)} to render the added
- * widgets. There is no immediate-mode {@code render(GuiGraphics, ...)} in 26.2.
- *
- * <p>A brightness slider (mapped 0..1 -> gamma 0..(maxBrightnessPercent/100), default 0..1, via
- * {@link Brightness#sliderToGamma(double)}) and a Done button live near the bottom. Done writes the
- * chosen gamma + the persistent marker;
- * closing via Esc also writes the marker through {@link #removed()} so "show once" holds regardless
- * of how the screen is dismissed.
- */
 public class BrightnessSetupScreen extends Screen {
-
     private final Screen parent;
-    // Seeded from the live gamma in the constructor so reopening the screen reflects the saved brightness;
-    // 0.5 is only a fallback if gamma can't be read.
+
     private double slider = 0.5;
 
-    // Fade-in timing.
     private long openMillis = 0L;
     private static final double FADE_MS = 250.0;
 
-    /**
-     * The 4 live calibration tiles. Each tints a real game texture by the FAITHFUL in-game lightmap
-     * brightness for a block at its block-light level, so the tiles brighten/darken exactly as those blocks
-     * would as the slider moves. The light levels span dark -> bright (1 / 4 / 7 / 10): the creeper at
-     * light 1 is the classic "shouldn't be visible in the dark" target (stays near-black until you crank
-     * brightness), the diamond ore at light 10 should stay clearly visible. Rendered as textures, not a live
-     * 3D entity, because this screen opens over the title screen where {@code Minecraft.getInstance().level}
-     * is null and entity construction would crash.
-     */
     private final CalibrationPanel[] panels = {
-            // Creeper face region (8,8 8x8) from the 64x32 entity skin atlas, at block-light 1 — the
-            // "should stay hidden" target: at typical gammas it reads near-black.
             new CalibrationPanel(1, Component.translatable("betterbrightness.panel.hidden"),
                     Identifier.withDefaultNamespace("textures/entity/creeper/creeper.png"),
                     64, 32, 8.0f, 8.0f, 8, 8),
@@ -68,30 +39,24 @@ public class BrightnessSetupScreen extends Screen {
     public BrightnessSetupScreen(Screen parent) {
         super(Component.translatable("betterbrightness.title"));
         this.parent = parent;
-        // Start the slider at the CURRENT gamma so reopening the screen (e.g. via the Video Settings
-        // "Setup Brightness" button) reflects the saved brightness. Without this it always opened mid-slider
-        // — at a 500% max that is 250% — so adjustments looked like they never persisted.
+
         try {
             double gamma = Minecraft.getInstance().options.gamma().get();
             this.slider = Brightness.gammaToSlider(gamma, BetterBrightnessConfig.maxPercent());
         } catch (Throwable ignored) {
-            // keep the 0.5 fallback if gamma can't be read this early
         }
     }
 
-    /** Live gamma for the current slider position. Read by the calibration panels. */
     public double currentGamma() {
         return Brightness.sliderToGamma(slider);
     }
 
-    /** Screen-open fade alpha: 0 -> 1 over FADE_MS milliseconds, eased linearly. */
     private float fadeAlpha() {
         if (openMillis == 0L) return 1f;
         double t = (System.currentTimeMillis() - openMillis) / FADE_MS;
         return (float) Math.max(0.0, Math.min(1.0, t));
     }
 
-    /** Slider label: "Brightness: NNN%", where NNN scales with the configured max (0..maxBrightnessPercent). */
     private static Component sliderLabel(double sliderValue) {
         return Component.translatable("betterbrightness.slider.brightness",
                 Brightness.toPercent(Brightness.sliderToGamma(sliderValue)));
@@ -128,7 +93,6 @@ public class BrightnessSetupScreen extends Screen {
         Minecraft.getInstance().gui.setScreen(parent);
     }
 
-    /** Esc / any dismissal still marks done. Idempotent. */
     @Override
     public void removed() {
         Marker.markDone(Platform.getConfigFolder());
@@ -144,17 +108,16 @@ public class BrightnessSetupScreen extends Screen {
         graphics.centeredText(this.font, Component.translatable("betterbrightness.instruction"),
                 this.width / 2, 34, subColor);
         renderRow(graphics, fade);
-        super.extractRenderState(graphics, mouseX, mouseY, partialTick); // slider + Done on top
+        super.extractRenderState(graphics, mouseX, mouseY, partialTick);
     }
 
-    /** 4 square tiles in a centered row; tile size clamped so the row never overlaps the slider/Done. */
     private void renderRow(GuiGraphicsExtractor graphics, float fade) {
-        final int n = panels.length;     // 4
+        final int n = panels.length;
         final int gap = 16;
         final int topY = 52;
-        final int labelRoom = 24;        // space under tiles for the caption
+        final int labelRoom = 24;
         final int sliderY = this.height - 56;
-        // Largest tile that fits width AND leaves >=12px above the slider after the label.
+
         int byWidth = (this.width - 40 - gap * (n - 1)) / n;
         int byHeight = sliderY - 12 - labelRoom - topY;
         int tile = Math.max(32, Math.min(96, Math.min(byWidth, byHeight)));

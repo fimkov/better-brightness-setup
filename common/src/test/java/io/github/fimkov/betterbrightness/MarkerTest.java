@@ -13,7 +13,7 @@ class MarkerTest {
     }
     @Test void markDoneIsIdempotent(@TempDir Path cfg) {
         Marker.markDone(cfg);
-        Marker.markDone(cfg); // must not throw
+        Marker.markDone(cfg);
         assertTrue(Marker.isDone(cfg));
     }
 }
