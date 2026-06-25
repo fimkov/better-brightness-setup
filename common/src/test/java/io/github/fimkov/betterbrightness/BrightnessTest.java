@@ -61,4 +61,19 @@ class BrightnessTest {
         // t > 1.0 is clamped to 1.0, so result is maxPercent/100
         assertEquals(1.0, Brightness.sliderToGamma(2.0, 100), 1e-9);
     }
+
+    @Test void gammaToSliderInvertsSliderToGamma() {
+        // full gamma maps to the top of the slider for every max
+        assertEquals(1.0, Brightness.gammaToSlider(1.0, 100), 1e-9);
+        assertEquals(1.0, Brightness.gammaToSlider(2.0, 200), 1e-9);
+        assertEquals(1.0, Brightness.gammaToSlider(5.0, 500), 1e-9);
+        // a gamma below the ceiling lands proportionally
+        assertEquals(0.2, Brightness.gammaToSlider(1.0, 500), 1e-9);
+        assertEquals(0.5, Brightness.gammaToSlider(1.0, 200), 1e-9);
+        assertEquals(0.0, Brightness.gammaToSlider(0.0, 100), 1e-9);
+        // gamma above the ceiling clamps to the top
+        assertEquals(1.0, Brightness.gammaToSlider(9.0, 100), 1e-9);
+        // round-trips with sliderToGamma
+        assertEquals(0.3, Brightness.gammaToSlider(Brightness.sliderToGamma(0.3, 500), 500), 1e-9);
+    }
 }

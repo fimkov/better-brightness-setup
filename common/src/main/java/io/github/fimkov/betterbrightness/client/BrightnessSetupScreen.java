@@ -1,6 +1,7 @@
 package io.github.fimkov.betterbrightness.client;
 
 import dev.architectury.platform.Platform;
+import io.github.fimkov.betterbrightness.BetterBrightnessConfig;
 import io.github.fimkov.betterbrightness.Brightness;
 import io.github.fimkov.betterbrightness.GammaWriter;
 import io.github.fimkov.betterbrightness.Marker;
@@ -30,7 +31,9 @@ import net.minecraft.resources.Identifier;
 public class BrightnessSetupScreen extends Screen {
 
     private final Screen parent;
-    private double slider = 0.5; // start mid-slider (gamma = maxBrightnessPercent/200; 0.5 at the default 100%)
+    // Seeded from the live gamma in the constructor so reopening the screen reflects the saved brightness;
+    // 0.5 is only a fallback if gamma can't be read.
+    private double slider = 0.5;
 
     // Fade-in timing.
     private long openMillis = 0L;
@@ -65,6 +68,15 @@ public class BrightnessSetupScreen extends Screen {
     public BrightnessSetupScreen(Screen parent) {
         super(Component.translatable("betterbrightness.title"));
         this.parent = parent;
+        // Start the slider at the CURRENT gamma so reopening the screen (e.g. via the Video Settings
+        // "Setup Brightness" button) reflects the saved brightness. Without this it always opened mid-slider
+        // — at a 500% max that is 250% — so adjustments looked like they never persisted.
+        try {
+            double gamma = Minecraft.getInstance().options.gamma().get();
+            this.slider = Brightness.gammaToSlider(gamma, BetterBrightnessConfig.maxPercent());
+        } catch (Throwable ignored) {
+            // keep the 0.5 fallback if gamma can't be read this early
+        }
     }
 
     /** Live gamma for the current slider position. Read by the calibration panels. */

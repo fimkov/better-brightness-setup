@@ -18,6 +18,16 @@ public final class Brightness {
     }
 
     /**
+     * Inverse of {@link #sliderToGamma(double, int)}: a gamma value -> the slider fraction [0,1] that
+     * produces it for the given max. Used to seed the setup screen from the CURRENT gamma so reopening it
+     * reflects the saved brightness instead of always snapping to mid-slider. Clamped to [0,1].
+     */
+    public static double gammaToSlider(double gamma, int maxPercent) {
+        if (maxPercent <= 0) return 0.0;
+        return clamp01(gamma * 100.0 / maxPercent);
+    }
+
+    /**
      * Faithful MC 26.2 lightmap brightness (grayscale, 0..1) for a block sitting at block-light
      * {@code level} (0..1) in a dark spot (sky light 0, no night-vision/darkness effect), under the
      * brightness/gamma {@code gamma} (0..5). Mirrors {@code lightmap.fsh} exactly:
