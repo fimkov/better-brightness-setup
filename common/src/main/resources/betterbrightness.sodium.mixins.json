@@ -1,0 +1,14 @@
+{
+    "required": false,
+    "minVersion": "0.8.5",
+    "package": "io.github.fimkov.betterbrightness.mixin.sodium",
+    "compatibilityLevel": "JAVA_21",
+    "client": [
+        "OptionIdAccessor",
+        "OptionListWidgetMixin",
+        "SliderControlElementMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

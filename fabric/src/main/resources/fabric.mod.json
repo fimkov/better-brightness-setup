@@ -22,7 +22,8 @@
         ]
     },
     "mixins": [
-        "betterbrightness.mixins.json"
+        "betterbrightness.mixins.json",
+        "betterbrightness.sodium.mixins.json"
     ],
     "accessWidener": "betterbrightness.accesswidener",
     "depends": {
