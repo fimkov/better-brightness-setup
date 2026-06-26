@@ -15,14 +15,14 @@ class BrightnessTest {
         assertEquals(1.0, Brightness.sliderToGamma(7.0), 1e-9);
     }
     @Test void displayedBrightnessFollowsMcGammaCurve() {
-        assertEquals(0.0, Brightness.displayedBrightness(0.0, 0.0), 1e-9);
-        assertEquals(0.0, Brightness.displayedBrightness(2.0, 0.0), 1e-9);
-        assertEquals(1.0, Brightness.displayedBrightness(0.0, 1.0), 1e-9);
-        assertEquals(1.0, Brightness.displayedBrightness(2.0, 1.0), 1e-9);
+        assertEquals(0.03, Brightness.displayedBrightness(0.0, 0.0), 1e-9);
+        assertEquals(0.03, Brightness.displayedBrightness(2.0, 0.0), 1e-9);
+        assertEquals(0.99, Brightness.displayedBrightness(0.0, 1.0), 1e-9);
+        assertEquals(0.99, Brightness.displayedBrightness(2.0, 1.0), 1e-9);
 
-        assertEquals(0.2, Brightness.displayedBrightness(0.0, 0.5), 1e-9);
+        assertEquals(0.222, Brightness.displayedBrightness(0.0, 0.5), 1e-9);
 
-        assertEquals(0.5904, Brightness.displayedBrightness(1.0, 0.5), 1e-9);
+        assertEquals(0.596784, Brightness.displayedBrightness(1.0, 0.5), 1e-9);
 
         assertTrue(Brightness.displayedBrightness(1.0, 0.3) > Brightness.displayedBrightness(0.0, 0.3));
 

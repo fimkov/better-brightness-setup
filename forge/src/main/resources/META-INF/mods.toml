@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[1,)"
+loaderVersion = "[47,)"
 license = "MIT"
 
 [[mods]]
@@ -16,33 +16,30 @@ Improves Minecraft's brightness setup and adds a first-launch calibration screen
 [[mixins]]
 config = "betterbrightness.mixins.json"
 
-[[mixins]]
-config = "betterbrightness.sodium.mixins.json"
-
 [[dependencies.betterbrightness]]
-modId = "neoforge"
+modId = "forge"
 type = "required"
-versionRange = "[26.2,)"
+versionRange = "[47,)"
 ordering = "NONE"
 side = "CLIENT"
 
 [[dependencies.betterbrightness]]
 modId = "minecraft"
 type = "required"
-versionRange = "[26.2,26.3)"
+versionRange = "[1.20.1,1.21)"
 ordering = "NONE"
 side = "CLIENT"
 
 [[dependencies.betterbrightness]]
 modId = "architectury"
 type = "required"
-versionRange = "[21.0,)"
+versionRange = "[9.2,)"
 ordering = "AFTER"
 side = "CLIENT"
 
 [[dependencies.betterbrightness]]
 modId = "cloth_config"
 type = "required"
-versionRange = "[26.2.155,)"
+versionRange = "[11.1,)"
 ordering = "AFTER"
 side = "CLIENT"

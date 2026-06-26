@@ -20,7 +20,8 @@ public final class Brightness {
         double b = lightRamp(clamp01(level));
         double oneMinus = 1.0 - b;
         double brightened = 1.0 - oneMinus * oneMinus * oneMinus * oneMinus;
-        return clamp01(b + gamma * (brightened - b));
+        double mixed = b + gamma * (brightened - b);
+        return clamp01(mixed * 0.96 + 0.03);
     }
 
     private static double lightRamp(double level) {

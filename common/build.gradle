@@ -2,19 +2,23 @@ architectury {
     common(rootProject.enabled_platforms.split(","))
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/betterbrightness.accesswidener")
+}
+
 dependencies {
     compileOnly "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
 
-    api "dev.architectury:architectury:${rootProject.architectury_api_version}"
+    modApi "dev.architectury:architectury:${rootProject.architectury_api_version}"
 
-    compileOnly "maven.modrinth:sodium:mc26.2-0.9.0-fabric"
+    modCompileOnly "maven.modrinth:sodium:${rootProject.sodium_version}"
 
-    compileOnly "maven.modrinth:cloth-config:26.2.155+fabric"
+    modCompileOnly "maven.modrinth:cloth-config:${rootProject.cloth_config_version}+fabric"
 
     testImplementation "org.junit.jupiter:junit-jupiter:5.11.3"
-    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher:1.11.3"
 
-    testImplementation "maven.modrinth:cloth-config:26.2.155+fabric"
+    testImplementation "maven.modrinth:cloth-config:${rootProject.cloth_config_version}+fabric"
 }
 
 test {

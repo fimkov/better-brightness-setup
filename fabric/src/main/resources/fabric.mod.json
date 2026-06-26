@@ -14,9 +14,6 @@
         "client": [
             "io.github.fimkov.betterbrightness.fabric.BetterBrightnessFabric"
         ],
-        "sodium:config_api_user": [
-            "io.github.fimkov.betterbrightness.sodium.BetterBrightnessSodiumConfig"
-        ],
         "modmenu": [
             "io.github.fimkov.betterbrightness.fabric.BetterBrightnessModMenu"
         ]
@@ -25,15 +22,17 @@
         "betterbrightness.mixins.json",
         "betterbrightness.sodium.mixins.json"
     ],
+    "accessWidener": "betterbrightness.accesswidener",
     "depends": {
-        "fabricloader": ">=0.19.0",
-        "minecraft": "~26.2",
-        "java": ">=25",
-        "architectury": ">=21.0.0",
+        "fabricloader": ">=0.16.0",
+        "minecraft": "~1.20.1",
+        "java": ">=17",
+        "architectury": ">=9.2.0",
         "fabric-api": "*",
-        "cloth-config": ">=26.2.155"
+        "cloth-config": ">=11.1.0"
     },
     "suggests": {
-        "modmenu": "*"
+        "modmenu": "*",
+        "sodium": "*"
     }
 }

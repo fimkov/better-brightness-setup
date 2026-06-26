@@ -26,7 +26,7 @@ public final class BrightnessSetup {
 
                 final Screen parent = screen;
                 Minecraft.getInstance().execute(() ->
-                        Minecraft.getInstance().gui.setScreen(new BrightnessSetupScreen(parent)));
+                        Minecraft.getInstance().setScreen(new BrightnessSetupScreen(parent)));
             }
         });
     }

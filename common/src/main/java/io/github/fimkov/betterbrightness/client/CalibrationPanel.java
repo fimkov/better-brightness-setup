@@ -2,15 +2,14 @@ package io.github.fimkov.betterbrightness.client;
 
 import io.github.fimkov.betterbrightness.Brightness;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 public final class CalibrationPanel {
     private final int lightLevel;
     private final Component caption;
-    private final Identifier texture;
+    private final ResourceLocation texture;
     private final int texW;
     private final int texH;
 
@@ -23,7 +22,7 @@ public final class CalibrationPanel {
     private long lastMillis = 0L;
     private static final double EASE_TAU_MS = 90.0;
 
-    public CalibrationPanel(int lightLevel, Component caption, Identifier texture,
+    public CalibrationPanel(int lightLevel, Component caption, ResourceLocation texture,
                             int texW, int texH, float u, float v, int srcW, int srcH) {
         this.lightLevel = lightLevel;
         this.caption = caption;
@@ -36,7 +35,7 @@ public final class CalibrationPanel {
         this.srcH = srcH;
     }
 
-    public void render(GuiGraphicsExtractor g, Font font, int x, int y, int tile, double gamma, float fadeAlpha) {
+    public void render(GuiGraphics g, Font font, int x, int y, int tile, double gamma, float fadeAlpha) {
         g.fill(x, y, x + tile, y + tile, withAlpha(0xFF101010, fadeAlpha));
         g.fill(x, y, x + tile, y + 1, withAlpha(0xFF3A3A42, fadeAlpha));
         g.fill(x, y + tile - 1, x + tile, y + tile, withAlpha(0xFF3A3A42, fadeAlpha));
@@ -58,17 +57,19 @@ public final class CalibrationPanel {
         int ix = x + margin;
         int iy = y + margin;
 
-        int gray = (int) Math.round(displayed * 255.0);
-        int screenAlpha = (int) Math.round(Math.max(0f, Math.min(1f, fadeAlpha)) * 255.0f);
-        int argb = (screenAlpha << 24) | (gray << 16) | (gray << 8) | gray;
+        float gray = (float) Math.max(0.0, Math.min(1.0, displayed));
+        float screenAlpha = Math.max(0f, Math.min(1f, fadeAlpha));
         try {
-            g.blit(RenderPipelines.GUI_TEXTURED, texture, ix, iy, u, v, s, s, srcW, srcH, texW, texH, argb);
+            g.setColor(gray, gray, gray, screenAlpha);
+            g.blit(texture, ix, iy, s, s, u, v, srcW, srcH, texW, texH);
+            g.setColor(1.0f, 1.0f, 1.0f, 1.0f);
         } catch (Throwable t) {
+            g.setColor(1.0f, 1.0f, 1.0f, 1.0f);
             g.fill(ix, iy, ix + s, iy + s, withAlpha(0xFF402020, fadeAlpha));
         }
 
         int textColor = (Math.round(fadeAlpha * 255.0f) << 24) | 0xFFFFFF;
-        g.centeredText(font, caption, x + tile / 2, y + tile + 6, textColor);
+        g.drawCenteredString(font, caption, x + tile / 2, y + tile + 6, textColor);
     }
 
     private static int withAlpha(int argb, float f) {
