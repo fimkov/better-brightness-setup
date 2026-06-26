@@ -7,6 +7,10 @@ architectury {
     neoForge()
 }
 
+loom {
+    accessWidenerPath = project(":common").file("src/main/resources/betterbrightness.accesswidener")
+}
+
 configurations {
     common
     shadowCommon
@@ -26,12 +30,12 @@ dependencies {
     neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
     modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_api_version}"
 
-    common(project(path: ":common")) { transitive false }
-    shadowCommon(project(path: ":common")) { transitive false }
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
 
-    compileOnly "maven.modrinth:sodium:mc26.2-0.9.0-neoforge"
+    modCompileOnly "maven.modrinth:sodium:mc1.21.11-0.8.12-neoforge"
 
-    modImplementation "maven.modrinth:cloth-config:26.2.155+neoforge"
+    modImplementation "maven.modrinth:cloth-config:21.11.153+neoforge"
 }
 
 processResources {
@@ -47,7 +51,13 @@ shadowJar {
     exclude "architectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
-    archiveClassifier = ""
+    archiveClassifier = "dev-shadow"
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+    archiveClassifier = null
 }
 
 jar {
@@ -60,7 +70,11 @@ sourcesJar {
     from commonSources.archiveFile.map { zipTree(it) }
 }
 
-assemble.dependsOn shadowJar
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
 
 publishing {
     publications {

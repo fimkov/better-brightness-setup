@@ -21,7 +21,7 @@ public abstract class OptionsGammaMixin {
                             + "Lnet/minecraft/client/OptionInstance$CaptionBasedToString;"
                             + "Lnet/minecraft/client/OptionInstance$ValueSet;"
                             + "Ljava/lang/Object;"
-                            + "Lnet/minecraft/client/OptionInstance$ValueUpdateListener;)V"
+                            + "Ljava/util/function/Consumer;)V"
             ),
             slice = @Slice(
                     from = @At(value = "CONSTANT", args = "stringValue=options.gamma"),
@@ -43,7 +43,7 @@ public abstract class OptionsGammaMixin {
                             + "Lnet/minecraft/client/OptionInstance$CaptionBasedToString;"
                             + "Lnet/minecraft/client/OptionInstance$ValueSet;"
                             + "Ljava/lang/Object;"
-                            + "Lnet/minecraft/client/OptionInstance$ValueUpdateListener;)V"
+                            + "Ljava/util/function/Consumer;)V"
             ),
             slice = @Slice(
                     from = @At(value = "CONSTANT", args = "stringValue=options.gamma"),

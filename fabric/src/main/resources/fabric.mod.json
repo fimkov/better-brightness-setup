@@ -22,16 +22,16 @@
         ]
     },
     "mixins": [
-        "betterbrightness.mixins.json",
-        "betterbrightness.sodium.mixins.json"
+        "betterbrightness.mixins.json"
     ],
+    "accessWidener": "betterbrightness.accesswidener",
     "depends": {
-        "fabricloader": ">=0.19.0",
-        "minecraft": "~26.2",
-        "java": ">=25",
-        "architectury": ">=21.0.0",
+        "fabricloader": ">=0.16.0",
+        "minecraft": "~1.21.11",
+        "java": ">=21",
+        "architectury": ">=19.0.0",
         "fabric-api": "*",
-        "cloth-config": ">=26.2.155"
+        "cloth-config": ">=21.11.150"
     },
     "suggests": {
         "modmenu": "*"

@@ -6,7 +6,7 @@ import io.github.fimkov.betterbrightness.Brightness;
 import io.github.fimkov.betterbrightness.GammaWriter;
 import io.github.fimkov.betterbrightness.Marker;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractSliderButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -90,7 +90,7 @@ public class BrightnessSetupScreen extends Screen {
     private void onDone() {
         GammaWriter.setGammaRaw(currentGamma());
         Marker.markDone(Platform.getConfigFolder());
-        Minecraft.getInstance().gui.setScreen(parent);
+        Minecraft.getInstance().setScreen(parent);
     }
 
     @Override
@@ -100,18 +100,18 @@ public class BrightnessSetupScreen extends Screen {
     }
 
     @Override
-    public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
+    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+        super.render(graphics, mouseX, mouseY, partialTick);
         float fade = fadeAlpha();
         int titleColor = (Math.round(fade * 255f) << 24) | 0xFFFFFF;
         int subColor   = (Math.round(fade * 255f) << 24) | 0xB9B9C0;
-        graphics.centeredText(this.font, this.title, this.width / 2, 18, titleColor);
-        graphics.centeredText(this.font, Component.translatable("betterbrightness.instruction"),
+        graphics.drawCenteredString(this.font, this.title, this.width / 2, 18, titleColor);
+        graphics.drawCenteredString(this.font, Component.translatable("betterbrightness.instruction"),
                 this.width / 2, 34, subColor);
         renderRow(graphics, fade);
-        super.extractRenderState(graphics, mouseX, mouseY, partialTick);
     }
 
-    private void renderRow(GuiGraphicsExtractor graphics, float fade) {
+    private void renderRow(GuiGraphics graphics, float fade) {
         final int n = panels.length;
         final int gap = 16;
         final int topY = 52;

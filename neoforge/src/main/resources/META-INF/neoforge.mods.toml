@@ -16,33 +16,30 @@ Improves Minecraft's brightness setup and adds a first-launch calibration screen
 [[mixins]]
 config = "betterbrightness.mixins.json"
 
-[[mixins]]
-config = "betterbrightness.sodium.mixins.json"
-
 [[dependencies.betterbrightness]]
 modId = "neoforge"
 type = "required"
-versionRange = "[26.2,)"
+versionRange = "[21.11,)"
 ordering = "NONE"
 side = "CLIENT"
 
 [[dependencies.betterbrightness]]
 modId = "minecraft"
 type = "required"
-versionRange = "[26.2,26.3)"
+versionRange = "[1.21.11,1.21.12)"
 ordering = "NONE"
 side = "CLIENT"
 
 [[dependencies.betterbrightness]]
 modId = "architectury"
 type = "required"
-versionRange = "[21.0,)"
+versionRange = "[19.0,)"
 ordering = "AFTER"
 side = "CLIENT"
 
 [[dependencies.betterbrightness]]
 modId = "cloth_config"
 type = "required"
-versionRange = "[26.2.155,)"
+versionRange = "[21.11.150,)"
 ordering = "AFTER"
 side = "CLIENT"

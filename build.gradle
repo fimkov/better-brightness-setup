@@ -1,7 +1,7 @@
 plugins {
     id "architectury-plugin" version "3.5.169"
 
-    id "dev.architectury.loom-no-remap" version "1.17.487" apply false
+    id "dev.architectury.loom" version "1.17.487" apply false
 }
 
 architectury {
@@ -9,18 +9,17 @@ architectury {
 }
 
 subprojects {
-    apply plugin: "dev.architectury.loom-no-remap"
+    apply plugin: "dev.architectury.loom"
 
-    ["api", "implementation", "compileOnly", "runtimeOnly", "localRuntime"].each { base ->
-        def modName = "mod" + base.capitalize()
-        if (configurations.findByName(modName) == null) {
-            def created = configurations.create(modName)
-            configurations.named(base) { extendsFrom created }
-        }
+    loom {
+        getEnableModProvidedJavadoc().set(false)
     }
 
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        mappings loom.layered() {
+            officialMojangMappings()
+        }
     }
 }
 
@@ -42,12 +41,12 @@ allprojects {
 
     tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
-        options.release = 25
+        options.release = 21
     }
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(25)
+            languageVersion = JavaLanguageVersion.of(21)
         }
         withSourcesJar()
     }

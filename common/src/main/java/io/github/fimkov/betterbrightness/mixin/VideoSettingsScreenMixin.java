@@ -4,7 +4,6 @@ import io.github.fimkov.betterbrightness.client.BrightnessSetupScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.Options;
-import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.OptionsList;
 import net.minecraft.client.gui.screens.Screen;
@@ -27,18 +26,16 @@ public abstract class VideoSettingsScreenMixin {
     private void betterbrightness$replaceGammaWithButton(OptionsList list, OptionInstance<?>[] displayOptions) {
         Options opts = Minecraft.getInstance().options;
         OptionInstance<Double> gamma = opts.gamma();
-        OptionInstance<?> backend = opts.preferredGraphicsBackend();
 
         list.addSmall(Arrays.stream(displayOptions)
-                .filter(o -> o != gamma && o != backend)
+                .filter(o -> o != gamma)
                 .toArray(OptionInstance[]::new));
 
         Button button = Button.builder(
                         Component.translatable("betterbrightness.setup_button"),
-                        b -> Minecraft.getInstance().gui.setScreen(
+                        b -> Minecraft.getInstance().setScreen(
                                 new BrightnessSetupScreen((Screen) (Object) this)))
                 .build();
-        AbstractWidget backendWidget = backend.createButton(opts);
-        list.addSmall(button, backendWidget);
+        list.addSmall(button, null);
     }
 }
