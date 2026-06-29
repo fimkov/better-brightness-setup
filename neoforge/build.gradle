@@ -9,6 +9,10 @@ architectury {
 
 loom {
     accessWidenerPath = project(":common").file("src/main/resources/betterbrightness.accesswidener")
+
+    neoForge {
+        convertAccessWideners(tasks.named("remapJar"), "betterbrightness.accesswidener")
+    }
 }
 
 configurations {
