@@ -8,6 +8,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.OptionsList;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.options.OptionsSubScreen;
 import net.minecraft.client.gui.screens.options.VideoSettingsScreen;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,11 +19,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.ArrayList;
 import java.util.List;
 
-@Mixin(VideoSettingsScreen.class)
+@Mixin(OptionsSubScreen.class)
 public abstract class VideoSettingsScreenMixin {
     @Inject(method = "init", at = @At("TAIL"))
     private void betterbrightness$replaceGammaWithButton(CallbackInfo ci) {
         Screen self = (Screen) (Object) this;
+        if (!(self instanceof VideoSettingsScreen)) {
+            return;
+        }
 
         OptionsList list = null;
         for (GuiEventListener child : self.children()) {
