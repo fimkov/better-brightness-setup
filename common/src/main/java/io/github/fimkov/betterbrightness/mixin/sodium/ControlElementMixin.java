@@ -23,6 +23,12 @@ public abstract class ControlElementMixin {
     @Shadow
     public abstract Dim2i getDimensions();
 
+    @Shadow
+    public abstract boolean isHovered();
+
+    @Shadow
+    protected abstract void drawRect(GuiGraphics guiGraphics, int x1, int y1, int x2, int y2, int color);
+
     private record Icon(int lightLevel, String labelKey, ResourceLocation texture,
                         int texW, int texH, float u, float v, int srcW, int srcH) {
     }
@@ -75,6 +81,10 @@ public abstract class ControlElementMixin {
             final int iconSize = 16;
             int iconsTop = dim.getLimitY() + 3;
             float colWidth = (rowRight - rowLeft) / (float) n;
+
+            int band = font.lineHeight + iconSize + 6;
+            int bandColor = isHovered() ? 0xE0000000 : 0x90000000;
+            drawRect(guiGraphics, dim.x(), dim.getLimitY(), dim.getLimitX(), dim.getLimitY() + band, bandColor);
 
             for (int i = 0; i < n; i++) {
                 Icon icon = BETTERBRIGHTNESS_ICONS[i];
