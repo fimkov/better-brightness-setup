@@ -18,28 +18,28 @@ config = "betterbrightness.mixins.json"
 
 [[dependencies.betterbrightness]]
 modId = "forge"
-type = "required"
+mandatory = true
 versionRange = "[47,)"
 ordering = "NONE"
 side = "CLIENT"
 
 [[dependencies.betterbrightness]]
 modId = "minecraft"
-type = "required"
+mandatory = true
 versionRange = "[1.20.1,1.21)"
 ordering = "NONE"
 side = "CLIENT"
 
 [[dependencies.betterbrightness]]
 modId = "architectury"
-type = "required"
+mandatory = true
 versionRange = "[9.2,)"
 ordering = "AFTER"
 side = "CLIENT"
 
 [[dependencies.betterbrightness]]
 modId = "cloth_config"
-type = "required"
+mandatory = true
 versionRange = "[11.1,)"
 ordering = "AFTER"
 side = "CLIENT"
