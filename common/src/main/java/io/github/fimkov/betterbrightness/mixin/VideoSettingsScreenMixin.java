@@ -6,11 +6,11 @@ import net.minecraft.client.OptionInstance;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.OptionsList;
+import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.options.VideoSettingsScreen;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -20,28 +20,34 @@ import java.util.List;
 
 @Mixin(VideoSettingsScreen.class)
 public abstract class VideoSettingsScreenMixin {
-    @Shadow
-    protected OptionsList list;
-
     @Inject(method = "init", at = @At("TAIL"))
     private void betterbrightness$replaceGammaWithButton(CallbackInfo ci) {
-        if (this.list == null) {
+        Screen self = (Screen) (Object) this;
+
+        OptionsList list = null;
+        for (GuiEventListener child : self.children()) {
+            if (child instanceof OptionsList optionsList) {
+                list = optionsList;
+                break;
+            }
+        }
+        if (list == null) {
             return;
         }
+
         OptionInstance<Double> gamma = Minecraft.getInstance().options.gamma();
-        AbstractWidget gammaWidget = this.list.findOption(gamma);
+        AbstractWidget gammaWidget = list.findOption(gamma);
         if (gammaWidget == null) {
             return;
         }
 
-        Screen self = (Screen) (Object) this;
         Button button = Button.builder(
                         Component.translatable("betterbrightness.setup_button"),
                         b -> Minecraft.getInstance().setScreen(new BrightnessSetupScreen(self)))
                 .bounds(gammaWidget.getX(), gammaWidget.getY(), gammaWidget.getWidth(), gammaWidget.getHeight())
                 .build();
 
-        for (Object entryObject : this.list.children()) {
+        for (Object entryObject : list.children()) {
             if (!(entryObject instanceof OptionsListEntryAccessor entry)) {
                 continue;
             }
