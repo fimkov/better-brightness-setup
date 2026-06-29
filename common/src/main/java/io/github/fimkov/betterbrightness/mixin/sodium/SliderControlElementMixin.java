@@ -5,6 +5,7 @@ import net.caffeinemc.mods.sodium.client.config.structure.IntegerOption;
 import net.caffeinemc.mods.sodium.client.gui.Colors;
 import net.caffeinemc.mods.sodium.client.gui.Dimensioned;
 import net.caffeinemc.mods.sodium.client.gui.Layout;
+import net.caffeinemc.mods.sodium.client.gui.widgets.AbstractWidget;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -76,6 +77,11 @@ public abstract class SliderControlElementMixin {
             final int iconSize = 16;
             int iconsTop = dim.getLimitY() + 3;
             float colWidth = (rowRight - rowLeft) / (float) n;
+
+            int bandColor = ((AbstractWidget) (Object) this).isHovered()
+                    ? Colors.BACKGROUND_HOVER : Colors.BACKGROUND_LIGHT;
+            graphics.fill(dim.getX(), dim.getLimitY(), dim.getLimitX(),
+                    dim.getLimitY() + font.lineHeight * 4, bandColor);
 
             for (int i = 0; i < n; i++) {
                 Icon icon = ICONS[i];
