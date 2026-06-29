@@ -3,7 +3,7 @@ architectury {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/betterbrightness.accesswidener")
+    accessWidenerPath = file("../fabric/src/main/resources/betterbrightness.accesswidener")
 }
 
 dependencies {
