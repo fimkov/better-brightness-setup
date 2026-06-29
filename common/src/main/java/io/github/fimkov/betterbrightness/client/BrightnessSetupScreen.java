@@ -102,6 +102,7 @@ public class BrightnessSetupScreen extends Screen {
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         super.render(graphics, mouseX, mouseY, partialTick);
+        graphics.fill(0, 0, this.width, this.height, 0xC0101010);
         float fade = fadeAlpha();
         int titleColor = (Math.round(fade * 255f) << 24) | 0xFFFFFF;
         int subColor   = (Math.round(fade * 255f) << 24) | 0xB9B9C0;
